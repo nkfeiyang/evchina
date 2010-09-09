@@ -1,0 +1,8 @@
+<%= form.label :login, "用户名" %><br />
+<%= form.text_field :login %><br />
+<br />
+<%= form.label :password, form.object.new_record? ? "密码" : "修改密码" %><br />
+<%= form.password_field :password %><br />
+<br />
+<%= form.label :password_confirmation, "密码确认" %><br />
+<%= form.password_field :password_confirmation %><br />

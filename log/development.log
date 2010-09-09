@@ -1,0 +1,2740 @@
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (112.0ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (76.0ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20100909075734)
+  [4;35;1mSQL (2.0ms)[0m   [0mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "login" varchar(255) NOT NULL, "crypted_password" varchar(255) NOT NULL, "password_salt" varchar(255) NOT NULL, "persistence_token" varchar(255) NOT NULL, "login_count" integer DEFAULT 0 NOT NULL, "last_request_at" datetime, "last_login_at" datetime, "current_login_at" datetime, "last_login_ip" varchar(255), "current_login_ip" varchar(255)) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("users")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCREATE INDEX "index_users_on_login" ON "users" ("login")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("users")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_info('index_users_on_login')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCREATE INDEX "index_users_on_persistence_token" ON "users" ("persistence_token")[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_info('index_users_on_persistence_token')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_info('index_users_on_login')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCREATE INDEX "index_users_on_last_request_at" ON "users" ("last_request_at")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100909075734')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_info('index_users_on_last_request_at')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_info('index_users_on_persistence_token')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mPRAGMA index_info('index_users_on_login')[0m
+
+
+Processing Rails::InfoController#properties (for 127.0.0.1 at 2010-09-09 16:29:33) [GET]
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Completed in 150ms (View: 12, DB: 1) | 200 OK [http://localhost/rails/info/properties]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 16:29:42) [GET]
+
+ActionController::RoutingError (No route matches "/user/" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 16:29:45) [GET]
+
+ActionController::RoutingError (No route matches "/user/new" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-09-09 16:30:07) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering users/new
+
+ActionView::TemplateError (undefined local variable or method `account_path' for #<ActionView::Base:0x8a26e50>) on line #3 of app/views/users/new.html.erb:
+1: <h1>Register</h1>
+2: 
+3: <% form_for @user, :url => account_path do |f| %>
+4:   <%= f.error_messages %>
+5:   <%= render :partial => "form", :object => f %>
+6:   <%= f.submit "Register" %>
+
+    app/views/users/new.html.erb:3
+    D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    -e:2:in `load'
+    -e:2
+
+Rendered rescues/_trace (58.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-09-09 16:30:50) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering users/new
+
+ActionView::TemplateError (user_url failed to generate from {:action=>"show", :controller=>"users"} - you may have ambiguous routes, or you may need to supply additional parameters for this route.  content_url has the following required parameters: ["users", :id] - are they all satisfied?) on line #3 of app/views/users/new.html.erb:
+1: <h1>Register</h1>
+2: 
+3: <% form_for @user, :url => user_path do |f| %>
+4:   <%= f.error_messages %>
+5:   <%= render :partial => "form", :object => f %>
+6:   <%= f.submit "Register" %>
+
+    (eval):17:in `user_path'
+    app/views/users/new.html.erb:3
+    D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    -e:2:in `load'
+    -e:2
+
+Rendered rescues/_trace (118.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-09-09 16:31:01) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering users/new
+Rendered users/_form (6.0ms)
+Completed in 45ms (View: 22, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-09-09 16:31:10) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering users/new
+Rendered users/_form (2.0ms)
+Completed in 37ms (View: 14, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-09-09 16:31:41) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering user_sessions/new
+Completed in 37ms (View: 14, DB: 0) | 200 OK [http://localhost/user_sessions/new]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-09-09 16:33:18) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 08:23:18') [0m
+
+ActionView::TemplateError (undefined local variable or method `current_user' for #<ActionView::Base:0x8809890>) on line #21 of app/views/layouts/application.html.erb:
+18: <br />
+19: 
+20: 
+21: <% if !current_user %>
+22:   <%= link_to "Register", new_account_path %> |
+23:   <%= link_to "Log In", new_user_session_path %> |
+24: <% else %>
+
+    app/views/layouts/application.html.erb:21
+    D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    -e:2:in `load'
+    -e:2
+
+Rendered rescues/_trace (112.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-09-09 16:34:24) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 08:24:24') [0m
+
+ActionView::TemplateError (undefined local variable or method `current_user' for #<ActionView::Base:0x89c19a8>) on line #21 of app/views/layouts/application.html.erb:
+18: <br />
+19: 
+20: 
+21: <% if !current_user %>
+22:   <%= link_to "Register", new_user_path %> |
+23:   <%= link_to "Log In", new_user_session_path %> |
+24: <% else %>
+
+    app/views/layouts/application.html.erb:21
+    D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    -e:2:in `load'
+    -e:2
+
+Rendered rescues/_trace (63.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ActionController::Base#new (for 127.0.0.1 at 2010-09-09 16:34:55) [GET]
+
+NoMethodError (undefined method `helper_metohd' for ApplicationController:Class):
+  app/controllers/application_controller.rb:6
+  app/controllers/user_sessions_controller.rb:1
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendered rescues/_trace (107.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-09-09 16:35:04) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 08:25:04') [0m
+Completed in 36ms (View: 13, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 16:35:04) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-09-09 16:38:21) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 08:28:21') [0m
+Completed in 39ms (View: 17, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 16:38:21) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-09-09 16:39:05) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 08:29:05') [0m
+Completed in 122ms (View: 98, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 16:39:05) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-09-09 16:40:20) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 08:30:20') [0m
+Completed in 41ms (View: 19, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 16:40:20) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-09-09 16:40:32) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 08:30:32') [0m
+
+ActionView::TemplateError (wrong number of arguments (1 for 2)) on line #16 of app/views/layouts/application.html.erb:
+13: <span style="float: right; text-align: right;"><%= link_to "Source code", "http://github.com/binarylogic/authlogic_example" %> | <%= link_to "Setup tutorial", "http://www.binarylogic.com/2008/11/3/tutorial-authlogic-basic-setup" %> | <%= link_to "Password reset tutorial", "http://www.binarylogic.com/2008/11/16/tutorial-reset-passwords-with-authlogic" %><br />
+14: <%= link_to "OpenID tutorial", "http://www.binarylogic.com/2008/11/21/tutorial-using-openid-with-authlogic" %> | <%= link_to "Authlogic Repo", "http://github.com/binarylogic/authlogic" %> | <%= link_to "Authlogic Doc", "http://authlogic.rubyforge.org/" %></span>
+15: <h1>登录中心</h1>
+16: 当前登录人数：<%= pluralize User.logged_in.count %> <br /> <!-- This based on last_request_at, if they were active < 10 minutes they are logged in -->
+17: <br />
+18: <br />
+19: 
+
+    app/views/layouts/application.html.erb:16:in `pluralize'
+    app/views/layouts/application.html.erb:16
+    D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    -e:2:in `load'
+    -e:2
+
+Rendered rescues/_trace (119.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-09-09 16:40:49) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 08:30:49') [0m
+Completed in 49ms (View: 23, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 16:40:49) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-09-09 16:41:32) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 08:31:32') [0m
+Completed in 39ms (View: 19, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 16:41:33) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-09-09 16:41:46) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (5.0ms)
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 08:31:46') [0m
+Completed in 62ms (View: 26, DB: 1) | 200 OK [http://localhost/users/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 16:41:47) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-09-09 16:42:57) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/application
+Rendering users/new
+
+ActionView::TemplateError (undefined method `merge' for "用户名":String) on line #2 of app/views/users/_form.erb:
+1: <%= form.label :login %><br />
+2: <%= form.text_field :login, "用户名" %><br />
+3: <br />
+4: <%= form.label :password, form.object.new_record? ? nil : "修改密码" %><br />
+5: <%= form.password_field :password, "密码" %><br />
+
+    app/views/users/_form.erb:2
+    app/views/users/new.html.erb:5
+    app/views/users/new.html.erb:3
+    D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    -e:2:in `load'
+    -e:2
+
+Rendered rescues/_trace (122.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-09-09 16:43:32) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (4.0ms)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 08:33:32') [0m
+Completed in 48ms (View: 23, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 16:43:32) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-09-09 16:43:46) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (7.0ms)
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 08:33:46') [0m
+Completed in 92ms (View: 44, DB: 1) | 200 OK [http://localhost/users/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 16:43:46) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-09-09 16:44:14) [POST]
+  Parameters: {"commit"=>"Register", "action"=>"create", "authenticity_token"=>"Vojd5npucwQd+gnQK1IefgsmiYsB3uaEzsvpRAbUVBM=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"nkfeiyang"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'nkfeiyang') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '3429ee3ad3d2ba5a26468d1b542bb2cde3f64d8516198b6fbe77734b3a24a31bfad363092a709e83dc13924d295bc8c98f5f197ee6b9f26ac56a8367552531b9') LIMIT 1[0m
+  [4;36;1mUser Create (2.0ms)[0m   [0;1mINSERT INTO "users" ("created_at", "last_request_at", "crypted_password", "updated_at", "current_login_ip", "password_salt", "current_login_at", "persistence_token", "login_count", "last_login_ip", "login", "last_login_at") VALUES('2010-09-09 08:44:15', '2010-09-09 08:44:15', '5839b2e65c1a4a27e1980c5a002a7dd9cb1f9eaf98b183b2248520525e1d0e48c396779b58ddad2fe6ebeaa090d749edfbe8c77d7c83fdb762b5c32d4ab46b9f', '2010-09-09 08:44:15', '127.0.0.1', 'rgv3d31Dd726wZb15o', '2010-09-09 08:44:15', '3429ee3ad3d2ba5a26468d1b542bb2cde3f64d8516198b6fbe77734b3a24a31bfad363092a709e83dc13924d295bc8c98f5f197ee6b9f26ac56a8367552531b9', 1, NULL, 'nkfeiyang', NULL)[0m
+
+NameError (undefined local variable or method `account_url' for #<UsersController:0x877afb8>):
+  app/controllers/users_controller.rb:13:in `create'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendered rescues/_trace (83.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-09-09 16:45:16) [POST]
+  Parameters: {"commit"=>"Register", "action"=>"create", "authenticity_token"=>"Vojd5npucwQd+gnQK1IefgsmiYsB3uaEzsvpRAbUVBM=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"nkfeiyang"}}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '3429ee3ad3d2ba5a26468d1b542bb2cde3f64d8516198b6fbe77734b3a24a31bfad363092a709e83dc13924d295bc8c98f5f197ee6b9f26ac56a8367552531b9') LIMIT 1[0m
+  [4;36;1mUser Update (3.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-09-09 08:45:16', "last_request_at" = '2010-09-09 08:45:16' WHERE "id" = 1[0m
+
+NameError (undefined local variable or method `account_url' for #<UsersController:0x8a3c708>):
+  app/controllers/application_controller.rb:37:in `require_no_user'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendered rescues/_trace (47.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-09-09 16:45:33) [POST]
+  Parameters: {"commit"=>"Register", "action"=>"create", "authenticity_token"=>"Vojd5npucwQd+gnQK1IefgsmiYsB3uaEzsvpRAbUVBM=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"nkfeiyang"}}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '3429ee3ad3d2ba5a26468d1b542bb2cde3f64d8516198b6fbe77734b3a24a31bfad363092a709e83dc13924d295bc8c98f5f197ee6b9f26ac56a8367552531b9') LIMIT 1[0m
+  [4;36;1mUser Update (4.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-09-09 08:45:33', "last_request_at" = '2010-09-09 08:45:33' WHERE "id" = 1[0m
+
+NameError (undefined local variable or method `account_url' for #<UsersController:0x87bd7c8>):
+  app/controllers/application_controller.rb:37:in `require_no_user'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendered rescues/_trace (47.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-09-09 16:46:18) [POST]
+  Parameters: {"commit"=>"Register", "action"=>"create", "authenticity_token"=>"Vojd5npucwQd+gnQK1IefgsmiYsB3uaEzsvpRAbUVBM=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"nkfeiyang"}}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '3429ee3ad3d2ba5a26468d1b542bb2cde3f64d8516198b6fbe77734b3a24a31bfad363092a709e83dc13924d295bc8c98f5f197ee6b9f26ac56a8367552531b9') LIMIT 1[0m
+  [4;36;1mUser Update (3.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-09-09 08:46:18', "last_request_at" = '2010-09-09 08:46:18' WHERE "id" = 1[0m
+
+NameError (undefined local variable or method `account_url' for #<UsersController:0x866c850>):
+  app/controllers/application_controller.rb:37:in `require_no_user'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendered rescues/_trace (44.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-09-09 16:46:31) [POST]
+  Parameters: {"commit"=>"Register", "action"=>"create", "authenticity_token"=>"Vojd5npucwQd+gnQK1IefgsmiYsB3uaEzsvpRAbUVBM=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"nkfeiyang"}}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '3429ee3ad3d2ba5a26468d1b542bb2cde3f64d8516198b6fbe77734b3a24a31bfad363092a709e83dc13924d295bc8c98f5f197ee6b9f26ac56a8367552531b9') LIMIT 1[0m
+  [4;36;1mUser Update (3.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-09-09 08:46:31', "last_request_at" = '2010-09-09 08:46:31' WHERE "id" = 1[0m
+
+NameError (undefined local variable or method `account_url' for #<UsersController:0x8847b58>):
+  app/controllers/application_controller.rb:37:in `require_no_user'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendered rescues/_trace (45.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-09-09 16:53:59) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '3429ee3ad3d2ba5a26468d1b542bb2cde3f64d8516198b6fbe77734b3a24a31bfad363092a709e83dc13924d295bc8c98f5f197ee6b9f26ac56a8367552531b9') LIMIT 1[0m
+  [4;36;1mUser Update (3.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-09-09 08:53:59', "last_request_at" = '2010-09-09 08:53:59' WHERE "id" = 1[0m
+
+NameError (undefined local variable or method `account_url' for #<UsersController:0x86de3e8>):
+  app/controllers/application_controller.rb:37:in `require_no_user'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendered rescues/_trace (110.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-09-09 16:58:46) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '3429ee3ad3d2ba5a26468d1b542bb2cde3f64d8516198b6fbe77734b3a24a31bfad363092a709e83dc13924d295bc8c98f5f197ee6b9f26ac56a8367552531b9') LIMIT 1[0m
+  [4;36;1mUser Update (3.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-09-09 08:58:46', "last_request_at" = '2010-09-09 08:58:46' WHERE "id" = 1[0m
+
+ActionController::RoutingError (user_url failed to generate from {:action=>"show", :controller=>"users"} - you may have ambiguous routes, or you may need to supply additional parameters for this route.  content_url has the following required parameters: ["users", :id] - are they all satisfied?):
+  (eval):17:in `user_url'
+  app/controllers/application_controller.rb:37:in `require_no_user'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-09-09 16:58:54) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '3429ee3ad3d2ba5a26468d1b542bb2cde3f64d8516198b6fbe77734b3a24a31bfad363092a709e83dc13924d295bc8c98f5f197ee6b9f26ac56a8367552531b9') LIMIT 1[0m
+  [4;36;1mUser Update (4.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-09-09 08:58:54', "last_request_at" = '2010-09-09 08:58:54' WHERE "id" = 1[0m
+Redirected to http://localhost:3003/users
+Filter chain halted as [:require_no_user] rendered_or_redirected.
+Completed in 304ms (DB: 4) | 302 Found [http://localhost/users/new]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-09-09 16:58:55) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+
+ActionController::UnknownAction (No action responded to index. Actions: create, edit, new, show, and update):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-09-09 16:59:06) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '3429ee3ad3d2ba5a26468d1b542bb2cde3f64d8516198b6fbe77734b3a24a31bfad363092a709e83dc13924d295bc8c98f5f197ee6b9f26ac56a8367552531b9') LIMIT 1[0m
+  [4;36;1mUser Update (2.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-09-09 08:59:06', "last_request_at" = '2010-09-09 08:59:06' WHERE "id" = 1[0m
+Redirected to http://localhost:3003/users
+Filter chain halted as [:require_no_user] rendered_or_redirected.
+Completed in 149ms (DB: 3) | 302 Found [http://localhost/]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-09-09 16:59:06) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+
+ActionController::UnknownAction (No action responded to index. Actions: create, edit, new, show, and update):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-09-09 16:59:15) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '3429ee3ad3d2ba5a26468d1b542bb2cde3f64d8516198b6fbe77734b3a24a31bfad363092a709e83dc13924d295bc8c98f5f197ee6b9f26ac56a8367552531b9') LIMIT 1[0m
+  [4;36;1mUser Update (2.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-09-09 08:59:15', "last_request_at" = '2010-09-09 08:59:15' WHERE "id" = 1[0m
+Redirected to http://localhost:3003/users
+Filter chain halted as [:require_no_user] rendered_or_redirected.
+Completed in 206ms (DB: 2) | 302 Found [http://localhost/users/new]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-09-09 16:59:15) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+
+ActionController::UnknownAction (No action responded to index. Actions: create, edit, new, show, and update):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-09-09 17:00:03) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '3429ee3ad3d2ba5a26468d1b542bb2cde3f64d8516198b6fbe77734b3a24a31bfad363092a709e83dc13924d295bc8c98f5f197ee6b9f26ac56a8367552531b9') LIMIT 1[0m
+  [4;36;1mUser Update (2.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-09-09 09:00:03', "last_request_at" = '2010-09-09 09:00:03' WHERE "id" = 1[0m
+Redirected to http://localhost:3003/users
+Filter chain halted as [:require_no_user] rendered_or_redirected.
+Completed in 133ms (DB: 2) | 302 Found [http://localhost/]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-09-09 17:00:04) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+
+ActionController::UnknownAction (No action responded to index. Actions: create, edit, new, show, and update):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-09-09 17:01:01) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '3429ee3ad3d2ba5a26468d1b542bb2cde3f64d8516198b6fbe77734b3a24a31bfad363092a709e83dc13924d295bc8c98f5f197ee6b9f26ac56a8367552531b9') LIMIT 1[0m
+  [4;35;1mUser Update (3.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-09-09 09:01:01', "last_request_at" = '2010-09-09 09:01:01' WHERE "id" = 1[0m
+Redirected to http://localhost:3003/users
+Filter chain halted as [:require_no_user] rendered_or_redirected.
+Completed in 208ms (DB: 3) | 302 Found [http://localhost/]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-09-09 17:01:01) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+
+ActionController::UnknownAction (No action responded to index. Actions: create, edit, new, show, and update):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-09-09 17:01:14) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '3429ee3ad3d2ba5a26468d1b542bb2cde3f64d8516198b6fbe77734b3a24a31bfad363092a709e83dc13924d295bc8c98f5f197ee6b9f26ac56a8367552531b9') LIMIT 1[0m
+  [4;35;1mUser Update (2.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-09-09 09:01:14', "last_request_at" = '2010-09-09 09:01:14' WHERE "id" = 1[0m
+Redirected to http://localhost:3003/users
+Filter chain halted as [:require_no_user] rendered_or_redirected.
+Completed in 309ms (DB: 2) | 302 Found [http://localhost/]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-09-09 17:01:14) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+
+ActionController::UnknownAction (No action responded to index. Actions: create, edit, new, show, and update):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-09-09 17:02:47) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+
+ActionController::UnknownAction (No action responded to index. Actions: create, edit, new, show, and update):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-09-09 17:02:55) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+
+ActionController::UnknownAction (No action responded to index. Actions: create, edit, new, show, and update):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-09-09 17:03:29) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+
+ActionController::UnknownAction (No action responded to index. Actions: create, edit, new, show, and update):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-09-09 17:03:31) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '3429ee3ad3d2ba5a26468d1b542bb2cde3f64d8516198b6fbe77734b3a24a31bfad363092a709e83dc13924d295bc8c98f5f197ee6b9f26ac56a8367552531b9') LIMIT 1[0m
+  [4;35;1mUser Update (3.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-09-09 09:03:31', "last_request_at" = '2010-09-09 09:03:31' WHERE "id" = 1[0m
+  [4;36;1mUser Destroy (2.0ms)[0m   [0;1mDELETE FROM "users" WHERE "id" = 1[0m
+Redirected to http://localhost:3003/users
+Filter chain halted as [:require_no_user] rendered_or_redirected.
+Completed in 259ms (DB: 5) | 302 Found [http://localhost/]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-09-09 17:03:31) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+
+ActionController::UnknownAction (No action responded to index. Actions: create, edit, new, show, and update):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (1.0ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (187.0ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "login" varchar(255) NOT NULL, "crypted_password" varchar(255) NOT NULL, "password_salt" varchar(255) NOT NULL, "persistence_token" varchar(255) NOT NULL, "login_count" integer DEFAULT 0 NOT NULL, "last_request_at" datetime, "last_login_at" datetime, "current_login_at" datetime, "last_login_ip" varchar(255), "current_login_ip" varchar(255)) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (89.0ms)[0m   [0;1mCREATE INDEX "index_users_on_last_request_at" ON "users" ("last_request_at")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_info('index_users_on_last_request_at')[0m
+  [4;35;1mSQL (86.0ms)[0m   [0mCREATE INDEX "index_users_on_login" ON "users" ("login")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("users")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_info('index_users_on_login')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_info('index_users_on_last_request_at')[0m
+  [4;35;1mSQL (89.0ms)[0m   [0mCREATE INDEX "index_users_on_persistence_token" ON "users" ("persistence_token")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (99.0ms)[0m   [0mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("schema_migrations")[0m
+  [4;35;1mSQL (92.0ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (95.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100909075734')[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-09-09 17:07:34) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '3429ee3ad3d2ba5a26468d1b542bb2cde3f64d8516198b6fbe77734b3a24a31bfad363092a709e83dc13924d295bc8c98f5f197ee6b9f26ac56a8367552531b9') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 08:57:34') [0m
+Completed in 57ms (View: 30, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 17:07:34) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-09-09 17:07:42) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '3429ee3ad3d2ba5a26468d1b542bb2cde3f64d8516198b6fbe77734b3a24a31bfad363092a709e83dc13924d295bc8c98f5f197ee6b9f26ac56a8367552531b9') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 08:57:42') [0m
+Completed in 45ms (View: 14, DB: 1) | 200 OK [http://localhost/user_session/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 17:07:43) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-09-09 17:07:44) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '3429ee3ad3d2ba5a26468d1b542bb2cde3f64d8516198b6fbe77734b3a24a31bfad363092a709e83dc13924d295bc8c98f5f197ee6b9f26ac56a8367552531b9') LIMIT 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (5.0ms)
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 08:57:44') [0m
+Completed in 65ms (View: 32, DB: 2) | 200 OK [http://localhost/users/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 17:07:44) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-09-09 17:07:47) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '3429ee3ad3d2ba5a26468d1b542bb2cde3f64d8516198b6fbe77734b3a24a31bfad363092a709e83dc13924d295bc8c98f5f197ee6b9f26ac56a8367552531b9') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 08:57:47') [0m
+Completed in 47ms (View: 15, DB: 0) | 200 OK [http://localhost/user_session/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 17:07:47) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-09-09 17:07:48) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '3429ee3ad3d2ba5a26468d1b542bb2cde3f64d8516198b6fbe77734b3a24a31bfad363092a709e83dc13924d295bc8c98f5f197ee6b9f26ac56a8367552531b9') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (2.0ms)
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 08:57:48') [0m
+Completed in 49ms (View: 18, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 17:07:49) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-09-09 17:08:51) [POST]
+  Parameters: {"commit"=>"确认注册", "action"=>"create", "authenticity_token"=>"Vojd5npucwQd+gnQK1IefgsmiYsB3uaEzsvpRAbUVBM=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"nkfeiyang"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '3429ee3ad3d2ba5a26468d1b542bb2cde3f64d8516198b6fbe77734b3a24a31bfad363092a709e83dc13924d295bc8c98f5f197ee6b9f26ac56a8367552531b9') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'nkfeiyang') LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '26eb3ca4d56cafcbcc76f05f93dbc87ce6b537c76ff999dafe4c8ff19a27f906bd199d656c8c729db46658c055f6f24d3d41a07d7e051ca55abe416aecb570c8') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '3429ee3ad3d2ba5a26468d1b542bb2cde3f64d8516198b6fbe77734b3a24a31bfad363092a709e83dc13924d295bc8c98f5f197ee6b9f26ac56a8367552531b9') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Create (1.0ms)[0m   [0;1mINSERT INTO "users" ("created_at", "last_request_at", "crypted_password", "updated_at", "current_login_ip", "password_salt", "current_login_at", "persistence_token", "login_count", "last_login_ip", "login", "last_login_at") VALUES('2010-09-09 09:09:00', '2010-09-09 09:09:00', '899569dd0c4599eda82d1a59a8d6be1a68001519881b25fb67f211607a1a87e4b0b5093b10e5877e736906d208ea893f01a9d0beda000549058d021e6b45b994', '2010-09-09 09:09:00', '127.0.0.1', 'DoEujMLAknyGIGDWt5c', '2010-09-09 09:09:00', '26eb3ca4d56cafcbcc76f05f93dbc87ce6b537c76ff999dafe4c8ff19a27f906bd199d656c8c729db46658c055f6f24d3d41a07d7e051ca55abe416aecb570c8', 1, NULL, 'nkfeiyang', NULL)[0m
+
+ActionController::RoutingError (user_url failed to generate from {:action=>"show", :controller=>"users"} - you may have ambiguous routes, or you may need to supply additional parameters for this route.  content_url has the following required parameters: ["users", :id] - are they all satisfied?):
+  (eval):17:in `user_url'
+  app/controllers/users_controller.rb:13:in `create'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-09-09 17:09:48) [POST]
+  Parameters: {"commit"=>"确认注册", "action"=>"create", "authenticity_token"=>"Vojd5npucwQd+gnQK1IefgsmiYsB3uaEzsvpRAbUVBM=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"nkfeiyang"}}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '26eb3ca4d56cafcbcc76f05f93dbc87ce6b537c76ff999dafe4c8ff19a27f906bd199d656c8c729db46658c055f6f24d3d41a07d7e051ca55abe416aecb570c8') LIMIT 1[0m
+  [4;36;1mUser Update (3.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-09-09 09:09:48', "last_request_at" = '2010-09-09 09:09:48' WHERE "id" = 1[0m
+Redirected to http://localhost:3003/users
+Filter chain halted as [:require_no_user] rendered_or_redirected.
+Completed in 266ms (DB: 3) | 302 Found [http://localhost/users]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-09-09 17:09:48) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+
+ActionController::UnknownAction (No action responded to index. Actions: create, edit, new, show, and update):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-09-09 17:09:55) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '26eb3ca4d56cafcbcc76f05f93dbc87ce6b537c76ff999dafe4c8ff19a27f906bd199d656c8c729db46658c055f6f24d3d41a07d7e051ca55abe416aecb570c8') LIMIT 1[0m
+  [4;36;1mUser Update (3.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-09-09 09:09:55', "last_request_at" = '2010-09-09 09:09:55' WHERE "id" = 1[0m
+Redirected to http://localhost:3003/users
+Filter chain halted as [:require_no_user] rendered_or_redirected.
+Completed in 232ms (DB: 4) | 302 Found [http://localhost/]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-09-09 17:09:55) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+
+ActionController::UnknownAction (No action responded to index. Actions: create, edit, new, show, and update):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-09-09 17:10:06) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"users"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '26eb3ca4d56cafcbcc76f05f93dbc87ce6b537c76ff999dafe4c8ff19a27f906bd199d656c8c729db46658c055f6f24d3d41a07d7e051ca55abe416aecb570c8') LIMIT 1[0m
+  [4;36;1mUser Update (3.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-09-09 09:10:06', "last_request_at" = '2010-09-09 09:10:06' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 09:00:06') [0m
+Completed in 160ms (View: 33, DB: 4) | 200 OK [http://localhost/users/1]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 17:10:06) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-09-09 17:10:32) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"users"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '26eb3ca4d56cafcbcc76f05f93dbc87ce6b537c76ff999dafe4c8ff19a27f906bd199d656c8c729db46658c055f6f24d3d41a07d7e051ca55abe416aecb570c8') LIMIT 1[0m
+  [4;35;1mUser Update (3.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-09-09 09:10:32', "last_request_at" = '2010-09-09 09:10:32' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering users/edit
+Rendered users/_form (3.0ms)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 09:00:33') [0m
+Completed in 273ms (View: 39, DB: 3) | 200 OK [http://localhost/users/1/edit]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 17:10:33) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-09-09 17:10:36) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"users"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '26eb3ca4d56cafcbcc76f05f93dbc87ce6b537c76ff999dafe4c8ff19a27f906bd199d656c8c729db46658c055f6f24d3d41a07d7e051ca55abe416aecb570c8') LIMIT 1[0m
+  [4;36;1mUser Update (3.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-09-09 09:10:36', "last_request_at" = '2010-09-09 09:10:36' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 09:00:36') [0m
+Completed in 249ms (View: 27, DB: 3) | 200 OK [http://localhost/users/1]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 17:10:37) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 17:10:45) [GET]
+
+ActionController::RoutingError (No route matches "/user/1" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-09-09 17:10:49) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"users"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '26eb3ca4d56cafcbcc76f05f93dbc87ce6b537c76ff999dafe4c8ff19a27f906bd199d656c8c729db46658c055f6f24d3d41a07d7e051ca55abe416aecb570c8') LIMIT 1[0m
+  [4;35;1mUser Update (2.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-09-09 09:10:49', "last_request_at" = '2010-09-09 09:10:49' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 09:00:49') [0m
+Completed in 284ms (View: 20, DB: 2) | 200 OK [http://localhost/users/1]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 17:10:49) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-09-09 17:10:51) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"users"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '26eb3ca4d56cafcbcc76f05f93dbc87ce6b537c76ff999dafe4c8ff19a27f906bd199d656c8c729db46658c055f6f24d3d41a07d7e051ca55abe416aecb570c8') LIMIT 1[0m
+  [4;36;1mUser Update (3.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-09-09 09:10:51', "last_request_at" = '2010-09-09 09:10:51' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 09:00:51') [0m
+Completed in 292ms (View: 30, DB: 3) | 200 OK [http://localhost/users/1]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 17:10:51) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-09-09 17:11:00) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+
+ActionController::UnknownAction (No action responded to index. Actions: create, edit, new, show, and update):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-09-09 17:14:19) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '26eb3ca4d56cafcbcc76f05f93dbc87ce6b537c76ff999dafe4c8ff19a27f906bd199d656c8c729db46658c055f6f24d3d41a07d7e051ca55abe416aecb570c8') LIMIT 1[0m
+  [4;35;1mUser Update (2.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-09-09 09:14:19', "last_request_at" = '2010-09-09 09:14:19' WHERE "id" = 1[0m
+Redirected to http://localhost:3003/users
+Filter chain halted as [:require_no_user] rendered_or_redirected.
+Completed in 223ms (DB: 3) | 302 Found [http://localhost/user_session/new/]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-09-09 17:14:19) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+
+ActionController::UnknownAction (No action responded to index. Actions: create, edit, new, show, and update):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-09-09 17:14:36) [GET]
+  Parameters: {"action"=>"show", "id"=>"destroy", "controller"=>"users"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '26eb3ca4d56cafcbcc76f05f93dbc87ce6b537c76ff999dafe4c8ff19a27f906bd199d656c8c729db46658c055f6f24d3d41a07d7e051ca55abe416aecb570c8') LIMIT 1[0m
+  [4;35;1mUser Update (2.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-09-09 09:14:36', "last_request_at" = '2010-09-09 09:14:36' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 09:04:36') [0m
+Completed in 172ms (View: 13, DB: 2) | 200 OK [http://localhost/users/destroy]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 17:14:36) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2010-09-09 17:14:43) [DELETE]
+  Parameters: {"action"=>"destroy", "_method"=>"delete", "authenticity_token"=>"Vojd5npucwQd+gnQK1IefgsmiYsB3uaEzsvpRAbUVBM=", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '26eb3ca4d56cafcbcc76f05f93dbc87ce6b537c76ff999dafe4c8ff19a27f906bd199d656c8c729db46658c055f6f24d3d41a07d7e051ca55abe416aecb570c8') LIMIT 1[0m
+  [4;36;1mUser Update (2.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-09-09 09:14:43', "last_request_at" = '2010-09-09 09:14:43' WHERE "id" = 1[0m
+Redirected to http://localhost:3003/user_session/new/
+Completed in 287ms (DB: 2) | 302 Found [http://localhost/user_session]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-09-09 17:14:43) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 09:04:43') [0m
+Completed in 42ms (View: 16, DB: 0) | 200 OK [http://localhost/user_session/new/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 17:14:43) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-09-09 17:14:49) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 09:04:49') [0m
+Completed in 45ms (View: 16, DB: 0) | 200 OK [http://localhost/user_session/new/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 17:14:49) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-09-09 17:14:50) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 09:04:50') [0m
+Completed in 104ms (View: 16, DB: 0) | 200 OK [http://localhost/user_session/new/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 17:14:50) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-09-09 17:14:50) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 09:04:50') [0m
+Completed in 49ms (View: 18, DB: 0) | 200 OK [http://localhost/user_session/new/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 17:14:51) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-09-09 17:14:51) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 09:04:51') [0m
+Completed in 40ms (View: 14, DB: 0) | 200 OK [http://localhost/user_session/new/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 17:14:52) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-09-09 17:14:52) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 09:04:52') [0m
+Completed in 43ms (View: 17, DB: 0) | 200 OK [http://localhost/user_session/new/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 17:14:52) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-09-09 17:14:53) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 09:04:53') [0m
+Completed in 40ms (View: 15, DB: 0) | 200 OK [http://localhost/user_session/new/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 17:14:53) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-09-09 17:14:53) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 09:04:53') [0m
+Completed in 37ms (View: 14, DB: 0) | 200 OK [http://localhost/user_session/new/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 17:14:53) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-09-09 17:17:47) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 09:07:47') [0m
+Completed in 69ms (View: 43, DB: 0) | 200 OK [http://localhost/user_session/new/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 17:17:47) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-09-09 17:17:53) [POST]
+  Parameters: {"commit"=>"提交", "user_session"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "login"=>"nkfeiyang"}, "action"=>"create", "authenticity_token"=>"Vojd5npucwQd+gnQK1IefgsmiYsB3uaEzsvpRAbUVBM=", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE (LOWER("users".login) = 'nkfeiyang') LIMIT 1[0m
+  [4;36;1mUser Update (3.0ms)[0m   [0;1mUPDATE "users" SET "login_count" = 2, "updated_at" = '2010-09-09 09:17:54', "last_request_at" = '2010-09-09 09:17:54', "last_login_at" = '2010-09-09 09:09:00', "last_login_ip" = '127.0.0.1', "current_login_at" = '2010-09-09 09:17:54' WHERE "id" = 1[0m
+Redirected to http://localhost:3003/account
+Completed in 424ms (DB: 4) | 302 Found [http://localhost/user_session]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-09-09 17:17:54) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (3.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-09-09 09:17:54', "last_request_at" = '2010-09-09 09:17:54' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering users/show
+
+ActionView::TemplateError (edit_user_url failed to generate from {:action=>"edit", :controller=>"users"} - you may have ambiguous routes, or you may need to supply additional parameters for this route.  content_url has the following required parameters: ["users", :id, "edit"] - are they all satisfied?) on line #37 of app/views/users/show.html.erb:
+34: </p>
+35: 
+36: 
+37: <%= link_to 'Edit', edit_user_path %>
+
+    (eval):17:in `edit_user_path'
+    app/views/users/show.html.erb:37
+    D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    -e:2:in `load'
+    -e:2
+
+Rendered rescues/_trace (100.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-09-09 17:20:41) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (2.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-09-09 09:20:41', "last_request_at" = '2010-09-09 09:20:41' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering users/show
+
+ActionView::TemplateError (undefined local variable or method `edit_users_path' for #<ActionView::Base:0x89353e0>) on line #37 of app/views/users/show.html.erb:
+34: </p>
+35: 
+36: 
+37: <%= link_to 'Edit', edit_users_path %>
+
+    app/views/users/show.html.erb:37
+    D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    -e:2:in `load'
+    -e:2
+
+Rendered rescues/_trace (122.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-09-09 17:20:50) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (3.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-09-09 09:20:50', "last_request_at" = '2010-09-09 09:20:50' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 09:10:50') [0m
+
+ActionView::TemplateError (user_url failed to generate from {:action=>"show", :controller=>"users"} - you may have ambiguous routes, or you may need to supply additional parameters for this route.  content_url has the following required parameters: ["users", :id] - are they all satisfied?) on line #25 of app/views/layouts/application.html.erb:
+22:   <%= link_to "注册", new_user_path %> |
+23:   <%= link_to "登录", new_user_session_path %> |
+24: <% else %>
+25:   <%= link_to "个人中心", user_path %> |
+26:   <%= link_to "退出", user_session_path, :method => :delete, :confirm => "确定退出吗?" %>
+27: <% end %>
+28: 
+
+    (eval):17:in `user_path'
+    app/views/layouts/application.html.erb:25
+    D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    -e:2:in `load'
+    -e:2
+
+Rendered rescues/_trace (53.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-09-09 17:21:36) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (4.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-09-09 09:21:36', "last_request_at" = '2010-09-09 09:21:36' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 09:11:37') [0m
+Completed in 176ms (View: 18, DB: 5) | 200 OK [http://localhost/account]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 17:21:37) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-09-09 17:21:41) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (2.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-09-09 09:21:41', "last_request_at" = '2010-09-09 09:21:41' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 09:11:41') [0m
+Completed in 282ms (View: 24, DB: 3) | 200 OK [http://localhost/account]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 17:21:41) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-09-09 17:21:44) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (2.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-09-09 09:21:44', "last_request_at" = '2010-09-09 09:21:44' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 09:11:44') [0m
+Completed in 195ms (View: 21, DB: 4) | 200 OK [http://localhost/account]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 17:21:44) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2010-09-09 17:21:48) [DELETE]
+  Parameters: {"action"=>"destroy", "_method"=>"delete", "authenticity_token"=>"Vojd5npucwQd+gnQK1IefgsmiYsB3uaEzsvpRAbUVBM=", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (3.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-09-09 09:21:48', "last_request_at" = '2010-09-09 09:21:48' WHERE "id" = 1[0m
+Redirected to http://localhost:3003/user_session/new
+Completed in 189ms (DB: 3) | 302 Found [http://localhost/user_session]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-09-09 17:21:48) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 09:11:48') [0m
+Completed in 48ms (View: 17, DB: 0) | 200 OK [http://localhost/user_session/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 17:21:48) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-09-09 17:21:57) [POST]
+  Parameters: {"commit"=>"提交", "user_session"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "login"=>"nkfeiyang"}, "action"=>"create", "authenticity_token"=>"Vojd5npucwQd+gnQK1IefgsmiYsB3uaEzsvpRAbUVBM=", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (LOWER("users".login) = 'nkfeiyang') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 09:11:57') [0m
+Completed in 70ms (View: 20, DB: 1) | 200 OK [http://localhost/user_session]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 17:21:57) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-09-09 17:22:02) [POST]
+  Parameters: {"commit"=>"提交", "user_session"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "login"=>"nkfeiyang"}, "action"=>"create", "authenticity_token"=>"Vojd5npucwQd+gnQK1IefgsmiYsB3uaEzsvpRAbUVBM=", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (LOWER("users".login) = 'nkfeiyang') LIMIT 1[0m
+  [4;35;1mUser Update (4.0ms)[0m   [0mUPDATE "users" SET "login_count" = 3, "updated_at" = '2010-09-09 09:22:03', "last_request_at" = '2010-09-09 09:22:03', "last_login_at" = '2010-09-09 09:17:54', "current_login_at" = '2010-09-09 09:22:03' WHERE "id" = 1[0m
+Redirected to http://localhost:3003/account
+Completed in 245ms (DB: 5) | 302 Found [http://localhost/user_session]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-09-09 17:22:03) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (3.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-09-09 09:22:03', "last_request_at" = '2010-09-09 09:22:03' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 09:12:03') [0m
+Completed in 223ms (View: 23, DB: 5) | 200 OK [http://localhost/account]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 17:22:03) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-09-09 17:22:14) [GET]
+  Parameters: {"action"=>"edit", "controller"=>"users"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (3.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-09-09 09:22:14', "last_request_at" = '2010-09-09 09:22:14' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering users/edit
+
+ActionView::TemplateError (user_url failed to generate from {:action=>"show", :controller=>"users"} - you may have ambiguous routes, or you may need to supply additional parameters for this route.  content_url has the following required parameters: ["users", :id] - are they all satisfied?) on line #3 of app/views/users/edit.html.erb:
+1: <h1>Edit My Account</h1>
+2: 
+3: <% form_for @user, :url => user_path do |f| %>
+4:   <%= f.error_messages %>
+5:   <%= render :partial => "form", :object => f %>
+6:   <%= f.submit "Update" %>
+
+    (eval):17:in `user_path'
+    app/views/users/edit.html.erb:3
+    D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    -e:2:in `load'
+    -e:2
+
+Rendered rescues/_trace (75.0ms)
+Rendered rescues/_request_and_response (69.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-09-09 17:22:26) [GET]
+  Parameters: {"action"=>"edit", "controller"=>"users"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (3.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-09-09 09:22:26', "last_request_at" = '2010-09-09 09:22:26' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering users/edit
+Rendered users/_form (4.0ms)
+
+ActionView::TemplateError (user_url failed to generate from {:action=>"show", :controller=>"users"} - you may have ambiguous routes, or you may need to supply additional parameters for this route.  content_url has the following required parameters: ["users", :id] - are they all satisfied?) on line #9 of app/views/users/edit.html.erb:
+6:   <%= f.submit "Update" %>
+7: <% end %>
+8: 
+9: <br /><%= link_to "My Profile", user_path %>
+
+    (eval):17:in `user_path'
+    app/views/users/edit.html.erb:9
+    D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    -e:2:in `load'
+    -e:2
+
+Rendered rescues/_trace (72.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-09-09 17:22:38) [GET]
+  Parameters: {"action"=>"edit", "controller"=>"users"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (2.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-09-09 09:22:38', "last_request_at" = '2010-09-09 09:22:38' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering users/edit
+Rendered users/_form (4.0ms)
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 09:12:38') [0m
+Completed in 193ms (View: 41, DB: 2) | 200 OK [http://localhost/account/edit]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 17:22:38) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#update (for 127.0.0.1 at 2010-09-09 17:22:48) [PUT]
+  Parameters: {"commit"=>"Update", "action"=>"update", "_method"=>"put", "authenticity_token"=>"Vojd5npucwQd+gnQK1IefgsmiYsB3uaEzsvpRAbUVBM=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"nkfeiyang"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (3.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-09-09 09:22:48', "last_request_at" = '2010-09-09 09:22:48' WHERE "id" = 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '1c3f3e6f0a38515526f3164719d5a27f49b4cb15e5ac32d01ee900edff9db4b7ecf0f18acba0819f510c9bf6a780f3eb96cca5431106c0a9d88d2c217e1fbbac' AND "users".id <> 1) LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (3.0ms)[0m   [0;1mUPDATE "users" SET "login_count" = 4, "persistence_token" = '1c3f3e6f0a38515526f3164719d5a27f49b4cb15e5ac32d01ee900edff9db4b7ecf0f18acba0819f510c9bf6a780f3eb96cca5431106c0a9d88d2c217e1fbbac', "updated_at" = '2010-09-09 09:23:05', "last_request_at" = '2010-09-09 09:23:05', "last_login_at" = '2010-09-09 09:22:03', "current_login_at" = '2010-09-09 09:23:05', "password_salt" = 'GQoB431KfMyxBqtqqNUs', "crypted_password" = '9805286d32ad295c982f6cb7e9778312262910fc4c6452d265dcf04d8808df1e516ac7595cf57694803db2d2b935194cfcd5302427a7cbe5c9c93c02cbc99495' WHERE "id" = 1[0m
+
+ActionController::RoutingError (user_url failed to generate from {:action=>"show", :controller=>"users"} - you may have ambiguous routes, or you may need to supply additional parameters for this route.  content_url has the following required parameters: ["users", :id] - are they all satisfied?):
+  (eval):17:in `user_url'
+  app/controllers/users_controller.rb:31:in `update'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#update (for 127.0.0.1 at 2010-09-09 17:23:35) [PUT]
+  Parameters: {"commit"=>"Update", "action"=>"update", "_method"=>"put", "authenticity_token"=>"Vojd5npucwQd+gnQK1IefgsmiYsB3uaEzsvpRAbUVBM=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"nkfeiyang"}}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (4.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-09-09 09:23:35', "last_request_at" = '2010-09-09 09:23:35' WHERE "id" = 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = 'e963f3745813002b8dabb3f185bb1a3a5f37952f6394d34ab720cc4d7a037a2ff0263a0ce438b1d309906ed34422cc1dc31b95cb08f5ea68be0b1661eef4f5a1' AND "users".id <> 1) LIMIT 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (2.0ms)[0m   [0mUPDATE "users" SET "login_count" = 5, "persistence_token" = 'e963f3745813002b8dabb3f185bb1a3a5f37952f6394d34ab720cc4d7a037a2ff0263a0ce438b1d309906ed34422cc1dc31b95cb08f5ea68be0b1661eef4f5a1', "updated_at" = '2010-09-09 09:23:35', "last_request_at" = '2010-09-09 09:23:35', "last_login_at" = '2010-09-09 09:23:05', "current_login_at" = '2010-09-09 09:23:35', "password_salt" = 'XY1gijoVmWZfp2h8w4N7', "crypted_password" = '1c8cfc5ee7f9e4e826bacaa3644294e91597d01d328fbc80a24403ecfc4b7b8d1076e3d8a17a11fbf5f3fb2ef6f48321636f86d09dd7f86f60839cf58ef039ec' WHERE "id" = 1[0m
+Redirected to http://localhost:3003/account
+Completed in 282ms (DB: 8) | 302 Found [http://localhost/account]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-09-09 17:23:35) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (3.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-09-09 09:23:35', "last_request_at" = '2010-09-09 09:23:35' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 09:13:35') [0m
+Completed in 155ms (View: 17, DB: 3) | 200 OK [http://localhost/account]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 17:23:35) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-09-09 17:23:50) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (3.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-09-09 09:23:50', "last_request_at" = '2010-09-09 09:23:50' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 09:13:50') [0m
+Completed in 269ms (View: 22, DB: 5) | 200 OK [http://localhost/account]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 17:23:51) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2010-09-09 17:24:00) [DELETE]
+  Parameters: {"action"=>"destroy", "_method"=>"delete", "authenticity_token"=>"Vojd5npucwQd+gnQK1IefgsmiYsB3uaEzsvpRAbUVBM=", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (4.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-09-09 09:24:00', "last_request_at" = '2010-09-09 09:24:00' WHERE "id" = 1[0m
+Redirected to http://localhost:3003/user_session/new
+Completed in 287ms (DB: 5) | 302 Found [http://localhost/user_session]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-09-09 17:24:00) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 09:14:00') [0m
+Completed in 42ms (View: 16, DB: 0) | 200 OK [http://localhost/user_session/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 17:24:01) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-09-09 17:28:42) [POST]
+  Parameters: {"commit"=>"提交", "user_session"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "login"=>"nkfeiyang"}, "action"=>"create", "authenticity_token"=>"Vojd5npucwQd+gnQK1IefgsmiYsB3uaEzsvpRAbUVBM=", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE (LOWER("users".login) = 'nkfeiyang') LIMIT 1[0m
+  [4;36;1mUser Update (2.0ms)[0m   [0;1mUPDATE "users" SET "login_count" = 6, "updated_at" = '2010-09-09 09:28:42', "last_request_at" = '2010-09-09 09:28:42', "last_login_at" = '2010-09-09 09:23:35', "current_login_at" = '2010-09-09 09:28:42' WHERE "id" = 1[0m
+
+ActionController::RoutingError (user_url failed to generate from {:action=>"show", :controller=>"users"} - you may have ambiguous routes, or you may need to supply additional parameters for this route.  content_url has the following required parameters: ["users", :id] - are they all satisfied?):
+  (eval):17:in `user_url'
+  app/controllers/user_sessions_controller.rb:13:in `create'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-09-09 17:29:22) [POST]
+  Parameters: {"commit"=>"提交", "user_session"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "login"=>"nkfeiyang"}, "action"=>"create", "authenticity_token"=>"Vojd5npucwQd+gnQK1IefgsmiYsB3uaEzsvpRAbUVBM=", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (4.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-09-09 09:29:22', "last_request_at" = '2010-09-09 09:29:22' WHERE "id" = 1[0m
+Redirected to http://localhost:3003/account
+Filter chain halted as [:require_no_user] rendered_or_redirected.
+Completed in 143ms (DB: 4) | 302 Found [http://localhost/user_session]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-09-09 17:29:22) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (3.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-09-09 09:29:22', "last_request_at" = '2010-09-09 09:29:22' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 09:19:22') [0m
+Completed in 215ms (View: 10, DB: 4) | 200 OK [http://localhost/account]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 17:29:23) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-09-09 17:29:29) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (2.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-09-09 09:29:29', "last_request_at" = '2010-09-09 09:29:29' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 09:19:29') [0m
+Completed in 194ms (View: 23, DB: 3) | 200 OK [http://localhost/account]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 17:29:29) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2010-09-09 17:29:33) [DELETE]
+  Parameters: {"action"=>"destroy", "_method"=>"delete", "authenticity_token"=>"Vojd5npucwQd+gnQK1IefgsmiYsB3uaEzsvpRAbUVBM=", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (2.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-09-09 09:29:33', "last_request_at" = '2010-09-09 09:29:33' WHERE "id" = 1[0m
+Redirected to http://localhost:3003/user_session
+Completed in 243ms (DB: 2) | 302 Found [http://localhost/user_session]
+
+
+Processing UserSessionsController#show (for 127.0.0.1 at 2010-09-09 17:29:33) [GET]
+  Parameters: {"action"=>"show", "controller"=>"user_sessions"}
+
+ActionController::UnknownAction (No action responded to show. Actions: create, destroy, and new):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-09-09 17:30:15) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 09:20:15') [0m
+Completed in 37ms (View: 12, DB: 0) | 200 OK [http://localhost/user_session/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 17:30:15) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-09-09 17:30:21) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 09:20:21') [0m
+Completed in 41ms (View: 15, DB: 0) | 200 OK [http://localhost/user_session/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 17:30:21) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-09-09 17:31:08) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 09:21:08') [0m
+Completed in 102ms (View: 12, DB: 1) | 200 OK [http://localhost/user_sessions/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 17:31:08) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-09-09 17:31:20) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 09:21:20') [0m
+Completed in 52ms (View: 19, DB: 1) | 200 OK [http://localhost/user_session/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 17:31:20) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-09-09 17:32:00) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 09:22:00') [0m
+Completed in 36ms (View: 13, DB: 0) | 200 OK [http://localhost/user_session/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 17:32:00) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-09-09 17:32:02) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 09:22:02') [0m
+Completed in 61ms (View: 21, DB: 1) | 200 OK [http://localhost/user_session/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 17:32:03) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-09-09 17:32:05) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 09:22:05') [0m
+Completed in 74ms (View: 25, DB: 1) | 200 OK [http://localhost/user_session/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 17:32:05) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-09-09 17:32:06) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (3.0ms)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 09:22:06') [0m
+Completed in 72ms (View: 35, DB: 0) | 200 OK [http://localhost/account/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 17:32:06) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-09-09 17:32:10) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 09:22:10') [0m
+Completed in 56ms (View: 19, DB: 0) | 200 OK [http://localhost/user_session/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 17:32:10) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-09-09 17:32:11) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 09:22:11') [0m
+Completed in 60ms (View: 24, DB: 0) | 200 OK [http://localhost/user_session/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 17:32:12) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-09-09 17:32:12) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (3.0ms)
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 09:22:12') [0m
+Completed in 62ms (View: 27, DB: 0) | 200 OK [http://localhost/account/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 17:32:13) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-09-09 17:32:13) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2010-09-09 09:22:13') [0m
+Completed in 56ms (View: 19, DB: 1) | 200 OK [http://localhost/user_session/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-09 17:32:13) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
