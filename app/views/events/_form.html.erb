@@ -1,0 +1,25 @@
+<% form_for(@event) do |f| %>
+  <%= f.error_messages %>
+  <div class="field">
+  	<%= f.label :title %><br/>
+	<%= f.text_field :title %>
+  </div>
+  <div class="field">
+  	<%= f.label :content %><br/>
+	<%= f.text_area :content %>
+  </div>
+  <div class="field">
+  	<%= f.label :start_time %><br/>
+	<%= f.text_field :start_time %>
+  </div>
+   <div class="field">
+  	<%= f.label :address %><br/>
+	<%= f.text_field :address %>
+  </div>
+  <div class="field">
+  	<%= f.label :category_id %><br/>
+	<%= f.select (:category_id, @category_opts) %>
+  <div class="actions">
+  	<%= f.submit "Sign up" %>
+  </div>
+<% end %>

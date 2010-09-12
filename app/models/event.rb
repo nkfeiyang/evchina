@@ -5,13 +5,13 @@ class Event < ActiveRecord::Base
   #validates_presence_of :content
   #validates_length_of :content, :maximum => 140
   
-  named_scope :in, lambda { |period|
-   { :conditions => [:start_time => TimeRanges[period]] }
+  named_scope :with_in, lambda { |period|
+   period.present? ? { :conditions => [:start_time => TimeRanges[period]] } : {}
   }
   
   named_scope :published, :conditions => {:status => 'published'}
-  named_scope :category, lambda  { |category_id|
-    {:conditions => [':category_id = ?', category_id]}
+  named_scope :with_category, lambda  { |category_id|
+    category_id.present? ? {:conditions => ['category_id = ?', category_id]} : {}
   }
 
 

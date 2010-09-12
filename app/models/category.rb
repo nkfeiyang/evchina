@@ -10,4 +10,7 @@ class Category < ActiveRecord::Base
     {:conditions => [':show_order = ?', category_id]}
   }
   
+  def self.list_options
+    find(:all, :select=>"id, name").collect{|p| [p.name, p.id]}
+  end 
 end

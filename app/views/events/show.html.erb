@@ -1,0 +1,19 @@
+<h1>Events#show</h1>
+<p>
+  <b>Name:</b>
+  <%=h @event.title %>
+</p>
+
+<p>
+  <b>content:</b>
+  <%=h @event.content %>
+</p>
+
+<p>
+  <b>start time:</b>
+  <%=h @event.start_time %>
+</p>
+
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>

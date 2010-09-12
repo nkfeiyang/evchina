@@ -1,0 +1,12 @@
+<h1>Events#index</h1>
+<p>Find me in app/views/events/index.html.erb</p>
+<% @events.each do |event| %>
+  <tr>
+    <td><%=h event.title %></td>
+    <td><%=h event.start_time %></td>
+	<td><%=h event.address %></td>
+    <td><%= link_to 'Show', event %></td>
+    <td><%= link_to 'Edit', edit_event_path(event) %></td>
+    <td><%= link_to 'Destroy', event, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
