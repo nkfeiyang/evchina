@@ -1,8 +1,8 @@
 module DirectoryHelper
-  def filter_Uri(new_var)
-    url = '?'
-    unless !new_var.empty? && params[new_var].empty?
-      url = url + new_var
-    end
+  def filter_Uri(var, val)
+    url = '?category_id=%category_id%&start_time=%start_time%'
+    #if (var == "category_id")
+    #else if (var == "start_time")
+    #end
   end
 end
