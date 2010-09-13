@@ -1,4 +1,5 @@
 class Event < ActiveRecord::Base
+  
   #default_scope :order => 'create_at DESC'
   belongs_to :user
   belongs_to :category
@@ -6,7 +7,8 @@ class Event < ActiveRecord::Base
   #validates_length_of :content, :maximum => 140
   
   named_scope :with_in, lambda { |period|
-   period.present? ? { :conditions => [:start_time => TimeRanges[period]] } : {}
+   period.present? ? { :conditions => {:start_time => TimeRange(period)}} : {} 
+  #(period.present? && (!TimeRanges[period].nil?)) ? { :conditions => [:start_time => TimeRanges[period].call] } : {}
   }
   
   named_scope :published, :conditions => {:status => 'published'}
@@ -14,6 +16,28 @@ class Event < ActiveRecord::Base
     category_id.present? ? {:conditions => ['category_id = ?', category_id]} : {}
   }
 
-
+  
+  private
+    def self.TimeRange(period)   
+      case period
+      when 'today'              : Time.now.beginning_of_day..Time.now.end_of_day 
+      when 'yesterday'          : Time.now.yesterday.beginning_of_day..Time.now.yesterday.end_of_day
+      when 'tomorrow'           : Time.now.tomorrow.beginning_of_day..Time.now.tomorrow.end_of_day              #明天
+      when 'this_week'          : Time.now.beginning_of_week..Time.now.end_of_week         #本周（周一到周末）
+      when 'next_week'          : Time.now.next_week..Time.now.next_week.end_of_week         #下周（周一到周末）
+      when 'last_week'          : 1.week.ago.beginning_of_week..1.week.ago.end_of_week      #上周（周一到周末）
+      when 'this_month'         : Time.now.beginning_of_month..Time.now.end_of_month       #本月（1号到月底）
+      when 'last_month'         : Time.now.prev_month.beginning_of_month..Time.now.prev_month.end_of_month #上月（1号到月底）
+      when 'next_month'         : Time.now.next_month.beginning_of_month..Time.now.next_month.end_of_month #下月（1号到月底）
+      when 'this_year'          : Time.now.beginning_of_year..Time.now.end_of_year            #今年
+      when 'last_year'          : Time.now.prev_year.beginning_of_year..Time.now.prev_year.end_of_year        #去年
+      when 'next_year'          : Time.now.next_year.beginning_of_year..Time.now.next_year.end_of_year #下一年
+      when 'today_to_weekend'   : Time.now.beginning_of_day..Time.now.end_of_week    #今天开始到周末
+      when 'today_to_monthend'  : Time.now.beginning_of_day..Time.now.end_of_month    #今天开始到月末
+      when 'today_to_yearend'   : Time.now.beginning_of_day..Time.now.end_of_year     #今天到年末
+      when 'this_weekend'       : Time.now.end_of_week.beginning_of_week-1.day..Time.now.end_of_week  #本周末
+    end
+ 
+  end
 
 end

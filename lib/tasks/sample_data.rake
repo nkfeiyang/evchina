@@ -39,7 +39,7 @@ namespace :db do
       3.times do
         user.events.create!(:title => Faker::Lorem.sentence(4),
                             :content => Faker::Lorem.sentence(15),
-                            :start_time => Time.now + user.id*30*60*60*60,
+                            :start_time => Time.now + user.id*30*60*60,
                             :status => "published",
                             :category_id => rand(5)+1)
       end
