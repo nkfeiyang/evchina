@@ -1,3 +1,6 @@
-<% @events.each do |event| %>
-  <%= event.title %><br/>
+<% unless @events.empty? %>
+  <table class="microposts">
+  	<%= render :partial => 'event_item', :collection => @events %>
+  </table>
+  <%= will_paginate @events %>
 <% end %>

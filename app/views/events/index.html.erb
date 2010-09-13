@@ -1,5 +1,6 @@
 <h1>Events#index</h1>
 <p>Find me in app/views/events/index.html.erb</p>
+<table>
 <% @events.each do |event| %>
   <tr>
     <td><%=h event.title %></td>
@@ -10,3 +11,4 @@
     <td><%= link_to 'Destroy', event, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
+</table>

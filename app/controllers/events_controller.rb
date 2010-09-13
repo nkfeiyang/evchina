@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  before_filter    :require_user
   def index
     @events = Event.all()
   end
@@ -9,7 +10,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new(params[:event])
+    @event = current_user.events.build(params[:event])
     if @event.save
       flash[:success] = "Welcome to the Sample APP!"
       redirect_to @event

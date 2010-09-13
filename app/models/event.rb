@@ -1,7 +1,7 @@
 class Event < ActiveRecord::Base
   #default_scope :order => 'create_at DESC'
   belongs_to :user
-  belongs_to :catetory
+  belongs_to :category
   #validates_presence_of :content
   #validates_length_of :content, :maximum => 140
   

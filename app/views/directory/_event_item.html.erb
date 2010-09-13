@@ -1,0 +1,14 @@
+
+<tr> 
+  <td class="micropost">
+  	<span class="user">
+  	  <%= link_to h(event_item.user.login), event_item.user %>
+  	</span>
+	<span class="content"><%= event_item.category.name %></span>
+	<span class="content"><%= event_item.content %></span>
+	<span class="timestamp">
+	  发表于<%= time_ago_in_words(event_item.created_at) %> 之前.	
+	</span>
+  </td>
+
+</tr>
