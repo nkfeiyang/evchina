@@ -9,6 +9,9 @@
 	<span class="timestamp">
 	  发表于<%= time_ago_in_words(event_item.created_at) %> 之前.	
 	</span>
+	<span class="timestamp">
+		开始:<%= event_item.start_time.strftime('%Y-%m-%d') %>
+	</span>
   </td>
 
 </tr>

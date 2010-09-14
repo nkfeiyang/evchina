@@ -1,3 +1,8 @@
+<a href="<%= filter_Uri("category_id", "")%>" class=<%= GetCategoryCssClass('') %>>所有活动(<%=get_total_category_count.to_s()%>)</a><br/>
 <% for category in @categories %>
-  <%= link_to h(category.name+"("+category.events.count.to_s()+")"), filter_Uri("category_id", category.id.to_s) %><br/>
+  <% if get_category_count(category.id) > 0 %>
+    <%= link_to h(category.name+"("+get_category_count(category.id).to_s()+")"), filter_Uri("category_id", category.id.to_s), :class=>GetCategoryCssClass(category.id) %><br/>
+  <% else %>
+    <%= category.name %>(0)<br/>
+  <% end %>
 <% end %>

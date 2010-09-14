@@ -1,0 +1,17 @@
+<div class="hd">    
+	<%= link_to logo, root_path %>
+    <ul class="navigation round">
+        <li><%= link_to "活动", {:controller => 'directory', :action => 'index' } %></li>
+		<% if signed_in? %>
+		<li><%= link_to "个人中心", users_path %></li>		
+		<% end %>
+        
+		<% if signed_in? %>
+		<li><%= link_to "退出", signout_path, :method => :delete %></li>
+		<% else %>
+        <li><%= link_to "注册", signup_path %></li>
+		<li><%= link_to "登录", signin_path %></li>
+		<% end %>
+		<li><%= link_to "帮助", help_path %></li>
+    </ul>
+</div>
