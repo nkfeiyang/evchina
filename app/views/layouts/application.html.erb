@@ -12,13 +12,15 @@
 		<%= javascript_include_tag :defaults %>
 	</head>
 	<body>
-		<div id="container">
-			<div id="head">
+		<div class="container">
+			<div id="header">
 			    <%= render 'layouts/header' %>
 			</div>
-			<div id="main">				
+			
+			<div id="content">				
 				<%= yield %>
-			</div>
+			</div>	
+					
 			<div id="footer">
 			    <%= render 'layouts/footer' %>
 			</div>
