@@ -61,7 +61,7 @@ text-align:center;
 width:40px;
 }
 .rt_nav .rt_menu_bar {
-background:url("http://img1.kaixin001.com.cn/i/home_sprite_06.gif") no-repeat scroll 0 -855px transparent;
+background:url("/images/home_sprite_06.gif") no-repeat scroll 0 -855px transparent;
 height:29px;
 width:1px;
 }
@@ -105,6 +105,29 @@ height:18px;
 width:150px;
 }
 
+#content{
+	background:none repeat scroll 0 0 #FFFFFF;
+    
+    margin:0 auto;
+    overflow:hidden;
+}
+
+.m2 {
+background:none repeat scroll 0 0 #FFFFFF;
+border-bottom:1px solid #EEEEEE;
+/*border-left:1px solid #DDDDDD;
+border-top:1px solid #DDDDDD;*/
+border-right:1px solid #DDDDDD;
+clear:right;
+float:right;
+margin-top:0px;
+min-height:320px;
+width:700px;
+}
+
+.wr2 {
+width:825px;
+}
 /* Links */
 
 a {
@@ -181,12 +204,23 @@ a.signup_button {
 	margin-top: 100px;	
 	margin-left: auto;
 	margin-right: auto;
+	clear:both;
 }
 
 #footer .navigation {
 	float: none;
 }
 
+.m1 {
+    float:left;
+}
+
+.m1t {
+background : none repeat scroll 0 0 #D01E3B;
+border-bottom:5px solid #E88F9D;
+height:10px;
+overflow:hidden;
+}
 /* User show page */
 
 
