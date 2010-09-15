@@ -1,33 +1,25 @@
-<div class="hd">
-	<div style="width: 230px; padding: 3px;" class="l tac wl2">
-		<div style="padding-left: 5px;"><a title="开心网" class="cf" href="/">
-			<img alt="开心网" src="http://img1.kaixin001.com.cn/i2/kaixinlogo.gif"></a>
-		</div>
+<div id="header" class="span-24 last">
+	<div class="span-6">
+			<img alt="开心网" src="http://img1.kaixin001.com.cn/i2/kaixinlogo.gif">
 	</div>
-	<div class="h3 rt_nav">
-		<% if signed_in? %>
-			<div class="rt_menu l">
+	<div class="span-18 last">
+		<% if signed_in? %>			
 				<a id="head_reg" class="ce" href="http://reg.kaixin001.com">个人中心</a>
-			</div>
-			<div class="l rt_menu_bar"></div>
-			<div class="rt_menu l">
+			
+			
 				<a class="ce" href="http://login.kaixin001.com">退出</a>
-			</div>
-			<div class="l rt_menu_bar"></div>
+			
 		<% else %>
-			<div class="rt_menu l">
+			
 				<a id="head_reg" class="ce" href="http://reg.kaixin001.com">注册</a>
-			</div>
-			<div class="l rt_menu_bar"></div>
-			<div class="rt_menu l">
+			
 				<a class="ce" href="http://login.kaixin001.com">登录</a>
-			</div>
-			<div class="l rt_menu_bar"></div>
+			
 		<% end %>
-		<div class="rt_menu l">
+		
 			<a class="ce" href="/s/help.html">帮助</a>
-		</div>
+		
 	</div>
-	<div class="c"></div>
 </div>
+
 
