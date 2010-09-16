@@ -2,6 +2,10 @@ body {
 
 }
 
+.red {
+	color:#FF0000;
+}
+
 /* header part*/
 #header {
 
@@ -33,4 +37,201 @@ margin:0 auto;
 	text-decoration: underline;
 }
 
+.m1t {
+	background:none repeat scroll 0 0 #D01E3B;
+	border-bottom:5px solid #E88F9D;
+	height:10px;
+	overflow:hidden;
+}
 
+.back_gray{
+	background-color: #cccccc;
+}
+
+.min-high-1 {min-height:30px;_height:30px;}
+.min-high-2 {min-height:60px;_height:60px;}
+.min-high-3 {min-height:90px;_height:90px;}
+.min-high-4 {min-height:120px;_height:120px;}
+.min-high-5 {min-height:150px;_height:150px;}
+.min-high-6 {min-height:180px;_height:180px;}
+.min-high-7 {min-height:210px;_height:210px;}
+.min-high-8 {min-height:240px;_height:240px;}
+.min-high-9 {min-height:270px;_height:270px;}
+.min-high-10 {min-height:300px;_height:300px;}
+.min-high-11 {min-height:330px;_height:330px;}
+.min-high-12 {min-height:360px;_height:360px;}
+.min-high-13 {min-height:390px;_height:390px;}
+.min-high-14 {min-height:420px;_height:420px;}
+.min-high-15 {min-height:450px;_height:450px;}
+.min-high-16 {min-height:480px;_height:480px;}
+.min-high-17 {min-height:510px;_height:510px;}
+.min-high-18 {min-height:540px;_height:540px;}
+.min-high-19 {min-height:570px;_height:570px;}
+.min-high-20 {min-height:600px;_height:600px;}
+.min-high-21 {min-height:630px;_height:630px;}
+.min-high-22 {min-height:660px;_height:660px;}
+.min-high-23 {min-height:690px;_height:690px;}
+.min-high-24 {min-height:720px;_height:720px;}
+.min-high-25 {min-height:750px;_height:750px;}
+.min-high-26 {min-height:780px;_height:780px;}
+.min-high-27 {min-height:810px;_height:810px;}
+.min-high-28 {min-height:840px;_height:840px;}
+
+/*group forms begin*/
+.input-text {
+	border:1px solid #BDC7D8;
+	padding:3px;
+}
+
+/* id="_index_login_form" begin */
+#_index_login_form {
+	background-color:#F0F5F8;
+	border-left:1px solid #B8D4E8;
+	border-right:1px solid #B8D4E8;
+	border-bottom:1px solid #B8D4E8;
+	padding:20px;
+}
+
+#_index_login_form p {
+	line-height:20px;
+	margin:5px 0;
+}
+#_index_login_form p.top {
+	margin:0;
+	padding:0;
+}
+#_index_login_form p.bottom {
+	margin-bottom:0;
+	margin-left:48px;
+	padding:0;
+}
+#_index_login_form p.bottom .getpassword {
+	display:block;
+	margin-top:5px;
+}
+#_index_login_form p.savepassword {
+	margin-bottom:-4px;
+	margin-top:-8px;
+}
+
+#_index_login_form ._mid_label {
+	color:#333333;
+	float:left;
+	font-size:14px;
+	font-weight:normal;	    
+	text-align:right;
+	padding-top:11px;
+	padding-right:5px;
+}
+
+#_index_login_form ._labelCheckbox {
+	color:#333333;
+	float:none;
+	font-size:12px;
+	font-weight:normal;	
+}
+
+#_index_login_form p.savepassword input[type=checkbox] {
+	margin-left:48px;
+	width:13px;
+}
+
+#_index_login_form input[type=text], input[type=password]{
+	background-color:#FFFFFF;
+	background-position:0 -170px;
+	padding:6px 3px;
+	width:140px;
+	background-image:url("http://s.xnimg.cn/imgpro/login/login-new2.png");
+}
+
+#_index_login_form input[type=submit],.input-button {
+	background-color:#005EAC;
+	border-color:#B8D4E8 #124680 #124680 #B8D4E8;
+	border-style:solid;
+	border-width:1px;
+	color:#FFFFFF;
+	cursor:pointer;
+	font-size:14px;
+	height:30px;
+	text-align:center;
+	width:92px;
+}
+
+#_index_login_form input[disabled] {
+	background-color:#D4D0C8;
+	border:0 none;
+}
+
+#_index_login_form input[type=text]:focus, 
+#_index_login_form input[type=password]:focus  {
+	border-left:2px solid #000000;
+	border-top:2px solid #000000;
+	border-bottom:1px solid #ccc;
+	border-right:1px solid #ccc;
+	width:140px;
+}
+
+
+.regnow {
+	border-top:1px solid #DDDDDD;
+	margin-top:10px;
+	padding:30px 0 10px 50px;
+}
+.regnow .input-button {
+	background-color:#67A54B;
+	border-color:#95BF82 #3B6E22 #3B6E22 #95BF82;
+}
+
+/* id="_index_login_form" end */
+/*group forms end*/
+
+/* group index search begin */
+
+.search_panel {
+	background-color:#F0F5F8;
+	border:1px solid #F0F5F8;
+	color:#808080;
+	display:block;
+	margin:10px 0;
+	padding:10px 15px;
+	position:relative;
+}
+
+.search_panel:hover {
+	border-color:#B8D4E8;
+}
+
+.search_panel form input[type] {
+	border:2px solid #ccc;
+	vertical-align:middle;	
+}
+.search_panel form input[type=text] {
+	border:2px solid #ccc;
+	height:28px;
+	width:140px;
+}
+
+.hot_events_tag a {
+	padding-right:10px;
+	color:#888888;
+	text-decoration:none;
+}
+
+.hot_events_tag a:visited {
+	color:#888888;
+	text-decoration:none;
+}
+
+.hot_events_tag a:hover {
+	color:#005EAC;
+	text-decoration:underline;
+}
+
+.hot_events_tag .more {
+	float:right;
+}
+
+.hot_events_tag .more a {
+	color:red;
+}
+/* group index search end*/
