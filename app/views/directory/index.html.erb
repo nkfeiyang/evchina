@@ -1,7 +1,9 @@
-<style type="text/css">
-	.red{color:red;}
+<% content_for :left do %>	
+	<%= render 'directory/categories' %>
+	<hr class="space"/>
+	<%= render 'directory/date' %>
+<% end %>
 
-</style>
-<%= render 'directory/categories' %>
-<%= render 'directory/date' %>
-<%= render 'directory/events' %>
+<% content_for :right do %>
+	<%= render 'directory/events' %>
+<% end %>

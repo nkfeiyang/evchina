@@ -12,11 +12,17 @@
 		<%= javascript_include_tag :defaults %>
 	</head>
 	<body>
-		<div class="container showgrid">
+		<div class="container">
 			<%= render 'layouts/header' %>
 			
-			<div id="content"  class="span-24 last">				
-				<%= yield %>
+			<div id="content"  class="span-24 last">
+				<div class="span-6 min-high-20">
+					<div class="m1t"></div>				
+					<%= yield :left %>
+				</div>
+				<div class="span-18 min-high-20 last">
+					<%= yield :right %>
+				</div>	
 			</div>
 			
 			<%= render 'layouts/footer' %>

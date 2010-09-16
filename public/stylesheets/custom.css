@@ -235,3 +235,22 @@ margin:0 auto;
 	color:red;
 }
 /* group index search end*/
+
+/* group event category box begin */
+.filter_box {
+	background-color:#FFFFFF;
+	border:1px solid #E3E3E3;	
+}
+
+.filter_title {
+	background-color:#F1F1F1;
+	
+}
+.filter_title span {
+	margin:auto;
+	padding-left:50px;
+}
+.filter_items {
+	padding:20px
+}
+/* group event category box end */

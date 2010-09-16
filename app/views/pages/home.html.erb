@@ -1,5 +1,5 @@
-<div class="span-6 min-high-20">
-    <div class="m1t"></div>
+<% content_for :left do %>
+
 	<div id="_index_login_form">
 		<%= render 'pages/login_form' %>
 		<div class="regnow">
@@ -10,10 +10,11 @@
 	<div class="span-6">
 		<%= render 'pages/search_form' %>		
 	</div>
-</div>
+<% end %>
 
-<div class="span-18 min-high-20 last">
-	
+
+
+<% content_for :right do %>	
     <!--line 1 begin-->	
 	<div class="prepend-top span-7">
 		<div class="span-7">
@@ -37,7 +38,7 @@
 		<img src="http://midtsiden.no/files/imagecache/Toppsak/amfi2010_9357.jpg"/>
 	</div>
 	<!--line 2 end-->
-	
-</div>	
+<% end %>	
+
 
 
