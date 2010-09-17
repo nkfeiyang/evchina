@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100913090647) do
+ActiveRecord::Schema.define(:version => 20100917091016) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -29,6 +29,9 @@ ActiveRecord::Schema.define(:version => 20100913090647) do
     t.string   "event_logo_url"
     t.string   "status"
     t.integer  "category_id"
+    t.integer  "views"
+    t.integer  "score"
+    t.string   "intro"
   end
 
   create_table "users", :force => true do |t|

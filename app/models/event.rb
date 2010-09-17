@@ -16,6 +16,11 @@ class Event < ActiveRecord::Base
     category_id.present? ? {:conditions => ['category_id = ?', category_id]} : {}
   }
 
+  def IncrementViews
+    v = (views.nil? ? 0 : views)+1 
+    update_attribute(:views, v)
+  end
+  
   
   private
     def self.TimeRange(period)   

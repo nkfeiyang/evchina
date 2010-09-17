@@ -1,17 +1,40 @@
 
-<tr> 
-  <td class="micropost">
-  	<span class="user">
-  	  <%= link_to h(event_item.user.login), event_item.user %>
-  	</span>
-	<span class="content"><%= event_item.category.name %></span>
-	<span class="content"><%= event_item.content %></span>
-	<span class="timestamp">
-	  发表于<%= time_ago_in_words(event_item.created_at) %> 之前.	
-	</span>
-	<span class="timestamp">
-		开始:<%= event_item.start_time.strftime('%Y-%m-%d') %>
-	</span>
-  </td>
-
-</tr>
+<div class="event_item min-high-4 last"> 
+  <div class="event_date_btn">
+  	<div class="out">
+	  	<span class="event_day">
+	  		<%= event_item.start_time.day %>
+		</span>
+		<span class="event_month">
+			<%= event_item.start_time.month %>月
+		</span>
+	</div>
+	<div class="out ev_date_part_y">
+		<span>
+			<%= event_item.start_time.year %>年
+		</span>
+	</div>
+	<span class="event_date_btn_bottom"> </span>
+  </div>
+  <div class="event_thumb">
+  	<% if (event_item.event_logo_url.blank?) %>
+		<%= link_to image_tag('/images/no_image.png', :alt => event_item.title, :class => 'thumb_t'),
+ 			event_path(event_item), :title =>  event_item.title, :target => '_blank' %>
+	<% else %>
+		<%= link_to image_tag(event_item.event_logo_url, :alt => event_item.title, :class => 'thumb_t'),
+ 			event_path(event_item), :title =>  event_item.title, :target => '_blank' %>
+	<% end %>
+  </div>  
+  <div class="span-14 event_detail last">
+  	<h3><%= link_to event_item.title, event_path(event_item), :class => 'event_title', :target => '_blank' %></h3>
+	<div class="description">
+		<%= event_item.intro %>
+	</div>
+	<ul class="actions">
+		<li><%= link_to event_item.category.name, filter_Uri("category_id", event_item.category.id) %></li>
+		<li>关注:<%= event_item.views %></li>
+		<li>评分:<%= event_item.score %></li>
+		<li><%= link_to h(event_item.user.login), event_item.user %> 发布于<%= time_ago_in_words(event_item.created_at) %>之前</li>
+	</ul>
+  </div>
+</div>

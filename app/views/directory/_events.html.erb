@@ -1,6 +1,12 @@
-<% unless @events.empty? %>
-  <table class="microposts">
-  	<%= render :partial => 'event_item', :collection => @events %>
-  </table>
-  <%= will_paginate @events %>
-<% end %>
+<div class="_event_search_form last">
+	<div class="prepend-9">
+	<%= render 'pages/search_form' %>
+	</div>
+</div>
+<hr style="margin-top:1px;"/>
+<div class="span-18 event-list last">
+	<% unless @events.empty? %>	  
+	  	<%= render :partial => 'event_item', :collection => @events %>	  
+	  <%= will_paginate @events, :next_label => '前一页', :previous_label => '后一页'  %>
+	<% end %>
+</div>

@@ -1,12 +1,17 @@
 module DirectoryHelper
   def filter_Uri(var, val)
-   
+    ret = "";
+    val = val.to_s
     category_id = ""
     if (var.downcase == "category_id")
       category_id = val
     else
       category_id = params[:category_id].nil? ? "" : params[:category_id]
     end
+    
+    if (category_id != "")
+      ret = ret + '&category_id=' + category_id
+    end    
     
     start_time = ""
     
@@ -16,7 +21,17 @@ module DirectoryHelper
       start_time = params[:start_time].nil? ? "" : params[:start_time]
     end
     
-    return '?category_id=' + category_id + '&start_time=' + start_time
+    if (start_time != "")
+      ret = ret + '&start_time=' + start_time
+    end
+    
+    if (!ret.blank?)
+      ret[0] = '?'
+    else
+      ret = '?'
+    end
+    
+    return ret
     
   end
   
@@ -35,16 +50,16 @@ module DirectoryHelper
   end
   
   def GetCategoryCssClass(cate_id)
-    if (params[:category_id] == cate_id.to_s)
-      return 'red'
+    if (params[:category_id] == cate_id.to_s || (params[:category_id].nil? && cate_id.blank?))
+      return 'active'
     else
       return ''
     end
   end
   
   def GetTimeRangeCssClass(timename)
-    if (params[:start_time] == timename)
-      return 'red'
+    if (params[:start_time] == timename || (params[:start_time].nil? && timename.blank?))
+      return 'active'
     else
       return ''
     end

@@ -1,44 +1,8 @@
-<div class="search_panel">
-    <div>
-        <form action="http://browse.renren.com/searchEx.do?ref=syshome" method="get" id="oos" name="oos">
-        	<input type="text" class="input-text" name="q" id="eventname" style="color: rgb(136, 136, 136);">
-			<input type="image" alt="search" src="/images/search_button.png" onclick="if($('oos')['q'].value == '寻找热门事件...') {return;}else $('oos').submit()"/>
-            <script type="text/javascript">
-                $('oos')['q'].value = '寻找热门事件...';
-            </script> 
-        </form>
-    </div>
-    <div class="hot_events_tag">
-        <a href="">互联网大会</a>
-        <a href="">投资人</a>
-        <a href="">Intel开发者</a>
-        <a href="">陈楚生演唱会</a>
-        <a href="">申雪首体婚礼演出</a>
-        <a href="">奥迪AX首发</a>
-        <a href="">创新工场发布会</a>
-        <a href="">百度计算日</a>
-        <a href="">2010秋季房展会</a>
-        <a href="">草根站长大会</a>
-        <a href="">互联网大会</a>
-        <a href="">投资人</a>
-        <a href="">Intel开发者</a>
-        <a href="">陈楚生演唱会</a>
-        <a href="">申雪首体婚礼演出</a>
-        <a href="">奥迪AX首发</a>
-        <a href="" class="red">创新工场发布会</a>
-        <a href="">百度计算日</a>
-        <a href="">2010秋季房展会</a>
-        <a href="">草根站长大会</a>
-        <a href="">互联网大会</a>
-        <a href="">投资人</a>
-        <a href="">Intel开发者</a>
-        <a href="">陈楚生演唱会</a>
-        <a href="">申雪首体婚礼演出</a>
-        <a href="">奥迪AX首发</a>
-        <a href="">创新工场发布会</a>
-        <a href="">百度计算日</a>
-        <a href="">2010秋季房展会</a>
-        <a href="">草根站长大会</a>
-        <span class="more"><%= link_to '更多...', :controller => 'directory', :action => 'index' %></span>
-    </div>
+<div id="searh_form">
+	<form action="http://browse.renren.com/searchEx.do?ref=syshome" method="get" id="oos" name="oos">
+	    <input type="text" class="input-text" name="q" id="eventname" style="color: rgb(136, 136, 136);"><input type="image" alt="search" src="/images/search_button.png" onclick="if($('oos')['q'].value == '寻找热门事件...') {return;}else $('oos').submit()"/>
+	    <script type="text/javascript">
+	        $('oos')['q'].value = '寻找热门事件...';
+	    </script>
+	</form>
 </div>

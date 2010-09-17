@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_filter    :require_user
+  #before_filter    :require_user
   def index
     @events = Event.all()
   end
@@ -44,7 +44,9 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find(params[:id])    
+    @event = Event.find(params[:id])
+    #@event.IncrementViews(@event.views)
+    @event.IncrementViews
   end
 
 end

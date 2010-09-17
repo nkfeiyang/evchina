@@ -6,6 +6,25 @@ body {
 	color:#FF0000;
 }
 
+ul {
+	list-style:none outside none;
+}
+
+/* debug use begin */
+.show_border_1 {
+	border:1px solid #E88F9D;
+}
+.show_border_2 {
+	border:1px solid #158144;
+}
+.show_bg_1 {
+	background-color: #cccccc;
+}
+.show_bg_2 {
+	background-color: #FFFF20;
+}
+/* debug use end */
+
 /* header part*/
 #header {
 
@@ -185,7 +204,21 @@ margin:0 auto;
 /* id="_index_login_form" end */
 /*group forms end*/
 
+/* search input common setting begin*/
+#searh_form form input[type] {
+	border:2px solid #ccc;
+	vertical-align:middle;	
+}
+
+#searh_form form input[type=text] {
+	border:2px solid #ccc;
+	height:28px;
+	width:140px;
+}
+/* search input common setting end */
+
 /* group index search begin */
+
 
 .search_panel {
 	background-color:#F0F5F8;
@@ -201,15 +234,6 @@ margin:0 auto;
 	border-color:#B8D4E8;
 }
 
-.search_panel form input[type] {
-	border:2px solid #ccc;
-	vertical-align:middle;	
-}
-.search_panel form input[type=text] {
-	border:2px solid #ccc;
-	height:28px;
-	width:140px;
-}
 
 .hot_events_tag a {
 	padding-right:10px;
@@ -236,6 +260,10 @@ margin:0 auto;
 }
 /* group index search end*/
 
+/* group event search begin */
+._event_search_form #searh_form form input[type=text] {width:302px;}
+/* group event search end */
+
 /* group event category box begin */
 .filter_box {
 	background-color:#FFFFFF;
@@ -246,11 +274,181 @@ margin:0 auto;
 	background-color:#F1F1F1;
 	
 }
-.filter_title span {
-	margin:auto;
-	padding-left:50px;
+.filter_title span {	
+	display:block;
+	text-align:center;
+	padding-left:0;
+	padding-top:5px;
+	font-size:14px;
 }
+
 .filter_items {
-	padding:20px
+	
+}
+
+.filter_items .sidebar-menu {
+	padding:0;	
+	width:100%;
+}
+
+.filter_items .sidebar-menu a {
+	-moz-border-radius:25px 25px 25px 25px;
+	display:block;
+	font-weight:bold;
+	margin:4px 10px 4px 10px;
+	padding:4px;	
+	text-align:center;
+}
+
+.filter_items .sidebar-menu .active, .filter_items .sidebar-menu a:hover {
+	background:none repeat scroll 0 0 #E5ECF3;
 }
 /* group event category box end */
+
+/* group event item begin */
+.event_item {
+	border-bottom:1px solid #CFDEF0;
+	margin-bottom:10px;
+	padding-bottom:10px;
+}
+
+.event_date_btn {
+	background:url("http://cdn2.diggstatic.com/img/sprites/global.91c05f74.png") no-repeat scroll 0 0 #FFF095;
+	cursor:pointer;
+	float:left;
+	margin-right:5px;
+	text-align:center;
+	width:51px;
+}
+
+.event_date_btn span {
+	display:block;
+}
+
+.event_date_btn .out {
+	color:#93883E;
+	padding:5px 4px 3px;
+}
+
+.event_date_btn .event_day {
+	
+}
+
+.event_date_btn .ev_date_part_y span {
+	-moz-border-radius:3px 3px 3px 3px;
+	background:none repeat scroll 0 0 white;	
+	text-align:left;
+}
+
+.event_date_btn_bottom {
+	background:url("http://cdn2.diggstatic.com/img/sprites/global.91c05f74.png") no-repeat scroll 0 -104px transparent;
+	border:medium none;
+	height:4px;
+	margin-bottom:-4px;
+	padding:0;
+}
+
+.event_thumb {
+	border:1px solid #CCDCEF;
+	display:block;
+	overflow:hidden;
+	float:left;
+	margin-right:5px;
+}
+.event_thumb img {
+    display:block;
+}
+
+.event_thumb .thumb_t {
+	height:65px;
+	padding:3px;
+	width:65px;
+}
+
+.event_detail {	
+	padding-top:3px;	
+}
+
+.event_detail h3 {
+	color:red;
+	margin-bottom:3px;
+	margin-right:15px;
+	text-decoration:none;
+	word-wrap:break-word;
+}
+
+.event_detail h3 a:hover, .event_title a:hover {
+	color:#333333;
+	text-decoration:underline;
+}
+
+.event_detail .event_title:visited {
+	color:#86B0E1;
+}
+
+.event_detail .description {
+	clear:left;
+	line-height:1.33333em;
+	margin-bottom:10px;
+	word-wrap:break-word;	
+
+}
+
+
+.event_detail .actions {
+	clear:left;
+	padding-left: 0;
+}
+
+.event_detail .actions a {
+	color:#578CCA;
+	float:left;
+}
+
+.event_detail .actions a:hover {
+	text-decoration:underline;
+}
+
+.event_detail .actions li {
+	color:#999999;
+	float:left;
+	line-height:1.16667em;
+	margin-right:10px;
+}
+/* group event item end */
+
+ * 
+ /* will_paginate begin  */
+.pagination {
+  padding: 3px;
+  margin: 3px;
+  float:right;
+}
+.pagination a {
+  padding: 2px 5px 2px 5px;
+  margin: 2px;
+  border: 1px solid #aaaadd;
+  text-decoration: none;
+  color: #000099;
+}
+.pagination a:hover, .pagination a:active {
+  border: 1px solid #000099;
+  color: #000;
+}
+.pagination span.current {
+  padding: 2px 5px 2px 5px;
+  margin: 2px;
+  border: 1px solid #000099;
+  font-weight: bold;
+  background-color: #000099;
+  color: #FFF;
+}
+.pagination span.disabled {
+  padding: 2px 5px 2px 5px;
+  margin: 2px;
+  border: 1px solid #eee;
+  color: #ddd;
+}
+
+/* will_paginate end */
+ */
