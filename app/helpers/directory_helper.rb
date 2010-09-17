@@ -65,5 +65,18 @@ module DirectoryHelper
     end
   end
   
+  def format_event_interval(event)
+    s = event.start_time
+    e = event.end_time
+    hh = DateTime.parse(e.strftime("%Y-%m-%d")) - DateTime.parse(s.strftime("%Y-%m-%d"))
+    
+    if (hh == 0)
+      return s.strftime("%Y-%m-%d %H:%M") + '至' + e.strftime('%H:%M')
+    elseif (s.year == e.year)
+      return s.strftime("%Y-%m-%d %H:%M") + '至' + e.strftime('%d %H:%M')
+    else
+      return s.strftime("%Y-%m-%d %H:%M") + '至' + e.strftime('%Y-%m-%d %H:%M')
+    end    
+  end
   
 end

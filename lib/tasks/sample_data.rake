@@ -37,10 +37,14 @@ namespace :db do
   def make_events
     User.all(:limit => 30).each do |user|
       3.times do
+        t = (rand(30)+1)*30*60*60
         user.events.create!(:title => Faker::Lorem.sentence(4),
                             :intro => Faker::Lorem.sentence(30),
                             :content => Faker::Lorem.sentence(150),
-                            :start_time => Time.now + (rand(30)+1)*30*60*60,
+                            :start_time => Time.now + t, 
+                            :end_time => Time.now + t + rand(24)*60*60,
+                            :views => 0,
+                            :score => 3,
                             :status => "published",
                             :category_id => rand(6)+1)
       end

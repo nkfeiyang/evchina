@@ -7,10 +7,11 @@
 			</li>
 			<% for category in @categories %>
 				<li>
-				  <% if get_category_count(category.id) > 0 %>
-				    <%= link_to h(category.name+"("+get_category_count(category.id).to_s()+")"), filter_Uri("category_id", category.id.to_s), :class=>GetCategoryCssClass(category.id) %>
+				  <% count = get_category_count(category.id) 
+					if count  > 0 %>
+				    <%= link_to h( category.name + "(" + count.to_s() + ")" ), filter_Uri("category_id", category.id.to_s), :class=>GetCategoryCssClass(category.id) %>
 				  <% else %>
-				    <%= category.name %>(0)
+				    <a class="gray"><%= category.name %>(0)</a>
 				  <% end %>
 			  </li>
 			<% end %>

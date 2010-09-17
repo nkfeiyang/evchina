@@ -1,13 +1,30 @@
+<% 
+menu = [
+		["", "全部"],
+		["today", "今天"],
+		["tomorrow", "明天"],
+		["this_week", "本周"],
+		["this_weekend", "本周末"],
+		["next_week", "下周"],
+		["this_month", "本月"],
+		["next_month", "下月"],
+		["this_year", "今年"]
+		] 
+%>
 <div class="filter_box">
 	<div class="filter_title min-high-1"><span>活动时间</span></div>
 	<div class="filter_items">
-	<a href="<%= filter_Uri("start_time", "")%>" class=<%= GetTimeRangeCssClass('') %>>全部(<%= get_time_range_count('') %>)</a><br/>
-	<a href="<%= filter_Uri("start_time", "today")%>" class=<%= GetTimeRangeCssClass('today') %>>今天(<%= get_time_range_count('today') %>)</a><br/>
-	<a href="<%= filter_Uri("start_time", "this_week")%>" class=<%= GetTimeRangeCssClass('this_week') %>>本周(<%= get_time_range_count('this_week') %>)</a><br/>
-	<a href="<%= filter_Uri("start_time", "this_weekend")%>" class=<%= GetTimeRangeCssClass('this_weekend') %>>本周末(<%= get_time_range_count('this_weekend') %>)</a><br/>
-	<a href="<%= filter_Uri("start_time", "next_week")%>" class=<%= GetTimeRangeCssClass('next_week') %>>下周(<%= get_time_range_count('next_week') %>)</a><br/>
-	<a href="<%= filter_Uri("start_time", "this_month")%>" class=<%= GetTimeRangeCssClass('this_month') %>>本月(<%= get_time_range_count('this_month') %>)</a><br/>
-	<a href="<%= filter_Uri("start_time", "next_month")%>" class=<%= GetTimeRangeCssClass('next_month') %>>下月(<%= get_time_range_count('next_month') %>)</a><br/>
-	<a href="<%= filter_Uri("start_time", "this_year")%>" class=<%= GetTimeRangeCssClass('this_year') %>>今年(<%= get_time_range_count('this_year') %>)</a><br/>
+		<ul class="sidebar-menu">
+			<% menu.each do |k| %>			
+			<li>
+				<% count = get_time_range_count(k[0]) 
+				if count  > 0 %>
+					<%= link_to h( k[1] + "(" + count.to_s() + ")" ), filter_Uri("start_time", k[0]), :class=>GetTimeRangeCssClass(k[0]) %>
+				<% else %>
+					<a class="gray"><%= k[1] %>(0)</a>
+				<% end %>
+			</li>
+			<% end %>
+		</ul>
 	</div>
 </div>
