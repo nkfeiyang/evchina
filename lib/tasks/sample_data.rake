@@ -37,12 +37,13 @@ namespace :db do
   def make_events
     User.all(:limit => 30).each do |user|
       3.times do
-        t = (rand(30)+1)*30*60*60
+        t = (rand(30)+1)*24*60*60
         user.events.create!(:title => Faker::Lorem.sentence(4),
                             :intro => Faker::Lorem.sentence(30),
                             :content => Faker::Lorem.sentence(150),
-                            :start_time => Time.now + t, 
-                            :end_time => Time.now + t + rand(24)*60*60,
+                            :start_time => Time.now.beginning_of_day + 9*60*60 + t, 
+                            :end_time => Time.now.beginning_of_day + 9*60*60 + t + rand(24)*60*60,
+                            :address => '北京市海淀区增光路55号紫玉饭店写字楼一层',
                             :views => 0,
                             :score => 3,
                             :status => "published",

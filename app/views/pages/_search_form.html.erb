@@ -1,8 +1,9 @@
 <div id="searh_form">
-	<form action="http://browse.renren.com/searchEx.do?ref=syshome" method="get" id="oos" name="oos">
-	    <input type="text" class="input-text" name="q" id="eventname" style="color: rgb(136, 136, 136);"><input type="image" alt="search" src="/images/search_button.png" onclick="if($('oos')['q'].value == '寻找热门事件...') {return;}else $('oos').submit()"/>
+	<form action="/directory" method="get" id="oos" name="oos">
+	    <input type="text" value='<%= params[:q] %>' class="input-text" name="q" id="eventname" style="color: rgb(136, 136, 136);"><input type="image" alt="search" src="/images/search_button.png" onclick="if($('oos')['q'].value == '寻找热门事件...') {return;}else $('oos').submit()"/>
 	    <script type="text/javascript">
-	        $('oos')['q'].value = '寻找热门事件...';
+	    	if ($('oos')['q'].value == '')
+	        	$('oos')['q'].value = '寻找热门事件...';
 	    </script>
 	</form>
 </div>

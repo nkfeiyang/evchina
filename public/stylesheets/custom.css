@@ -6,6 +6,14 @@ body {
 	color:#FF0000;
 }
 
+.gray {
+    color:#BAACC5;	
+}
+
+.tc {
+	text-align:center;
+}
+
 ul {
 	list-style:none outside none;
 }
@@ -108,6 +116,7 @@ margin:0 auto;
 
 /* id="_index_login_form" begin */
 #_index_login_form {
+	-moz-border-radius:0 0 5px 5px;
 	background-color:#F0F5F8;
 	border-left:1px solid #B8D4E8;
 	border-right:1px solid #B8D4E8;
@@ -168,6 +177,7 @@ margin:0 auto;
 }
 
 #_index_login_form input[type=submit],.input-button {
+	-moz-border-radius:5px 5px 5px 5px;
 	background-color:#005EAC;
 	border-color:#B8D4E8 #124680 #124680 #B8D4E8;
 	border-style:solid;
@@ -215,6 +225,7 @@ margin:0 auto;
 }
 
 #searh_form form input[type=text] {
+	-moz-border-radius:5px 5px 5px 5px;
 	border:2px solid #ccc;
 	height:28px;
 	width:140px;
@@ -225,6 +236,7 @@ margin:0 auto;
 
 
 .search_panel {
+	-moz-border-radius:5px 5px 5px 5px;
 	background-color:#F0F5F8;
 	border:1px solid #F0F5F8;
 	color:#808080;
@@ -272,11 +284,22 @@ margin:0 auto;
 .filter_box {
 	background-color:#FFFFFF;
 	border:1px solid #E3E3E3;	
+	-moz-border-radius: 5px 5px 5px 5px;
+}
+
+.filter_box#event_cate {   /*这个部分跟顶部连接，为了避免上面露出空白，对其进行调整*/
+	background-color:#FFFFFF;
+	border:1px solid #E3E3E3;	
+	-moz-border-radius: 0 0 5px 5px;
 }
 
 .filter_title {
 	background-color:#F1F1F1;
-	
+	-moz-border-radius: 5px 5px 5px 5px;
+}
+
+#event_cate .filter_title {    /*修改活动分类的title,不让上面两个角变化，避免露出空白*/
+	-moz-border-radius: 0 0 5px 5px;
 }
 .filter_title span {	
 	display:block;
@@ -297,10 +320,10 @@ margin:0 auto;
 }
 
 .filter_items .sidebar-menu a {
-	-moz-border-radius:25px 25px 25px 25px;
+	-moz-border-radius:10px 10px 10px 10px;
 	display:block;	
-	margin:4px 10px 4px 10px;
-	padding:4px;	
+	margin:2px 10px 2px 10px;
+	padding:2px;	
 	text-align:center;
 	text-decoration:none;
 }
@@ -388,9 +411,10 @@ margin:0 auto;
 .event_detail h3 {
 	color:red;
 	margin-bottom:3px;
-	margin-right:15px;
+	margin-right:5px;
 	text-decoration:none;
 	word-wrap:break-word;
+	font-size:16px;
 }
 
 .event_detail h3 a:hover, .event_title a:hover {
@@ -405,6 +429,7 @@ margin:0 auto;
 .event_detail .description {
 	clear:left;
 	line-height:1.33333em;
+	margin-top:10px;
 	margin-bottom:10px;
 	word-wrap:break-word;	
 
@@ -414,22 +439,23 @@ margin:0 auto;
 .event_detail .actions {
 	clear:left;
 	padding-left: 0;
+	
 }
 
 .event_detail .actions a {
 	color:#578CCA;
 	float:left;
+	text-decoration:none;
 }
 
 .event_detail .actions a:hover {
 	text-decoration:underline;
 }
 
-.event_detail .actions li {
-	color:#999999;
+.event_detail .actions li {	
 	float:left;
 	line-height:1.16667em;
-	margin-right:10px;
+	margin-right:20px;
 }
 /* group event item end */
 
@@ -467,4 +493,118 @@ margin:0 auto;
 }
 
 /* will_paginate end */
- */
+ 
+/* group event show begin */
+#show_event .head {
+    
+}
+#show_event .title {
+	
+}
+#show_event .title h1 {
+	line-height: 1.5
+}
+
+#show_event .title .start_date {
+	
+}
+
+#show_event .event_logo img{
+	float:right;
+	padding-top:15px;	
+}
+
+#show_event .colleft, #show_event .colright {
+	padding-top:15px;
+}
+
+#show_event .share {
+	height:40px;
+	margin-top: 10px;
+	vertical-align:baseline;
+}
+#show_event .banner_share  {	
+	height:27px;
+	
+}
+
+#show_event .banner_share li {
+	background:url("/images/share.gif") repeat scroll 0 0 transparent;
+	float:left;
+	height:20px;
+	line-height:20px;
+	list-style:none outside none;	
+	padding-left:20px;
+	padding-right:10px;
+	
+}
+
+#show_event .banner_share li a {
+	text-decoration:none;
+	color:#000;
+}
+
+#show_event .banner_share .fenxiang {
+	background:none repeat scroll 0 200px transparent;
+	padding-left:0;
+}
+
+#show_event .banner_share .msn {
+	background-position:0 1px;
+	
+}
+
+#show_event .banner_share .kaixin {
+	background-position:0 138px;
+	
+}
+
+#show_event .banner_share .renren {
+	background-position:0 117px;
+	
+}
+
+#show_event .banner_share .douban {
+	background-position:0 95px;
+}
+
+#show_event .banner_share .sina {
+	background-position:0 71px;
+}
+
+#show_event .banner_share .sohu {
+	background-position:0 29px;
+}
+
+#show_event .banner_share .email {
+	background-position:0 51px;
+}
+
+#show_event .panel_head {
+	background:url("/images/grad_panel_head.png") repeat-x scroll 0 0 #EFEFEF;
+	border-color:#D5D5D3;
+	border-style:solid;
+	border-width:1px 1px 0;
+	color:#005580;
+	font-family:Helvetica,Arial,sans-serif;
+	clear:both;
+	height:40px;
+}
+
+#show_event .panel_head h3 {
+	padding:12px 12px 12px 8px;
+	font-weight:bold;
+}
+
+#show_event .panel_body {
+	background-color:#FFFFFF;
+	border:1px solid #D5D5D3;
+	padding:8px;	
+	word-wrap:break-word;	
+	line-height:25px;
+}
+
+#show_event .colright {	
+	float:right;
+} 
+/* group event show end */

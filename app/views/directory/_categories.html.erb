@@ -1,9 +1,9 @@
-<div class="filter_box">
+<div class="filter_box" id="event_cate">
 	<div class="filter_title min-high-1"><span>活动分类</span></div>
 	<div class="filter_items">
 		<ul class="sidebar-menu">
 			<li>
-				<a href="<%= filter_Uri("category_id", "")%>" class=<%= GetCategoryCssClass('') %>>所有活动(<%=get_total_category_count.to_s()%>)</a>
+				<a href="<%= filter_Uri("category_id", "")%>" class=<%= GetCategoryCssClass('') %>>所有活动(<%=get_category_count('')%>)</a>
 			</li>
 			<% for category in @categories %>
 				<li>

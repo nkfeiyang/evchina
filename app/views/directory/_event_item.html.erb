@@ -26,16 +26,28 @@
 	<% end %>
   </div>  
   <div class="span-14 event_detail last">
-  	<h3><%= link_to event_item.title, event_path(event_item), :class => 'event_title', :target => '_blank' %></h3>
+  	<h3>
+  		<%= link_to truncate_u(event_item.title), event_path(event_item), :class => 'event_title', :target => '_blank' %>
+		<% if Time.now >= event_item.end_time %>
+		    <img src='/images/close_1.gif' alt='该活动已结束' title='该活动已结束'/>
+		<% elsif Time.now >= event_item.start_time && Time.now <= event_item.end_time %>
+			<img src='/images/starting.gif' alt='正在进行' title='该活动正在举行'/>
+		<% elsif DayDiff(event_item.end_time, Time.now.end_of_day) <= 2 %>
+			<img src='/images/on_time.gif' alt='即将进行' title='该活动即将举行'/>
+		<% end %>
+	</h3>
 	<div class="description">
-		<%= event_item.intro %>
-	</div>
+		<%= truncate(event_item.intro, 200) %>
+	</div>	
 	<ul class="actions">
-		<li><%= link_to event_item.category.name, filter_Uri("category_id", event_item.category.id) %></li>
-		<li>开始于:<%= format_event_interval(event_item)%></li>
-		<li>关注:<%= event_item.views %></li>
-		<li>评分:<%= event_item.score %></li>
+		<li><%= image_tag('/images/music_4.gif') %><%= link_to event_item.category.name, filter_Uri("category_id", event_item.category.id) %></li>	
+		<li><span  class="gray">关注：</span><%= event_item.views %></li>
+		<li><span  class="gray">评分：</span><% event_item.score.times do %><img src='images/star_2.gif'/><% end %></li>
 		<li><%= link_to h(event_item.user.login), event_item.user %> 发布于<%= time_ago_in_words(event_item.created_at) %>之前</li>
+	</ul>
+	<ul class="actions" style="padding-top:5px;">
+		<li><span  class="gray">开始时间：</span><%= event_item.start_time.strftime("%Y年%m月%d日%H:%M") %></li>
+		<li><span  class="gray">结束时间：</span><%= event_item.end_time.strftime("%Y年%m月%d日%H:%M") %></li>
 	</ul>
   </div>
 </div>

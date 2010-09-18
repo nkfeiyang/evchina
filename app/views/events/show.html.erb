@@ -1,19 +1,111 @@
-<h1>Events#show</h1>
-<p>
-  <b>Name:</b>
-  <%=h @event.title %>
-</p>
+<%
 
-<p>
-  <b>content:</b>
-  <%=h @event.content %>
-</p>
-
-<p>
-  <b>start time:</b>
-  <%=h @event.start_time %>
-</p>
-
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+%>
+<div id="show_event" class="span-24 last">
+    <div class="head">
+        <div class="title span-16">
+            <h1><%=h @event.title %></h1>
+            <span class="start_date"><%= @event.start_time %>- <%= @event.end_time %></span>
+			<div class="share span-16 last">
+        		<input type="hidden" value="<%= @event.title %> (<%= request.url %>)" id="deal-share-im-c" style="display: inline;" />
+	            <ul class="banner_share" style="padding-left:0;">
+	                <li class="fenxiang">分享到： </li>
+	                <li class="msn" id="deal-share-im">
+	                    <a onclick="copyToClipboard($('deal-share-im-c').value);" href="#">MSN/QQ</a>
+	                </li>
+	                <li class="kaixin">
+	                    <a target="_blank" href="http://www.kaixin001.com/repaste/share.php?rurl=<%= request.url %>&amp;rtitle=<%= @event.title %>">开心</a>
+	                </li>
+	                <li class="renren">
+	                    <a target="_blank" href="http://share.renren.com/share/buttonshare.do?link=<%= request.url %>&amp;title=<%= @event.title %>">人人</a>
+	                </li>
+	                <li class="douban">
+	                    <a target="_blank" href="http://www.douban.com/recommend/?url=<%= request.url %>&amp;title=<%= @event.title %>">豆瓣</a>
+	                </li>
+	                <li class="sina">
+	                    <a target="_blank" href="http://v.t.sina.com.cn/share/share.php?url=<%= request.url %>&amp;title=<%= @event.title %>">新浪微博</a>
+	                </li>
+	                <li class="sohu">
+	                    <a target="_blank" href="http://bai.sohu.com/share/blank/addbutton.do?link=<%= request.url %>&amp;title=<%= @event.title %>">白社会</a>
+	                </li>
+					<li class="email">
+						<a href="mailto:?subject=<%= @event.title %>">邮件</a>
+					</li>
+	            </ul>
+        	</div>
+        </div>
+        <div class="event_logo span-8 last">
+            <% unless @event.event_logo_url.blank? %>
+            <h1><%=h @event.title %></h1>
+            <% else %>
+            <%= image_tag('http://evbdn.eventbrite.com/s3-s3/eventlogos/5368133/797315793.jpg') %>
+            <% end %>
+        </div>
+    </div>
+	
+    <div class="span-16 last colleft">	
+		<div id="event_content">	
+	        <div class="panel_head">
+	            <h3>活动详情</h3>
+	        </div>
+	        <div class="panel_body">
+	            <%=h @event.content %>
+	        </div>
+		</div>
+    </div>
+	
+    <div class="span-8 last colright">
+    	<div id="event_time">
+	    	<div class="panel_head">
+	            <h3>时间</h3>
+	        </div>
+	        <div class="panel_body min-high-3">
+	        	<div class="span-5 tc">
+		            <%= show_ev_date(@event.start_time) %><br/>
+					<span class="gray ">- 至 -</span><br/>
+					<%= show_ev_date(@event.end_time) %>
+				</div>
+				<div class="span-2 tc" style="margin-top:12px;">
+					<img src='/images/icon_add.gif' alt='关注'/> <br/>
+					收藏本活动
+				</div>
+	        </div>   
+		</div>
+		
+		<div class="separator-5"></div>
+		
+		<div id="event_address">
+	    	<div class="panel_head">
+	            <h3>联系</h3>
+	        </div>
+	        <div class="panel_body min-high-6">
+	        	<div class="span-5 ">
+		                                地址：<span class="gray "><%= @event.address %></span> <br/>
+					邮编：<span class="gray ">100909</span><br/>
+					联系人：<span class="gray ">胡锦涛</span><br/>
+					电话：<span class="gray ">010-23748373</span><br/>
+					邮件：<span class="gray ">wang@sina.com.cn</span><br/>
+					网址：<span class="gray "><a href="#">点此访问</a></span>
+				</div>
+				<div class="span-2 tc" style="width:80px;margin-top:0;">
+					<img src='/images/map-demo.jpg' alt='点击查看大图' style="width:80px;height:140px;"/> <br/>
+					点击查看大图
+				</div>
+	        </div>   
+		</div>
+		
+		<div class="separator-5"></div>
+		
+		<div id="event_hostinfo">
+	    	<div class="panel_head">
+	            <h3>举办方信息</h3>
+	        </div>
+	        <div class="panel_body min-high-4">
+	        	1999年底，身在美国硅谷的李彦宏看到了中国互联网及中文搜索引擎服务的巨大发展潜力，抱着技术改变世界的梦想，他毅然辞掉硅谷的高薪工作，携搜索引擎专利技术，与徐勇一同回国，于2000年1月1日在中关村创建了百度公司。从最初的不足10人发展至今，员工人数超过7000人。如今的百度，已成为中国最受欢迎、影响力最大的中文网站。
+				<br/>
+				<a href="#" style="display:block;float:right;">查看该举办方发布的所有活动</a>
+				<br/>
+	        </div>   
+		</div>
+    </div>
+</div>

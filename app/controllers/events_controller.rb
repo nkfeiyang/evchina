@@ -44,9 +44,8 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find(params[:id])
-    #@event.IncrementViews(@event.views)
-    @event.IncrementViews
+    @event = Event.find(params[:id])   
+    @event.IncrementViews    
   end
 
 end

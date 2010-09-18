@@ -4,6 +4,11 @@ class CreateUsers < ActiveRecord::Migration
      
       t.timestamps
       t.string :login, :null => false
+      t.string :truename
+      t.string :telnumber
+      t.string :mobilenumber                         # 手机号
+      t.string :email    
+      t.string :idcode                               # 身份证
       t.string :crypted_password, :null => false
       t.string :password_salt, :null => false
       t.string :persistence_token, :null => false

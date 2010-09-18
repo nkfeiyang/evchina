@@ -1,8 +1,9 @@
 class Event < ActiveRecord::Base
   
-  #default_scope :order => 'create_at DESC'
+  default_scope :order => 'start_time ASC'
   belongs_to :user
   belongs_to :category
+  belongs_to :host_info
   #validates_presence_of :content
   #validates_length_of :content, :maximum => 140
   
@@ -15,7 +16,10 @@ class Event < ActiveRecord::Base
   named_scope :with_category, lambda  { |category_id|
     category_id.present? ? {:conditions => ['category_id = ?', category_id]} : {}
   }
-
+  named_scope :with_query, lambda { |q|
+    q.present? ? {:conditions => ['(title like ?) or (content like ?)', '%'+q+'%', '%'+q+'%']} : {}
+  }
+  
   def IncrementViews
     v = (views.nil? ? 0 : views)+1 
     update_attribute(:views, v)

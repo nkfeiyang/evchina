@@ -7,10 +7,16 @@ class CreateEvents < ActiveRecord::Migration
       t.string :content
       t.datetime :start_time
       t.string :address
+      t.string :zipcode
+      t.string :telnumber
+      t.string :contact_user_name
+      t.string :email
+      t.string :url
       t.integer :user_id
       t.string :event_logo_url
       t.string :status
       t.integer :category_id
+      t.integer :host_info_id
     end
   end
 
