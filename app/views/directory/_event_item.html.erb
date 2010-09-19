@@ -1,6 +1,6 @@
 
 <div class="event_item min-high-4 last"> 
-  <div class="event_date_btn">
+  <div class="event_date_btn fl">
   	<div class="out">
 	  	<span class="event_day">
 	  		<%= event_item.start_time.day %>
@@ -25,7 +25,7 @@
  			event_path(event_item), :title =>  event_item.title, :target => '_blank' %>
 	<% end %>
   </div>  
-  <div class="span-14 event_detail last">
+  <div class="span-14 event_detail last fl">
   	<h3>
   		<%= link_to truncate_u(event_item.title), event_path(event_item), :class => 'event_title', :target => '_blank' %>
 		<% if Time.now >= event_item.end_time %>

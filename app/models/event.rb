@@ -21,8 +21,10 @@ class Event < ActiveRecord::Base
   }
   
   def IncrementViews
-    v = (views.nil? ? 0 : views)+1 
-    update_attribute(:views, v)
+   # v = (views.nil? ? 0 : views)+1 
+   # update_attribute(:views, v)
+   # 直接调用increment方法，可以将指定字段的值加1，或者increment!(:views, 5)
+   # increment!(:views)
   end
   
   

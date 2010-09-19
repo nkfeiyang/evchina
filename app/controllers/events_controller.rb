@@ -45,7 +45,9 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])   
-    @event.IncrementViews    
+    @title = @event.title
+    #@event.IncrementViews
+    @event.increment!(:views)    # 直接调用increment函数更新
   end
 
 end
