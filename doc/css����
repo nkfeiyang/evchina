@@ -1,0 +1,34 @@
+CSS一些技巧
+1.解决DIV嵌套后的高度自适应问题：
+症状：
+<div style="border:1px solid #ccc;">
+    <div style="float:left">
+    abcd<br/>
+    abcd<br/>
+    abcd<br/>
+    </div>
+    <div style="float:left">
+    abcd<br/>
+    </div>
+</div>
+原本是希望做出一个一个大div包含两个div，并且希望小div在同一行上，但结果大div的高度不能跟着其子div变化。
+
+方法一：在父div添加float样式
+方法二：在该div内部最后添加<div style="clear:both" />的空div
+
+2.居中问题：
+<div style="border:1px solid #ccc;width:800px;text-align:center;">
+    <div style="border:1px solid #ff0000;width:50%;margin:auto;">
+	sdfasdf<br/>
+	sdfasdf<br/>
+	sdfasdf<br/>
+	sdfasdf<br/>
+	sdfasdf<br/>
+	sdfasdf<br/>
+	sdfasdf<br/>
+	</div>	
+</div>
+如上，如果希望第二个div在第一个div内部居中，那么除了父div要加上text-align:center之外，
+子div必须加上margin:auto，不然在FF下不正常。(IE下无需margin:auto)。
+
+3.
