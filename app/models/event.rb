@@ -1,6 +1,6 @@
 class Event < ActiveRecord::Base
   
-  default_scope :order => 'start_time ASC'
+  default_scope :order => 'start_time ASC, end_time ASC'
   belongs_to :user
   belongs_to :category
   belongs_to :host_info
@@ -12,10 +12,16 @@ class Event < ActiveRecord::Base
   #(period.present? && (!TimeRanges[period].nil?)) ? { :conditions => [:start_time => TimeRanges[period].call] } : {}
   }
   
-  named_scope :published, :conditions => {:status => 'published'}
+  named_scope :finished,  :conditions => ['end_time <= ?', Time.now]     # 已结束的事件
+  named_scope :starting,  :conditions => ['start_time <= ? and end_time > ?', Time.now, Time.now]    #正在进行的事件
+  named_scope :unstart,   :conditions => ['start_time > ?', Time.now]    # 未开始的事件
+  
+  named_scope :published, :conditions => { :status => 'published' }    # 状态为公开的事件
+  
   named_scope :with_category, lambda  { |category_id|
     category_id.present? ? {:conditions => ['category_id = ?', category_id]} : {}
   }
+  
   named_scope :with_query, lambda { |q|
     q.present? ? {:conditions => ['(title like ?) or (content like ?)', '%'+q+'%', '%'+q+'%']} : {}
   }

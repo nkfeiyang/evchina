@@ -31,7 +31,7 @@ module DirectoryHelper
     if (!ret.blank?)
       ret[0] = '?'
     else
-      ret = '?'
+      ret = '/directory'
     end
     
     return ret
