@@ -90,8 +90,11 @@ class FckeditorController < ActionController::Base
         @errorNumber = 202
         puts "#{ftype} is invalid MIME type"
         raise "#{ftype} is invalid MIME type"
-      else
-        path = current_directory_path + "/" + @new_file.original_filename
+      else        
+        #path = current_directory_path + "/" + @new_file.original_filename  # robin: change the new file name.
+        filename = @new_file.original_filename.split('.').reverse
+        filename = Time.now.strftime("%Y%m%d%H%M%S") + rand(10000).to_s + "." + filename[0]
+        path = current_directory_path + "/" + filename
         File.open(path,"wb",0664) do |fp|
           FileUtils.copy_stream(@new_file, fp)
         end
