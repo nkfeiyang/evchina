@@ -43,7 +43,7 @@ namespace :db do
                             :content => Faker::Lorem.sentence(150),
                             :start_time => Time.now.beginning_of_day + 9*60*60 + t, 
                             :end_time => Time.now.beginning_of_day + 9*60*60 + t + rand(24)*60*60,
-                            :address => '北京市海淀区',
+                            :address => 'Haidian, Beijing',
                             :views => 0,
                             :score => 3,
                             :status => "published",
