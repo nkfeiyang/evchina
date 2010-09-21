@@ -25,10 +25,10 @@ namespace :db do
     admin.toggle!(:admin)
     99.times do |n|
       name = "example#{n+1}"  #Faker::Name.name
-      #email = "example-#{n+1}@evchina.cn"
+      email = "ea-#{n+1}@evchina.cn"
       password = "123456"
       User.create!(:login => name,
-                   #:email => email,
+                   :email => email,
                    :password => password,
                    :password_confirmation => password)
     end
@@ -47,6 +47,7 @@ namespace :db do
                             :views => 0,
                             :score => 3,
                             :status => "published",
+                            :email => "test@uxoo.cn",
                             :category_id => rand(6)+1)
       end
     end

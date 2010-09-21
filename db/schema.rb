@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(:version => 20100918101645) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "title"
-    t.string   "content"
+    t.text     "content"
     t.datetime "start_time"
     t.string   "address"
     t.string   "zipcode"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(:version => 20100918101645) do
     t.integer  "host_info_id"
     t.integer  "views"
     t.integer  "score"
-    t.string   "intro"
+    t.text     "intro"
     t.datetime "end_time"
   end
 
@@ -53,6 +53,11 @@ ActiveRecord::Schema.define(:version => 20100918101645) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "login",                            :null => false
+    t.string   "truename"
+    t.string   "telnumber"
+    t.string   "mobilenumber"
+    t.string   "email"
+    t.string   "idcode"
     t.string   "crypted_password",                 :null => false
     t.string   "password_salt",                    :null => false
     t.string   "persistence_token",                :null => false
