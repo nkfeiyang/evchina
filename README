@@ -24,3 +24,11 @@ http://berlin.eintritt-frei.org/
 http://midtsiden.no/
 
 blueprint example:http://www.ibm.com/developerworks/cn/web/wa-htmlcss/?ca=drs-tp4608#fig1
+
+已创建：moboke.heroku.com   git@heroku.com:moboke.git
+heroku info --app moboke 可以查看信息
+git push heroku master 提交项目于到heroku
+在heroku运行rake命令：
+heroku rake db:version
+heroku rake db:migrate
+heroku rake db:demo    (--trace)

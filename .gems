@@ -1,0 +1,4 @@
+rails -v 2.3.8
+will_paginate --version 2.3.14
+faker
+authlogic
