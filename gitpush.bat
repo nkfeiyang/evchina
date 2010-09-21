@@ -1,4 +1,5 @@
 git add .
-git commit -am "update bat"
+git status
+git commit -am "update and push from bat"
 git push origin master
 
