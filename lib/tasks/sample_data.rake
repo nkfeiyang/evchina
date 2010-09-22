@@ -3,7 +3,7 @@ require 'faker'
 namespace :db do
   desc "Fill database with sample data"
   task :demo => :environment do
-    Rake::Task['db:reset'].invoke
+    Rake::Task['db:migrate'].invoke
     make_categories
     make_users
     make_events    

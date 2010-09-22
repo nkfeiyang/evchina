@@ -1,5 +1,8 @@
 class EventsController < ApplicationController
   #before_filter    :require_user
+  
+  layout "common"
+  
   def index
     @events = Event.all()
   end

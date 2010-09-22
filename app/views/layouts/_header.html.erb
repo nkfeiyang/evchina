@@ -7,13 +7,14 @@
 			<a id="head_reg" class="ce" href="http://reg.kaixin001.com">个人中心</a>
 					
 			<a class="ce" href="http://login.kaixin001.com">退出</a>
+			<%= link_to "Logout", user_session_path, :method => :delete %>
 			
 		<% else %>
 			
 			<a id="head_reg" class="ce" href="http://reg.kaixin001.com">注册</a>
 			
 			<a class="ce" href="http://login.kaixin001.com">登录</a>
-			
+			<%= link_to "Log In", new_user_session_path %>
 		<% end %>
 		
 			<a class="ce" href="/s/help.html">帮助</a>

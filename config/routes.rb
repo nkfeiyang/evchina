@@ -14,8 +14,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :events
   
   map.signup  '/signup',  :controller => 'users', :action => 'new'
-  map.signin    '/signin',  :controller => 'sessions', :action => 'new'
-  map.signout   '/signout', :controller => 'sessions', :action => 'destroy'
+  map.signin    '/signin',  :controller => 'user_sessions', :action => 'new'
+  map.signout   '/signout', :controller => 'user_sessions', :action => 'destroy'
   
   map.root :controller => "pages", :action => 'home'
    
