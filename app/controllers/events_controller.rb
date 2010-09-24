@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   #before_filter    :require_user
-  
+  uses_tiny_mce
+
   layout "common"
   
   def index

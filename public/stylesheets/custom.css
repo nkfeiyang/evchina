@@ -522,7 +522,7 @@ margin:0 auto;
 	padding-top:15px;	
 }
 
-#show_event .colleft, #show_event .colright {
+#show_event .fl, #show_event .fr {
 	padding-top:15px;
 }
 
@@ -613,7 +613,36 @@ margin:0 auto;
 	overflow:auto;
 }
 
-#show_event .colright {	
-	float:right;
-} 
 /* group event show end */
+
+/* group edit event form begin */
+.edit_event label {
+	color:#005580;
+	font-size:20px;
+	font-weight:700;
+	height:30px;
+	line-height:24px;
+	padding:0 10px 0 0;
+	width:auto;
+}
+
+.edit_event input[type=text] {
+	font-size:20px;
+	font-weight:700;	
+}
+
+.edit_event #event_title {
+	width:600px;
+}
+
+.edit_event #event_intro {	
+	width:590px;
+	height:100px;
+}
+
+.edit_event #event_intro {	
+	width:590px;
+	height:100px;
+}
+
+/* group edit event form end */
