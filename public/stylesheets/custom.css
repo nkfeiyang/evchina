@@ -48,8 +48,8 @@ ul {
 /* header part*/
 #header {
 
-background:url("http://img1.kaixin001.com.cn/i/n_bg_r.gif") repeat-x scroll center top #D01E3B;
-margin:0 auto;
+	background:url("/images/n_bg_r.gif") repeat-x scroll center top #D01E3B;
+	margin:0 auto;
 
 }
 
@@ -59,6 +59,23 @@ margin:0 auto;
 
 #header a.ce:hover {
 	color:#ffffff;
+}
+
+#header .rt_nav {
+   padding-right:30px;
+}
+
+#header .rt_nav .rt_menu {
+	background:none repeat scroll 0 0 transparent;	
+	height:29px;
+	text-align:center;
+	width:40px;
+}
+
+#header .rt_nav .rt_menu_bar {
+	background:url("/images/home_sprite_06.gif") no-repeat scroll 0 -855px transparent;
+	height:29px;
+	width:1px;
 }
 
 .navigation {

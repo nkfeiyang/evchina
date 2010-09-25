@@ -14,6 +14,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :events
   
   map.signup  '/signup',  :controller => 'users', :action => 'new'
+  map.config  '/config',  :controller => 'users', :action => 'edit'
   map.signin    '/signin',  :controller => 'user_sessions', :action => 'new'
   map.signout   '/signout', :controller => 'user_sessions', :action => 'destroy'
   

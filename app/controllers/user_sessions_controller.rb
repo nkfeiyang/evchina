@@ -5,6 +5,7 @@ class UserSessionsController < ApplicationController
   layout "common"
   
   def new
+    @title = "登录"
     @user_session = UserSession.new
   end
   
@@ -21,6 +22,6 @@ class UserSessionsController < ApplicationController
   def destroy
     current_user_session.destroy
     flash[:notice] = "成功退出!"
-    redirect_back_or_default  new_user_session_url
+    redirect_back_or_default  signin_url
   end
 end

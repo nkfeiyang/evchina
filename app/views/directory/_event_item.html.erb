@@ -46,8 +46,8 @@
 	<ul class="actions">
 		<li><%= link_to event_item.category.name, filter_Uri("category_id", event_item.category.id) %></li>	
 		<li><span  class="gray">关注：</span><%= event_item.views %></li>
-		<li><span  class="gray">评分：</span><% event_item.score.times do %><img src='images/star_2.gif'/><% end %></li>
-		<li><%= link_to h(event_item.user.login), event_item.user %> 发布于<%= time_ago_in_words(event_item.created_at) %>之前</li>
+		<li><span  class="gray">评分：</span><% event_item.score.times do %><img src='images/redstar.jpg'/><% end %><% (5-event_item.score).times do %><img src='images/huistar.jpg'/><% end %></li>
+		<li><%= link_to h(event_item.user.login), event_item.user %> &nbsp;&nbsp;发布于<%= time_ago_in_words(event_item.created_at) %>之前</li>
 	</ul>
 	<ul class="actions" style="padding-top:5px;">
 		<li><span  class="gray">开始时间：</span><%= event_item.start_time.strftime("%Y年%m月%d日%H:%M") %></li>

@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   layout "common"
   
   def new
+    @title = "新用户注册"
     @user = User.new
   end
   
@@ -19,14 +20,17 @@ class UsersController < ApplicationController
   end
   
   def show
+    @title = "我的优客"
     @user = @current_user
   end
 
   def edit
+    @title = "我的优客"
     @user = @current_user
   end
   
   def update
+    @title = "我的优客"
     @user = @current_user # makes our views "cleaner" and more consistent
     if @user.update_attributes(params[:user])
       flash[:notice] = "更新成功!"
@@ -35,4 +39,6 @@ class UsersController < ApplicationController
       render :action => :edit
     end
   end
+  
+ 
 end

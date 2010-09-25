@@ -1,33 +1,38 @@
 <div id="header" class="span-24 last">
-	<div class="span-6 prepend-2">
-			<a href="/"><img alt="开心网" style="padding-top:3px;" src="http://img1.kaixin001.com.cn/i2/kaixinlogo.gif"></a>
+	<div class="span-6 prepend-2 fl">
+		<a href="/"><img alt="开心网" style="padding-top:3px;" src="http://img1.kaixin001.com.cn/i2/kaixinlogo.gif"></a>
 	</div>
-	<div class="span-3 prepend-12 rt_nav">
-		<% if signed_in? %>		
-		    <div class="rt_menu l">
-			<a class="ce" href="http://reg.kaixin001.com">个人中心</a>
+	<div class="span-15 fr last rt_nav">		
+			<div class="rt_menu fr">
+				<a class="ce" href="/s/help.html">帮助</a>
 			</div>
-			<div class="l rt_menu_bar"> </div>
-			<div class="rt_menu l">
-			<a class="ce" href="http://login.kaixin001.com">退出</a>
+			<div class="fr rt_menu_bar"> </div>
+		<% if signed_in? %>				    
+			<div class="rt_menu fr">
+				<%= link_to "退出", signout_url, :method => :delete, :class => "ce" %>
 			</div>
-			<div class="l rt_menu_bar"> </div>
-			<div class="rt_menu l">
-			<%= link_to "Logout", user_session_path, :method => :delete %>
-			</div>
+			<div class="fr rt_menu_bar"> </div>			
+			<div class="rt_menu fr">
+				<%= link_to '配置', config_url, :class => "ce" %>
+			</div>		
+			<div class="fr rt_menu_bar"> </div>	
+			<div class="rt_menu fr">
+				<%= link_to '个人', account_url, :class => "ce" %>
+			</div>	
+			
+			<div class="fr">
+				欢迎您： <%= @current_user.login %>
+			</div>		
 		<% else %>
-			<div class="rt_menu l">
-			<a class="ce" href="http://reg.kaixin001.com">注册</a>			
-			</div>
-			<div class="l rt_menu_bar"> </div>
-			<div class="rt_menu l">
-			<%= link_to "登录", new_user_session_path, :class => "ce" %>
+			<div class="rt_menu fr">
+				<%= link_to "登录", signin_url, :class => "ce" %>
+			</div>			
+			<div class="fr rt_menu_bar"> </div>
+			<div class="rt_menu fr">
+				<%= link_to '注册', signup_url, :class => "ce" %>			
 			</div>
 		<% end %>
-			<div class="l rt_menu_bar"> </div>
-			<div class="rt_menu l">
-			<a class="ce" href="/s/help.html">帮助</a>
-			</div>
+			
 		
 	</div>
 </div>
