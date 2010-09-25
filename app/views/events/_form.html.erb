@@ -1,30 +1,101 @@
 
+<%= javascript_include_tag 'tiny_mce_init' %>
+<%= javascript_include_tag 'calendar_date_select/calendar_date_select' %>
+<%= javascript_include_tag 'calendar_date_select/locale/zh' %>
+<%= javascript_include_tag 'calendar_date_select/format_china' %>
+<script type="text/javascript">
+	
+	function check_end_time()
+	{
+		stime = $F('event_start_time');
+		etime = $F('event_end_time');
+		
+		if (etime < stime){
+			alert("结束时间不能在开始时间之前！请检查您的输入!");
+			$F('event_end_time').focus();
+		}
+		return false;
+	}
+</script>
+
 <% form_for @event, :html=>{:multipart=>true} do |f| %>
-  <%= f.error_messages %>
-  <div class="field">
-  	<%= f.label :title, "第一步：添加活动标题" %><br/>
-	<%= f.text_field :title %>
-  </div>
-  <div class="field">
-  	<%= f.label :intro, "第二步：添加活动简介（150字）" %><br/>
-	<%= f.text_area :intro %>
-  </div>  
-  <div class="field">
-  	<%= f.label :content %><br/>
-	<%= f.text_area :content, :class => "mceEditor" %>	
-  </div>
-  <div class="field">
-  	<%= f.label :start_time %><br/>
-	<%= f.text_field :start_time %>
-  </div>
-   <div class="field">
-  	<%= f.label :address %><br/>
-	<%= f.text_field :address %>
-  </div>
-  <div class="field">
-  	<%= f.label :category_id %><br/>
-	<%= f.select(:category_id, @category_opts) %>
-  <div class="actions">
-  	<%= f.submit "Sign up" %>
-  </div>
+<%= f.error_messages %>
+<div class="span-16 last fl">
+    <div class="field">
+        <%= f.label :title, "第一步：添加活动标题" %>
+        
+        <%= f.text_field :title %>
+    </div>
+    <div class="field">
+        <%= f.label :intro, "第二步：添加活动简介（150字）" %>
+       
+        <%= f.text_area :intro %>
+    </div>
+    <div class="field">
+        <%= f.label :content, "第三步：添加活动详情" %>
+        
+        <%= f.text_area :content, :class => "mceAdvanced" %>
+    </div>
+</div>
+<div class="span-8 last fr">
+    <div class="field">    	
+        <%= f.label :start_time, "第四步：指定起始时间" %>
+		<div class="panel_head">
+			开始时间
+        </div>
+		<div class="panel_body">
+			<%= calendar_date_select_tag "event[start_time]", @event.start_time,
+				:valid_date_check => "date > (new Date()).stripTime()", 
+				:time => true, :popup => "force",
+				:year_range => 0.years.ago..1.years.from_now, 				
+				:id=>"event_start_time" %>
+
+		</div>
+		<div class="panel_head">
+			结束时间
+        </div>
+		<div class="panel_body">
+			<%= calendar_date_select_tag "event[end_time]", @event.end_time,
+				:valid_date_check => "date > (new Date()).stripTime()", 
+				:time => true, :popup => "force",
+				:year_range => 0.years.ago..1.years.from_now,
+				:onchange => "check_end_time()", 
+				:id=>"event_end_time" %>        	
+		</div>
+    </div>
+    <div class="field">
+        <%= f.label :address, "第五步：指定地点" %>
+        <div class="panel_head">
+        	活动地点
+        </div>
+		<div class="panel_body">
+        	地址：<%= f.text_field :address %><br/>
+			邮编：<%= f.text_field :zipcode, :class=>"txt1" %>
+		</div>
+		 <div class="panel_head">
+        	联系方式
+        </div>
+		<div class="panel_body">
+        	联系人：<%= f.text_field :contact_user_name, :class=>"txt1" %> <br/>
+			电&nbsp;&nbsp;&nbsp;&nbsp;话：<%= f.text_field :telnumber, :class=>"txt1" %> <br/>
+			邮&nbsp;&nbsp;&nbsp;&nbsp;件：<%= f.text_field :email, :class=>"txt1" %> <br/>
+			网&nbsp;&nbsp;&nbsp;&nbsp;址：<%= f.text_field :web_url, :class=>"web_url" %>
+		</div>
+    </div>
+    <div class="field">
+        <%= f.label :category_id, "第六步：选择分类" %>
+        <div class="panel_head">
+        	活动分类
+        </div>
+		<div class="panel_body">
+        <%= f.select(:category_id, @category_opts) %>
+		</div>        
+    </div>
+	
+	<div class="actions clear">
+    	<%= f.submit "提交" %>
+	</div>
+</div>
+
+
 <% end %>

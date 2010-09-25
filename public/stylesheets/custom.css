@@ -53,6 +53,14 @@ margin:0 auto;
 
 }
 
+#header .ce, a.ce {
+	color:#EEEEEE;
+}
+
+#header a.ce:hover {
+	color:#ffffff;
+}
+
 .navigation {
 	float: right;
 }
@@ -414,6 +422,11 @@ margin:0 auto;
 
 .event_detail {	
 	padding-top:3px;	
+	
+}
+
+.finished {
+	background:url("/images/my_act_bg_over2.png") no-repeat scroll 460px 0 transparent;
 }
 
 .event_detail h3 {
@@ -617,13 +630,14 @@ margin:0 auto;
 
 /* group edit event form begin */
 .edit_event label {
+	display:block;
 	color:#005580;
 	font-size:20px;
 	font-weight:700;
 	height:30px;
-	line-height:24px;
-	padding:0 10px 0 0;
+	line-height:24px;	
 	width:auto;
+	padding:20px 0 0 0; 
 }
 
 .edit_event input[type=text] {
@@ -640,9 +654,67 @@ margin:0 auto;
 	height:100px;
 }
 
-.edit_event #event_intro {	
+
+.edit_event .mceAdvanced {	
 	width:590px;
-	height:100px;
+	height:600px;
 }
 
+.edit_event .panel_body input[type=text] {
+	font-size:14px;
+	height:20px;
+	font-weight:normal;
+	font-family:Arial;
+}
+.edit_event #event_start_time, #event_end_time {
+	width:180px;
+	
+}
+
+.edit_event  #event_address, .web_url {
+	width:240px;
+	
+}
+
+.edit_event .panel_head {
+	background:url("/images/ticket_table_head.gif") repeat-x scroll center top #D5D5D3;
+	color:#005580;
+	font-family:Helvetica,Arial,sans-serif;
+	font-size:10px;
+	padding:4px 8px 5px;
+	text-transform:uppercase;
+	width:auto;
+}
+
+.edit_event .panel_body {
+	background-color:#FFFFFF;
+	border:1px solid #D5D5D3;
+	padding:8px;
+	width:auto;
+	word-wrap:break-word;
+}
+
+.edit_event .txt1 {
+	width:140px;
+
+}
+
+.edit_event .actions {
+	text-align:center;
+	margin:auto;
+	padding-top:30px;
+}	
+.edit_event .actions input[type=submit]{
+	-moz-border-radius:5px 5px 5px 5px;
+	background-color:#005EAC;
+	border-color:#B8D4E8 #124680 #124680 #B8D4E8;
+	border-style:solid;
+	border-width:1px;
+	color:#FFFFFF;
+	cursor:pointer;
+	font-size:14px;
+	height:30px;
+	text-align:center;
+	width:92px;
+}
 /* group edit event form end */

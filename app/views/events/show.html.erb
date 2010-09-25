@@ -46,7 +46,9 @@
 	            <h3>活动详情</h3>
 	        </div>
 	        <div class="panel_body">
-	            <%=sanitize @event.content %>
+	            <%=sanitize @event.content,  
+					:tags => %w(table tbody tr td p br strong bold span ol li ul img a h1 h2 h3 h4 h5 h6 h7 hr), 
+					:attributes => %w(id class style color src target href border alt align width height cellspacing cellpadding)%>
 	        </div>
 		</div>
     </div>
@@ -78,11 +80,11 @@
 	        <div class="panel_body">
 	        	<div class="span-5">
 		                                地址：<span class="gray "><%= @event.address %></span> <br/>
-					邮编：<span class="gray ">100909</span><br/>
-					联系人：<span class="gray ">胡锦涛</span><br/>
-					电话：<span class="gray ">010-23748373</span><br/>
-					邮件：<span class="gray ">wang@sina.com.cn</span><br/>
-					网址：<span class="gray "><a href="#">点此访问</a></span>
+					邮编：<span class="gray "><%= @event.zipcode %></span><br/>
+					联系人：<span class="gray "><%= @event.contact_user_name %></span><br/>
+					电话：<span class="gray "><%= @event.telnumber %></span><br/>
+					邮件：<span class="gray "><%= @event.email %></span><br/>
+					网址：<span class="gray "><%= link_to truncate_u(@event.web_url, 10), @event.web_url, html_options={:title=>@event.web_url, :target=>"_blank"} %></span>
 				</div>
 				<div class="span-2 tc" style="width:80px;margin-top:0;">
 					<img src='/images/map-demo.jpg' alt='点击查看大图' style="width:80px;height:140px;"/> <br/>

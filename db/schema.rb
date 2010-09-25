@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100918101645) do
+ActiveRecord::Schema.define(:version => 20100925074454) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(:version => 20100918101645) do
     t.integer  "score"
     t.text     "intro"
     t.datetime "end_time"
+    t.string   "web_url"
   end
 
   create_table "host_infos", :force => true do |t|
