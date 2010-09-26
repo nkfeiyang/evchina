@@ -15,6 +15,7 @@ class UserSessionsController < ApplicationController
       flash[:notice] = "登录成功!"
       redirect_back_or_default account_url
     else
+      flash.now[:error] = "错误的用户名/密码!"
       render :action => :new
     end
   end

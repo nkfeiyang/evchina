@@ -1,39 +1,25 @@
 <div id="header" class="span-24 last">
 	<div class="span-6 prepend-2 fl">
-		<a href="/"><img alt="开心网" style="padding-top:3px;" src="http://img1.kaixin001.com.cn/i2/kaixinlogo.gif"></a>
+		<%=link_to image_tag("http://img1.kaixin001.com.cn/i2/kaixinlogo.gif", :style=>"padding-top:3px;"), root_url, :title=>"返回首页" %>
 	</div>
-	<div class="span-15 fr last rt_nav">		
-			<div class="rt_menu fr">
-				<a class="ce" href="/s/help.html">帮助</a>
-			</div>
-			<div class="fr rt_menu_bar"> </div>
-		<% if signed_in? %>				    
-			<div class="rt_menu fr">
-				<%= link_to "退出", signout_url, :method => :delete, :class => "ce" %>
-			</div>
-			<div class="fr rt_menu_bar"> </div>			
-			<div class="rt_menu fr">
-				<%= link_to '配置', config_url, :class => "ce" %>
-			</div>		
-			<div class="fr rt_menu_bar"> </div>	
-			<div class="rt_menu fr">
-				<%= link_to '个人', account_url, :class => "ce" %>
-			</div>	
+	<div class="span-15 fr last rt_nav">
+		<span class="fr">
+		<% if signed_in? %>	
+			<span class="white">欢迎您： <%= @current_user.login %></span>
 			
-			<div class="fr">
-				欢迎您： <%= @current_user.login %>
-			</div>		
+			<%= link_to '个人中心', account_url, :class => "ce" %>
+			<span class="pipe"> | </span>
+			<%= link_to '配置', config_url, :class => "ce" %>
+			<span class="pipe"> | </span>
+			<%= link_to "退出", signout_url, :method => :delete, :class => "ce" %>
 		<% else %>
-			<div class="rt_menu fr">
-				<%= link_to "登录", signin_url, :class => "ce" %>
-			</div>			
-			<div class="fr rt_menu_bar"> </div>
-			<div class="rt_menu fr">
-				<%= link_to '注册', signup_url, :class => "ce" %>			
-			</div>
+			<%= link_to '注册', signup_url, :class => "ce" %>
+			<span class="pipe"> | </span>	
+			<%= link_to "登录", signin_url, :class => "ce" %>
 		<% end %>
-			
-		
+			<span class="pipe"> | </span>	
+			<a class="ce" href="/s/help.html">帮助</a>
+		</span>	
 	</div>
 </div>
 

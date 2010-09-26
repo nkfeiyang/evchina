@@ -10,8 +10,19 @@ body {
     color:#BAACC5;	
 }
 
+.white {
+	color: #ffffff;
+}
+
 .tc {
 	text-align:center;
+}
+.tl {
+	text-align : left;
+}
+.fcenter {
+	text-align:center;
+	margin:auto;
 }
 
 ul {
@@ -29,6 +40,14 @@ ul {
 
 .fr {
 	float:right;
+}
+
+.fn {
+	float:none;
+}
+
+.w180 {
+	width:180px;
 }
 /* debug use begin */
 .show_border_1 {
@@ -55,27 +74,21 @@ ul {
 
 #header .ce, a.ce {
 	color:#EEEEEE;
+	padding: 0 6px;
+	
 }
 
 #header a.ce:hover {
 	color:#ffffff;
+	padding: 0 6px;
 }
 
 #header .rt_nav {
-   padding-right:30px;
+   padding-right:20px;
 }
 
-#header .rt_nav .rt_menu {
-	background:none repeat scroll 0 0 transparent;	
-	height:29px;
-	text-align:center;
-	width:40px;
-}
-
-#header .rt_nav .rt_menu_bar {
-	background:url("/images/home_sprite_06.gif") no-repeat scroll 0 -855px transparent;
-	height:29px;
-	width:1px;
+#header .pipe {	
+	color:#F09545;
 }
 
 .navigation {
@@ -147,7 +160,7 @@ ul {
 	padding:3px;
 }
 
-/* id="_index_login_form" begin */
+/* id="_index_login_form & full_login" begin */
 #_index_login_form {
 	-moz-border-radius:0 0 5px 5px;
 	background-color:#F0F5F8;
@@ -157,7 +170,7 @@ ul {
 	padding:20px;
 }
 
-#_index_login_form p {
+#_index_login_form p, .full_login p {
 	line-height:20px;
 	margin:5px 0;
 }
@@ -179,9 +192,8 @@ ul {
 	margin-top:-8px;
 }
 
-#_index_login_form ._mid_label {
-	color:#333333;
-	float:left;
+.login_label, .reg_label {
+	color:#333333;	
 	font-size:14px;
 	font-weight:normal;	    
 	text-align:right;
@@ -189,7 +201,12 @@ ul {
 	padding-right:5px;
 }
 
-#_index_login_form ._labelCheckbox {
+.reg_label {
+	display:inline-block;
+	width:100px;
+}
+
+.login_cbx_label {
 	color:#333333;
 	float:none;
 	font-size:12px;
@@ -201,26 +218,39 @@ ul {
 	width:13px;
 }
 
-#_index_login_form input[type=text], input[type=password]{
+.login-text{
 	background-color:#FFFFFF;
 	background-position:0 -170px;
 	padding:6px 3px;
 	width:140px;
-	background-image:url("http://s.xnimg.cn/imgpro/login/login-new2.png");
+	background-image:url("/images/login-new2.png");
 }
 
-#_index_login_form input[type=submit],.input-button {
+.login-text:focus  {	
+	border:1px solid #67A54B;	
+	background-color:#EEEEEE;	
+}
+
+.w180 {
+	width:180px;
+}
+
+.login_button {
 	-moz-border-radius:5px 5px 5px 5px;
-	background-color:#005EAC;
-	border-color:#B8D4E8 #124680 #124680 #B8D4E8;
-	border-style:solid;
 	border-width:1px;
 	color:#FFFFFF;
 	cursor:pointer;
-	font-size:14px;
-	height:30px;
+	font-size:14px;	
 	text-align:center;
+	
+}
+
+.login-submit {	
+	background-color:#005EAC;
+	border-color:#B8D4E8 #124680 #124680 #B8D4E8;
+	border-style:solid;	
 	width:92px;
+	height:30px;
 }
 
 #_index_login_form input[disabled] {
@@ -228,27 +258,81 @@ ul {
 	border:0 none;
 }
 
-#_index_login_form input[type=text]:focus, 
-#_index_login_form input[type=password]:focus  {
-	border-left:2px solid #000000;
-	border-top:2px solid #000000;
-	border-bottom:1px solid #ccc;
-	border-right:1px solid #ccc;
-	width:140px;
+
+a.login_link, a.login_link:visited {
+	color: #000099;
+	text-decoration: none;
 }
 
+a.login_link:hover {
+	color: #0099CC;
+	text-decoration: underline;
+}
 
 .regnow {
 	border-top:1px solid #DDDDDD;
 	margin-top:10px;
 	padding:30px 0 10px 50px;
 }
-.regnow .input-button {
+
+.reg_button {
+	
 	background-color:#67A54B;
 	border-color:#95BF82 #3B6E22 #3B6E22 #95BF82;
+	width:92px;
+	height:30px;
 }
 
-/* id="_index_login_form" end */
+.reg_submit {	
+	background-color:#67A54B;
+	border-color:#95BF82 #3B6E22 #3B6E22 #95BF82;
+	width:160px;
+	height:30px;
+}
+
+.full_login {
+	width:360px;		
+	margin-top:80px;
+	margin-bottom:80px	
+}
+
+.full_login_panel{
+	-moz-border-radius:5px 5px 5px 5px;
+	background-color:#F0F5F8;
+	border:1px solid #B8D4E8;		
+	height:240px;	
+	padding-top:20px;
+}
+
+.full_login h2 {
+	font-size:16px;
+	font-weight:bold;
+}
+
+.login_prompt {
+	background:url("/images/top-login.gif") no-repeat scroll left top transparent;
+}
+
+.login_prompt p {
+	text-align:left;
+	background:url("/images/bottom-login.gif") no-repeat scroll left bottom transparent;
+	padding-bottom:20px;
+	padding-left:20px;
+	padding-top:10px;
+}
+
+#reg_form {
+	margin: 20px;
+}
+
+#reg_form  .tl {	
+	padding-bottom:20px;
+	padding-left:20px;
+	padding-top:10px;
+	
+}
+
+/* id="_index_login_form & full_login" end */
 /*group forms end*/
 
 /* search input common setting begin*/
@@ -262,6 +346,7 @@ ul {
 	border:2px solid #ccc;
 	height:28px;
 	width:140px;
+	
 }
 /* search input common setting end */
 

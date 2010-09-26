@@ -1,21 +1,20 @@
-<% form_for @user_session, :url => user_session_path do |f| %>
-  <%= f.error_messages %>
+<% form_for @user_session, :url => signin_url do |f| %>  
   <p class="top">
-	  <%= f.label :login, "帐号: ", :class=>'_mid_label' %>
-	  <%= f.text_field :login %>
+	  <%= f.label :login, "帐号: ", :class=>'login_label fl' %>
+	  <%= f.text_field :login, :class=>"login-text" %>
   </p>
   <p>
-	  <%= f.label :password, "密码: ", :class=>'_mid_label' %>
-	  <%= f.password_field :password %>
+	  <%= f.label :password, "密码: ", :class=>'login_label fl' %>
+	  <%= f.password_field :password, :class=>"login-text" %>
   </p>
   <p class="savepassword">
 	  <%= f.check_box :remember_me %>
-	  <%= f.label :remember_me, "下次自动登录", :class=>'_labelCheckbox' %>
+	  <%= f.label :remember_me, "下次自动登录", :class=>'login_cbx_label' %>
   </p>
   <p class="bottom">
-  	  <%= f.submit "提交"%>
+  	  <%= f.submit "提交", :class=>"login_button login-submit" %>
 	  <span class="getpassword">
-	    <a href="/findpass">忘记密码?</a>
+	    <a href="/findpass" class="login_link">忘记密码?</a>
 	  </span>
   </p>
 <% end %>

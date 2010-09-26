@@ -2,35 +2,41 @@ class UsersController < ApplicationController
   before_filter :require_no_user, :only => [:new, :create]
   before_filter :require_user, :only => [:show, :edit, :update]
   
+  @title = "我的优客"
+  
   layout "common"
+  layout "application", :only => [:new]
   
   def new
+    @user_session = UserSession.new
     @title = "新用户注册"
     @user = User.new
   end
   
-  def create
+  def create    
     @user = User.new(params[:user])
     if @user.save
       flash[:notice] = "注册成功!"
       redirect_back_or_default account_url
     else
+      @user_session = UserSession.new
       render :action => :new
+      #redirect_to :action => :new
     end
   end
   
   def show
-    @title = "我的优客"
+    #@title = "我的优客"
     @user = @current_user
   end
 
   def edit
-    @title = "我的优客"
+    #@title = "我的优客"
     @user = @current_user
   end
   
   def update
-    @title = "我的优客"
+    #@title = "我的优客"
     @user = @current_user # makes our views "cleaner" and more consistent
     if @user.update_attributes(params[:user])
       flash[:notice] = "更新成功!"
