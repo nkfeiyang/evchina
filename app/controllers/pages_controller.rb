@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
-  def home
+  
+  def home    
     @user_session = UserSession.new
   end
 
