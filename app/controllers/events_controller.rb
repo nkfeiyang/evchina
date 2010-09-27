@@ -1,5 +1,7 @@
 class EventsController < ApplicationController
-  #before_filter    :require_user
+  
+  before_filter :require_user, :except => [:show]
+  before_filter :correct_user, :only => [:edit, ]
   uses_tiny_mce
 
   layout "common"
@@ -9,14 +11,14 @@ class EventsController < ApplicationController
   end
 
   def new
-    @event = Event.new()
+    @event = current_user.events.new()
     @category_opts = Category.list_options()
   end
 
   def create
     @event = current_user.events.build(params[:event])
     if @event.save
-      flash[:success] = "Welcome to the Sample APP!"
+      flash[:success] = "创建活动成功!"
       redirect_to @event
     else
       render 'new'
@@ -51,7 +53,9 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])   
     @title = @event.title
     #@event.IncrementViews
-    @event.increment!(:views)    # 直接调用increment函数更新
+    if (current_user != @event.user)
+      @event.increment!(:views)    # 直接调用increment函数更新
+    end
   end
 
 end

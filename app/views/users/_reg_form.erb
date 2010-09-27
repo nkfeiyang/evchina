@@ -1,0 +1,39 @@
+	<% form_for :user, @user, :url => account_path, :html=>{:class=>'new_user show_border_1 fcenter'} do |f| %>
+	   
+		<div class="field fl clear"> 
+		<%= f.label :login, "帐号：", :class=>"reg_label tr fl" %> 
+	    <%= f.text_field :login, :class=>"login-text fl" %>
+		<div class="fl red reg_star">*</div>
+		<div class="fr tip_error invisible"></div>
+		<div class="fr tip_right invisible"></div>
+		</div>
+		
+		<div class="field fl clear">
+	    <%= f.label :email, "邮箱：", :class=>"reg_label tr fl" %>
+	    <%= f.text_field :email, :class=>"login-text fl" %>
+		<div class="fl red reg_star">*</div>
+		<div class="fr tip_error invisible"></div>
+		<div class="fr tip_right invisible"></div>
+	    </div>
+		
+		<div class="field fl clear">
+		<%= f.label :password, "密码：", :class=>"reg_label tr fl" %> 
+	    <%= f.password_field :password, :class=>"login-text fl" %>
+		<div class="fl red reg_star">*</div>
+		<div class="fr tip_error invisible"></div>
+		<div class="fr tip_right invisible"></div>
+	    </div>
+	    
+		<div class="field fl clear">
+	    <%= f.label :password_confirmation, "密码确认：", :class=>"reg_label tr fl" %>  
+	    <%= f.password_field :password_confirmation, :class=>"login-text fl" %>
+		<div class="fl red reg_star">*</div>
+		<div class="fr tip_error invisible"></div>
+		<div class="fr tip_right invisible"></div>
+	    </div>
+		
+		<div class="clear" style="padding-top:30px;">
+	    <%= f.submit "同意条款，立即注册", :class=>"login_button reg_submit"  %>
+		</div>
+		<div style="clear:both" />
+    <% end %>

@@ -5,8 +5,9 @@
 	<div class="span-15 fr last rt_nav">
 		<span class="fr">
 		<% if signed_in? %>	
-			<span class="white">欢迎您： <%= @current_user.login %></span>
-			
+			<span class="white">欢迎您： <%= current_user.login %></span>
+			<%= link_to '发起活动', {:controller=>'events', :action=>'new'}, :class => "ce red" %>
+			<span class="pipe"> | </span>
 			<%= link_to '个人中心', account_url, :class => "ce" %>
 			<span class="pipe"> | </span>
 			<%= link_to '配置', config_url, :class => "ce" %>

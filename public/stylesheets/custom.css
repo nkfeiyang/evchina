@@ -1,5 +1,5 @@
 body {
-
+	font-weight:normal;	  
 }
 
 .red {
@@ -14,11 +14,22 @@ body {
 	color: #ffffff;
 }
 
+.invisible {
+	display:none;	
+}
+
+.visible {
+	display:inherit;
+}
+
 .tc {
 	text-align:center;
 }
 .tl {
 	text-align : left;
+}
+.tr {
+	text-align : right;
 }
 .fcenter {
 	text-align:center;
@@ -102,8 +113,7 @@ ul {
 }
 
 .navigation li a {
-	padding: 0 5px;
-	font-weight: bold;
+	padding: 0 5px;	
 }
 
 .navigation li a:visited {
@@ -160,9 +170,9 @@ ul {
 	padding:3px;
 }
 
-/* id="_index_login_form & full_login" begin */
-#_index_login_form {
-	-moz-border-radius:0 0 5px 5px;
+/* id="_index_login_panel & full_login" begin */
+
+.login_panel {
 	background-color:#F0F5F8;
 	border-left:1px solid #B8D4E8;
 	border-right:1px solid #B8D4E8;
@@ -170,52 +180,50 @@ ul {
 	padding:20px;
 }
 
-#_index_login_form p, .full_login p {
+#_index_login_panel {
+	-moz-border-radius:0 0 5px 5px;
+}
+
+#full_login_panel{
+	border:1px solid #B8D4E8;
+	-moz-border-radius:5px 5px 5px 5px;
+}
+
+.new_user_session {   /* it is the form with class='new_user_session' */
+	width:190px;
+}
+
+.new_user_session p {
 	line-height:20px;
 	margin:5px 0;
 }
-#_index_login_form p.top {
+.new_user_session p.top , .new_user_session p.bottom{
 	margin:0;
 	padding:0;
 }
-#_index_login_form p.bottom {
-	margin-bottom:0;
-	margin-left:48px;
-	padding:0;
-}
-#_index_login_form p.bottom .getpassword {
+
+.new_user_session p.bottom .getpassword {
 	display:block;
 	margin-top:5px;
-}
-#_index_login_form p.savepassword {
-	margin-bottom:-4px;
-	margin-top:-8px;
 }
 
 .login_label, .reg_label {
 	color:#333333;	
-	font-size:14px;
-	font-weight:normal;	    
-	text-align:right;
-	padding-top:11px;
+	font-size:14px;	  
+	font-weight:normal;	  	
+	padding-top:10px;
 	padding-right:5px;
 }
 
 .reg_label {
 	display:inline-block;
-	width:100px;
+	width:100px;	
 }
 
 .login_cbx_label {
-	color:#333333;
-	float:none;
+	color:#333333;	
 	font-size:12px;
 	font-weight:normal;	
-}
-
-#_index_login_form p.savepassword input[type=checkbox] {
-	margin-left:48px;
-	width:13px;
 }
 
 .login-text{
@@ -229,10 +237,6 @@ ul {
 .login-text:focus  {	
 	border:1px solid #67A54B;	
 	background-color:#EEEEEE;	
-}
-
-.w180 {
-	width:180px;
 }
 
 .login_button {
@@ -253,7 +257,7 @@ ul {
 	height:30px;
 }
 
-#_index_login_form input[disabled] {
+.new_user_session input[disabled] {
 	background-color:#D4D0C8;
 	border:0 none;
 }
@@ -272,17 +276,22 @@ a.login_link:hover {
 .regnow {
 	border-top:1px solid #DDDDDD;
 	margin-top:10px;
-	padding:30px 0 10px 50px;
+	padding:20px 0 10px 0;
 }
 
 .reg_button {
-	
+	display:block;
 	background-color:#67A54B;
 	border-color:#95BF82 #3B6E22 #3B6E22 #95BF82;
 	width:92px;
 	height:30px;
+	padding-top:8px;
+	text-decoration: none;
 }
 
+.reg_button:hover {
+	color: #ffcc00;
+}
 .reg_submit {	
 	background-color:#67A54B;
 	border-color:#95BF82 #3B6E22 #3B6E22 #95BF82;
@@ -296,21 +305,13 @@ a.login_link:hover {
 	margin-bottom:80px	
 }
 
-.full_login_panel{
-	-moz-border-radius:5px 5px 5px 5px;
-	background-color:#F0F5F8;
-	border:1px solid #B8D4E8;		
-	height:240px;	
-	padding-top:20px;
-}
-
-.full_login h2 {
+#full_login_panel h2 {
 	font-size:16px;
 	font-weight:bold;
 }
 
 .login_prompt {
-	background:url("/images/top-login.gif") no-repeat scroll left top transparent;
+	background:url("/images/top-login.gif") no-repeat scroll left top transparent;	
 }
 
 .login_prompt p {
@@ -319,17 +320,47 @@ a.login_link:hover {
 	padding-bottom:20px;
 	padding-left:20px;
 	padding-top:10px;
+	
 }
 
 #reg_form {
-	margin: 20px;
+	margin: 20px;	
 }
 
-#reg_form  .tl {	
+#reg_form  .desc {	
 	padding-bottom:20px;
 	padding-left:20px;
-	padding-top:10px;
+	padding-top:10px;	
+}
+
+.new_user {
+	width:280px;
+}
+
+/*避免添加div标识错误后，名称与字段换行*/
+.new_user .fieldWithErrors {
+	float:left;
 	
+}
+
+.new_user .reg_star {
+	margin-top: 15px;
+	margin-left:5px;
+}
+
+.new_user .tip_error {  
+	height:24px;
+	background:url("/images/th_ju.gif") no-repeat scroll left top transparent;
+	padding-left:20px;
+	margin-top:8px;
+	
+}
+
+.new_user .tip_right {
+	height:13px;
+	background:url("/images/fzcg_dh.gif") no-repeat scroll left top transparent;
+	padding-left:20px;
+	margin-top:12px;	
 }
 
 /* id="_index_login_form & full_login" end */
@@ -731,7 +762,7 @@ a.login_link:hover {
 /* group event show end */
 
 /* group edit event form begin */
-.edit_event label {
+.new_edit_event label {
 	display:block;
 	color:#005580;
 	font-size:20px;
@@ -742,43 +773,43 @@ a.login_link:hover {
 	padding:20px 0 0 0; 
 }
 
-.edit_event input[type=text] {
+.new_edit_event input[type=text] {
 	font-size:20px;
 	font-weight:700;	
 }
 
-.edit_event #event_title {
+.new_edit_event #event_title {
 	width:600px;
 }
 
-.edit_event #event_intro {	
+.new_edit_event #event_intro {	
 	width:590px;
 	height:100px;
 }
 
 
-.edit_event .mceAdvanced {	
+.new_edit_event .mceAdvanced {	
 	width:590px;
 	height:600px;
 }
 
-.edit_event .panel_body input[type=text] {
+.new_edit_event .panel_body input[type=text] {
 	font-size:14px;
 	height:20px;
 	font-weight:normal;
 	font-family:Arial;
 }
-.edit_event #event_start_time, #event_end_time {
+.new_edit_event #event_start_time, #event_end_time {
 	width:180px;
 	
 }
 
-.edit_event  #event_address, .web_url {
+.new_edit_event  #event_address, .web_url {
 	width:240px;
 	
 }
 
-.edit_event .panel_head {
+.new_edit_event .panel_head {
 	background:url("/images/ticket_table_head.gif") repeat-x scroll center top #D5D5D3;
 	color:#005580;
 	font-family:Helvetica,Arial,sans-serif;
@@ -788,7 +819,7 @@ a.login_link:hover {
 	width:auto;
 }
 
-.edit_event .panel_body {
+.new_edit_event .panel_body {
 	background-color:#FFFFFF;
 	border:1px solid #D5D5D3;
 	padding:8px;
@@ -796,17 +827,17 @@ a.login_link:hover {
 	word-wrap:break-word;
 }
 
-.edit_event .txt1 {
+.new_edit_event .txt1 {
 	width:140px;
 
 }
 
-.edit_event .actions {
+.new_edit_event .actions {
 	text-align:center;
 	margin:auto;
 	padding-top:30px;
 }	
-.edit_event .actions input[type=submit]{
+.new_edit_event .actions input[type=submit]{
 	-moz-border-radius:5px 5px 5px 5px;
 	background-color:#005EAC;
 	border-color:#B8D4E8 #124680 #124680 #B8D4E8;

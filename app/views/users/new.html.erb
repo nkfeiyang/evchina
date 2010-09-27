@@ -1,41 +1,20 @@
 <% content_for :left do %>
-<div id="_index_login_form" class="min-high-12">
-    <%= render 'pages/login_form' %>
-</div>
+<div id="_index_login_panel" class="fcenter login_panel min-high-12">
+		<%= render 'pages/login_form' %>
+		
+	</div>
 <% end %>
 
 <% content_for :right do %>
   <div id="reg_form" class="min-high-12  fcenter">
     <h2>注册：开通您的优客账户</h2>
     <hr style="height:1px;"/>
-	<div class="tl clear">
+	<div class="desc tl">
 		优客网是帮助你与 各种社会活动保持紧密联系的网络平台，通过这个平台你可以及时了解事件的最新动态；分享你的照片、心情、快乐；结识更多的新朋友。
 		同时你还可以发起你的活动，邀请朋友们参加你的活动。
 	</div>
-	<% form_for @user do |f| %>
-	    <%= f.error_messages %>
-		
-		<%= f.label :login, "帐号：", :class=>"reg_label" %>	   
-		<span class="red">*</span> 
-	    <%= f.text_field :login, :class=>"login-text" %>
-		<br/>
-		
-	    <%= f.label :email, "邮箱：", :class=>"reg_label" %>	   
-		<span class="red">*</span> 
-	    <%= f.text_field :email, :class=>"login-text" %>
-	    <br/>
-		
-		<%= f.label :password, "密码：", :class=>"reg_label" %>	     
-		<span class="red">*</span>  
-	    <%= f.password_field :password, :class=>"login-text" %>
-	    <br/>
-	    
-	    <%= f.label :password_confirmation, "密码确认：", :class=>"reg_label" %>	   
-		<span class="red">*</span> 
-	    <%= f.password_field :password_confirmation, :class=>"login-text" %>
-	    <br/>
-		
-	    <%= f.submit "同意条款，立即注册", :class=>"login_button reg_submit", :style=>"margin-top:30px;" %>
-    <% end %>
+
+	<%= render 'users/reg_form' %>	
+
   </div>
 <% end %>

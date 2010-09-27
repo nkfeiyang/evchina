@@ -1,7 +1,12 @@
 <div id="show_event" class="span-24 last">
     <div class="head">
         <div class="title span-16">
-            <h1><%=h @event.title %></h1>
+            <h1>
+            	<%=h @event.title %>
+				<%if signed_in? && @event.user == current_user %>
+					<%= link_to "[修改]", edit_event_path(@event) %>
+				<% end %>
+			</h1>
             <span class="start_date"><%= @event.start_time %>- <%= @event.end_time %></span>
 			<div class="share span-16 last">
         		<input type="hidden" value="<%= @event.title %> (<%= request.url %>)" id="deal-share-im-c" style="display: inline;" />

@@ -1,4 +1,4 @@
-<% form_for @user_session, :url => signin_url do |f| %>  
+<% form_for @user_session, :url => user_session_path, :html => {:class => 'new_user_session fcenter'} do |f| %>  
   <p class="top">
 	  <%= f.label :login, "帐号: ", :class=>'login_label fl' %>
 	  <%= f.text_field :login, :class=>"login-text" %>

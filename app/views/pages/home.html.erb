@@ -1,9 +1,9 @@
 <% content_for :left do %>
 
-	<div id="_index_login_form">
+	<div id="_index_login_panel" class="fcenter login_panel">
 		<%= render 'pages/login_form' %>
-		<div class="regnow">
-			<input type="button" class="login_button reg_button" value="立即注册" onclick="window.location='/users/new'">
+		<div class="regnow">			
+			<%= link_to "立即注册", signup_url, :class=>'login_button reg_button fcenter' %>
 		</div>
 	</div>
 	

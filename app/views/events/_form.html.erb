@@ -18,7 +18,7 @@
 	}
 </script>
 
-<% form_for @event, :html=>{:multipart=>true} do |f| %>
+<% form_for @event, :html => { :multipart=>true, :class=>'new_edit_event' } do |f| %>
 <%= f.error_messages %>
 <div class="span-16 last fl">
     <div class="field">
