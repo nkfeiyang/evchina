@@ -1,37 +1,42 @@
-<p>
-  <b>Login:</b>
-  <%=h @user.login %>
-</p>
+<% content_for :left do %>
+	<div class="filter_box">
+	<div class="round_title round_title_top min-high-1"><span>个人活动管理</span></div>
+	<div class="filter_items">
+		<ul class="sidebar-menu">
+			<li>
+				<%= link_to "发起新活动", url_for({:controller=>'events', :action=>'new'}), :class => 'red' %>
+			</li>
+			<li>
+				<a href="" class="">我发起的活动</a>
+			</li>
+			<li>
+				<a href="" class="">我参与的活动</a>
+			</li>
+			<li>
+				<a href="" class="">我关注的活动</a>
+			</li>			
+		</ul>
+	</div>
+	<div class="round_title min-high-1"><span>个人信息管理</span></div>
+	<div class="filter_items">
+		<ul class="sidebar-menu">
+			<li>
+				<a href="" class="">个人资料</a>
+			</li>
+			<li>
+				<a href="" class="">我的邮箱</a>
+			</li>
+			<li>
+				<a href="" class="">我关注的活动</a>
+			</li>			
+		</ul>
+	</div>
+</div>
+<% end %>
 
-<p>
-  <b>Login count:</b>
-  <%=h @user.login_count %>
-</p>
+<% content_for :right do %>
+  <div class="fcenter">
+   
 
-<p>
-  <b>Last request at:</b>
-  <%=h @user.last_request_at %>
-</p>
-
-<p>
-  <b>Last login at:</b>
-  <%=h @user.last_login_at %>
-</p>
-
-<p>
-  <b>Current login at:</b>
-  <%=h @user.current_login_at %>
-</p>
-
-<p>
-  <b>Last login ip:</b>
-  <%=h @user.last_login_ip %>
-</p>
-
-<p>
-  <b>Current login ip:</b>
-  <%=h @user.current_login_ip %>
-</p>
-
-
-<%= link_to 'Edit', edit_account_path %>
+  </div>
+<% end %>

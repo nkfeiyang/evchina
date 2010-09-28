@@ -6,7 +6,7 @@
 		<span class="fr">
 		<% if signed_in? %>	
 			<span class="white">欢迎您： <%= current_user.login %></span>
-			<%= link_to '发起活动', {:controller=>'events', :action=>'new'}, :class => "ce red" %>
+			<%= link_to url_for({:controller=>'events', :action=>'new'}),  '发起活动', :class => "ce red" %>
 			<span class="pipe"> | </span>
 			<%= link_to '个人中心', account_url, :class => "ce" %>
 			<span class="pipe"> | </span>
