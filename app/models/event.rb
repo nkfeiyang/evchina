@@ -26,6 +26,10 @@ class Event < ActiveRecord::Base
     q.present? ? {:conditions => ['(title like ?) or (content like ?)', '%'+q+'%', '%'+q+'%']} : {}
   }
   
+  named_scope :with_user_id, lambda { |user_id|
+    user_id.present? ? {:conditions => ['user_id = ?', user_id]} : {}
+  }
+  
   def IncrementViews
    # v = (views.nil? ? 0 : views)+1 
    # update_attribute(:views, v)

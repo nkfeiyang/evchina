@@ -20,7 +20,10 @@ ActionController::Routing::Routes.draw do |map|
   map.signout   '/signout', :controller => 'user_sessions', :action => 'destroy'
   
   map.root :controller => "pages", :action => 'home'
-   
+  
+  # http://*/user/events/108,显示用户id为108的所有events。调用directory的user_events_list方法
+  map.user_events "/user/events/:user_id", :controller => 'directory', :action => 'user_events_list', :requirements => {:user_id => /\d+/ } 
+  
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
 end

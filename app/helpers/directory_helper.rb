@@ -40,16 +40,13 @@ module DirectoryHelper
   
   # 获得某个category下的事件数
   def get_category_count(category_id)
-    return Event.published().with_in(params[:start_time]).with_query(params[:q]).with_category(category_id).count    
+    return Event.published().with_user_id(params[:user_id]).with_in(params[:start_time]).with_query(params[:q]).with_category(category_id).count    
   end
   
-  # 获得总的事件数(限制条件为category之外的所有条件)
-  def get_total_category_count
-    Event.published().with_in(params[:start_time]).count
-  end
   
+  # 获得某个timespan下的事件数
   def get_time_range_count(timespan)
-    return Event.published().with_in(timespan).with_query(params[:q]).with_category(params[:category_id]).count    
+    return Event.published().with_user_id(params[:user_id]).with_in(timespan).with_query(params[:q]).with_category(params[:category_id]).count    
   end
   
   def GetCategoryCssClass(cate_id)

@@ -1,0 +1,72 @@
+1.script/console
+rs = ActionController::Routing::Routes
+puts rs.routes
+rs.recognize_path "/users"
+rs.recognize_path "/users/add/1"
+rs.generate :controller => :account
+rs.generate :controller => :account, :id=>1
+
+2.如何用map.connect定义routes（在routes.rb中）
+map.connect 'store/checkout',
+	:conditions => {:method => :get },
+	:controller => "store",
+	:action => "display_checkout_form"
+
+map.connect 'store/checkout',
+	:conditions => { :method => :post },
+	:controller => "store",
+	:action => "save_checkout_form"
+
+# 'http://my.app/blog/' displays the index
+map.connect "blog/",
+	:controller => "blog",
+	:action => "index"
+
+# return articles for a year, year/month, or year/month/day
+map.connect "blog/:year/:month/:day",
+	:controller => "blog",
+	:action => "show_date",
+	:requirements => {  :year => /(19|20)\d\d/,
+			:month => /[01]?\d/,
+			:day => /[0-3]?\d/ },
+	:day => nil,
+	:month => nil
+
+# show an article identified by an id
+map.connect "blog/show/:id"
+	:controller => "blog",
+	:action => "show",
+	:id => /\d+/
+
+
+#catchall so we can gracefully handle badly formed requests
+map.connect "*anything",
+	:controller => "blog",
+	:action => "unknown_request"
+
+写完后，可以用rs.recognize_path "/blog/2003/12"等来看效果
+
+3.如何生成URL，用url_for()
+@link = url_for(:controller => "store", :action => "dislpay", :od => 123)
+-----> http://*/store/display/123
+该函数只能在controller和view中调用。我们可以用rs.generate 替代
+rs.generate :controller => "store"
+# "/store"
+rs.generate :controller => "store", :action => "list"
+# "/store/list"
+rs.generate :controller => "store", :action => :list, :id => 123
+# "/store/list/123"
+rs.generate :controller => "store", :action => :list, :id => 123, :extra => "wible"
+# "/store/list/123?extra=>wibble"
+
+4.命名routes
+map.date "blog/:year/:month/:day",
+	:controller => "blog",
+	:action => "show_date",
+	:requirements => {  :year => /(19|20)\d\d/,
+			:month => /[01]?\d/,
+			:day => /[0-3]?\d/ },
+	:day => nil,
+	:month => nil
+date_url(:year => 2005, :month => 2)
+# http://*/blog/2003/2
