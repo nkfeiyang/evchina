@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(:version => 20100925074454) do
     t.integer  "host_info_id"
     t.integer  "views"
     t.integer  "score"
-    t.integer  "ordered_tickets"
+    t.integer  "sold_tickets"
     t.integer  "total_tickets"
   end
 
