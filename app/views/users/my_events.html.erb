@@ -1,0 +1,69 @@
+<div class="panel_628">
+    <div class="paneltab">
+        <div style="float: right;">
+            <div style="margin-left: 10px;" class="button button_a">
+                <a onclick="linkCreateEvent(this, 'create event - my events')" href="/create">Create a New Event</a>
+            </div>
+        </div>
+        <ul>
+            <li class="tab_live">
+                Live Events (1) 
+            </li>
+            <li class="tab">
+                <a href="/myevents?sort=datedesc&amp;filter=completed">Completed (2) </a>
+            </li>
+        </ul>
+    </div>
+    <!-- end paneltab -->
+    <div class="panel_body">
+        <table width="100%" cellspacing="0" cellpadding="0" border="0" class="ticket_table">
+            <tbody>
+                <tr class="ticket_table_head">
+                    <td>
+                        <b><a href="/myevents?sortby=alpha&amp;filter=live&amp;org_id=0">Event Name</a></b>
+                    </td>
+                    <td>
+                        <b><a href="/myevents?sortby=date&amp;filter=live&amp;org_id=0">Date</a></b>
+                        <img width="9" height="9" src="http://evbdn.eventbrite.com/s3-s3/static/images/arrows/blue_up.gif">
+                    </td>
+                    <td>
+                        <b><a href="/myevents?sortby=status&amp;filter=live&amp;org_id=0">Status</a></b>
+                    </td>
+                    <td>
+                        Sold
+                    </td>
+                    <td>
+                        Quick Links
+                    </td>
+                </tr>
+				<% @my_events.each do |event| %>
+                <tr class="ticket_row">
+                    <td>
+                        <b><a href="/myevent?eid=758314138"><%= event.title %></a></b>
+                    </td>
+                    <td>
+                        <nobr>
+                            Jul 10, 2010&nbsp;
+                        </nobr>
+                    </td>
+                    <td>
+                        Started
+                    </td>
+                    <td>
+                        9/1100
+                    </td>
+                    <td align="center">
+                        <nobr>
+                            <a href="/edit?eid=758314138">Edit</a>
+                            <span class="pipe">|</span>
+                            <a target="_blank" href="http://www.eventbrite.com/event/758314138">View</a>
+                            <span class="pipe">|</span>
+                            <a href="/createinvite?eid=758314138">Invite</a>
+                        </nobr>
+                    </td>
+                </tr>
+				<% end %>
+            </tbody>
+        </table>
+    </div>
+</div>

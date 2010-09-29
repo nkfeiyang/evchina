@@ -4,19 +4,26 @@ class CreateEvents < ActiveRecord::Migration
 
       t.timestamps
       t.string :title
+      t.text :intro
       t.text :content
       t.datetime :start_time
+      t.datetime :end_time
       t.string :address
       t.string :zipcode
       t.string :telnumber
       t.string :contact_user_name
       t.string :email
-      t.string :url
+      t.string :web_url
       t.integer :user_id
       t.string :event_logo_url
       t.string :status
       t.integer :category_id
       t.integer :host_info_id
+      t.integer :views            #浏览次数
+      t.integer :score            #评分
+      t.integer :sold_tickets  #已预订的票数 
+      t.integer :total_tickets    #总的票数   0表示不限
+      
     end
   end
 

@@ -9,6 +9,17 @@ namespace :db do
     make_events    
   end
   
+  task :make_categories => :environment do    
+    make_categories       
+  end
+  task :make_users => :environment do    
+    make_users       
+  end
+  task :make_events => :environment do    
+    make_events       
+  end
+  
+  
   def make_categories
     Category.create!(:name => "教学活动", :show_order => 1)
     Category.create!(:name => "商业会议", :show_order => 2)
@@ -19,7 +30,8 @@ namespace :db do
   end
   
   def make_users
-    admin = User.create!(:login => "nkfeiyang",                 
+    admin = User.create!(:login => "nkfeiyang", 
+                 :email => "wang_haibing@126.com",
                  :password => "123456",
                  :password_confirmation => "123456")
     admin.toggle!(:admin)
@@ -45,7 +57,9 @@ namespace :db do
                             :end_time => Time.now.beginning_of_day + 9*60*60 + t + rand(24)*60*60,
                             :address => 'Haidian, Beijing',
                             :views => 0,
-                            :score => 3,
+                            :score => rand(6),
+                            :total_tickets => rand(200),
+                            :sold_tickets => 0,
                             :status => "published",
                             :email => "test@uxoo.cn",
                             :category_id => rand(6)+1)

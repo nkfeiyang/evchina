@@ -7,9 +7,10 @@ class UsersController < ApplicationController
     "<span class='field_error'>#{html_tag}</span>"    
   end 
   
-  layout "application"
-  #layout "application", :only => [:new, :create]
- 
+  layout "application", :only => [:new, :create]
+  
+  layout "user", :only => [:show, :edit, :update, :my_events, :my_participate]
+  
   def new    
     @title = "新用户注册"
     @user = User.new
@@ -49,6 +50,15 @@ class UsersController < ApplicationController
     end
   end
   
+  def my_events
+    @my_events = current_user.events.order_by(params[:sortby])
+  end  
+ 
+  
+  # 我参与的活动
+  def my_participate
+    
+  end
   
 private
  

@@ -14,7 +14,7 @@
   <p class="bottom">
   	  <%= f.submit "提交", :class=>"login_button login-submit" %>
 	  <span class="getpassword">
-	    <a href="/findpass" class="login_link">忘记密码?</a>
+	    <%= link_to "忘记密码？", findpass_url, :class => 'login_link' %>
 	  </span>
   </p>
 <% end %>

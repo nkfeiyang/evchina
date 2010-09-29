@@ -1,3 +1,5 @@
 Authlogic：
 http://yuan.javaeye.com/blog/646444
 http://www.binarylogic.com/2008/11/16/tutorial-reset-passwords-with-authlogic/
+
+当前登录人数：<%= User.logged_in.count %> 

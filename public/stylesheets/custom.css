@@ -436,20 +436,17 @@ a.login_link:hover {
 	-moz-border-radius: 5px 5px 5px 5px;
 }
 
-.filter_box#event_cate {   /*这个部分跟顶部连接，为了避免上面露出空白，对其进行调整*/
+.round_title {
+	background-color:#F1F1F1;
+	-moz-border-radius: 0 0 5px 5px;
+}
+
+.round_title_top {    /*修改活动分类的title,不让上面两个角变化，避免露出空白*/
 	background-color:#FFFFFF;
 	border:1px solid #E3E3E3;	
 	-moz-border-radius: 0 0 5px 5px;
 }
 
-.round_title {
-	background-color:#F1F1F1;
-	-moz-border-radius: 5px 5px 5px 5px;
-}
-
-.round_title_top {    /*修改活动分类的title,不让上面两个角变化，避免露出空白*/
-	-moz-border-radius: 0 0 5px 5px;
-}
 .round_title span {	
 	display:block;
 	text-align:center;

@@ -14,4 +14,8 @@ class PagesController < ApplicationController
   def about
     
   end
+  
+  def findpass
+    
+  end
 end
