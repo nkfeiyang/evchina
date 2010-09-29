@@ -12,9 +12,11 @@ namespace :db do
   task :make_categories => :environment do    
     make_categories       
   end
+  
   task :make_users => :environment do    
     make_users       
   end
+  
   task :make_events => :environment do    
     make_events       
   end
