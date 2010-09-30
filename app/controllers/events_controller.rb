@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   
   before_filter :require_user, :except => [:show]
-  before_filter :correct_user, :only => [:edit, ]
+  before_filter :correct_user, :only => [:edit, :update, :destroy]
   uses_tiny_mce
 
   layout "common"
@@ -58,4 +58,15 @@ class EventsController < ApplicationController
     end
   end
 
+private
+  def correct_user
+    @event = Event.find(params[:id])
+    unless (!@event.nil? && @event.user == current_user) 
+      flash[:notice] = "权限错误，请先登录"
+      redirect_to forbidden_url
+      return false
+    end
+  end
+
+  
 end

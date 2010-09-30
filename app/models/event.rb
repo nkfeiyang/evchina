@@ -15,6 +15,7 @@ class Event < ActiveRecord::Base
   named_scope :finished,  :conditions => ['end_time <= ?', Time.now]     # 已结束的事件
   named_scope :starting,  :conditions => ['start_time <= ? and end_time > ?', Time.now, Time.now]    #正在进行的事件
   named_scope :unstart,   :conditions => ['start_time > ?', Time.now]    # 未开始的事件
+  named_scope :living,    :conditions => ['end_time > ?', Time.now]      # 活动事件，凡是没有到结束时间的活动都认为是活动的。
   
   named_scope :published, :conditions => { :status => 'published' }    # 状态为公开的事件
   
@@ -65,9 +66,12 @@ class Event < ActiveRecord::Base
 
     def self.OrderType(order)
       case order
-        when 'publish_date'                   : 'publish_date ASC'         #发表日期
-        when 'publish_date_desc'              : 'publish_date DESC'
-        when 'id'                             : 'id'
+        when 'title'                          : 'title ASC'
+        when 'title_desc'                     : 'title DESC'
+        when 'start_date'                     : 'start_time ASC'
+        when 'start_date_desc'                : 'start_time DESC'
+        when 'status'                         : 'status ASC'
+        when 'status_desc'                    : 'status DESC'
         else                                  ''
       end
     end

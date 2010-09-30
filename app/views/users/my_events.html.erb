@@ -1,17 +1,149 @@
-<div class="panel_628">
+<style type="text/css">
+.user_center_panel_main {
+	padding-top:10px;
+}
+
+.paneltab {
+	color:#005580;
+	bottom:-1px;
+	clear:both;
+	color:#005580;
+	height:28px;
+	top:8px;
+	width:auto;
+}
+
+.button {
+	color:#FFFFFF;
+	float:left;
+	font-size:12px;
+	font-weight:bold;
+	margin:0;
+	padding:0;
+	position:relative;
+	text-align:center;
+	white-space:nowrap;
+	width:auto;
+}
+
+.button a:link, .button a:visited {
+	background:url("/images/gloss.png") repeat-x scroll center top #FFFFFF;
+	color:#FFFFFF;
+	display:block;
+	padding:3px 16px 4px;
+	text-decoration:none;
+	background-color:#BF4000;
+	border:1px solid #BF4000;
+}
+
+.button a:hover {
+	background-color:#EE6600;
+	border:1px solid #EE6600;
+}
+
+.paneltab ul {
+	list-style:none outside none;
+	margin:0;
+	padding:0;
+	text-align:center;
+}
+
+.paneltab  li {
+	display:inline;
+	float:left;
+	margin:0 2px;
+	padding:0;
+}
+
+.paneltab li a, .paneltab li a:visited {
+	float:left;
+	text-decoration:none;
+}
+
+.paneltab .tab_live, .paneltab .tab_live a {
+	background:url("/images/panel_head.png") repeat-x scroll center top transparent;
+	border-color:#D5D5D3;
+	border-style:solid;
+	border-width:1px 1px 0;
+	color:#003854;
+	font-weight:700;
+	height:24px;
+	padding:4px 8px 0;
+	width:auto;
+}
+
+.paneltab .tab a:link, .paneltab .tab a:visited {
+	color:#EE6600;
+	height:24px;
+	padding:4px 6px 0;
+	text-decoration:none;
+	width:auto;
+}
+
+.panel_body {
+	background-color:#FFFFFF;
+	border:1px solid #D5D5D3;
+	padding:8px;
+	width:auto;
+	word-wrap:break-word;
+}
+
+.ticket_table {
+	background-color:#FFFFFF;
+	width:100%;
+}
+
+.ticket_table_head {
+	background:url("/images/ticket_table_head.gif") repeat-x scroll center top #D5D5D3;
+	color:#005580;	
+	padding:1px;		
+}
+
+.ticket_table td {
+	border-bottom:1px solid #D5D5D3;
+	padding:5px;
+}
+
+.ticket_table_head a:link, .ticket_table_head a:visited {	
+	color:#005580;
+	text-decoration:none;
+}
+
+.ticket_row a:link, a:visited {
+	color:#EE6600;
+	text-decoration:none;
+}
+
+.ticket_row a:hover {
+	color:#BF4000;
+	text-decoration:none;
+}
+
+
+</style>
+<div class="user_center_panel_main">
     <div class="paneltab">
         <div style="float: right;">
-            <div style="margin-left: 10px;" class="button button_a">
-                <a onclick="linkCreateEvent(this, 'create event - my events')" href="/create">Create a New Event</a>
+            <div class="button" style="margin-left: 10px;">
+                <%= link_to '发起新活动',  create_event_url %>
             </div>
         </div>
         <ul>
+        	<% if params[:filter] == 'living' %>
             <li class="tab_live">
-                Live Events (1) 
+                                      活动事件 (<%= @my_events_living.count %>) 
             </li>
             <li class="tab">
-                <a href="/myevents?sort=datedesc&amp;filter=completed">Completed (2) </a>
+                <%= link_to '已结束(' + @my_events_finished.count.to_s + ')', my_events_url(:filter => 'finished') %>
             </li>
+			<% else %>
+			<li class="tab">
+                <%= link_to '活动事件(' + @my_events_living.count.to_s + ')', my_events_url(:filter => 'living') %>
+            </li>
+            <li class="tab_live">
+                                      已结束 (<%= @my_events_finished.count %>) 
+            </li>
+			<% end %>
         </ul>
     </div>
     <!-- end paneltab -->
@@ -20,45 +152,45 @@
             <tbody>
                 <tr class="ticket_table_head">
                     <td>
-                        <b><a href="/myevents?sortby=alpha&amp;filter=live&amp;org_id=0">Event Name</a></b>
+                        <b><%= GetTitleLink(params[:sortby], 'title', params[:filter], '活动名称') %></b>
+						<%= GetOrderImg(params[:sortby], 'title') %>						
                     </td>
-                    <td>
-                        <b><a href="/myevents?sortby=date&amp;filter=live&amp;org_id=0">Date</a></b>
-                        <img width="9" height="9" src="http://evbdn.eventbrite.com/s3-s3/static/images/arrows/blue_up.gif">
+                    <td class="tc">
+                        <b><%= GetTitleLink(params[:sortby], 'start_date', params[:filter], '开始时间') %></b>
+						<%= GetOrderImg(params[:sortby], 'start_date') %>                        
                     </td>
-                    <td>
-                        <b><a href="/myevents?sortby=status&amp;filter=live&amp;org_id=0">Status</a></b>
+                    <td class="tc">
+                        <b><%= GetTitleLink(params[:sortby], 'status', params[:filter], '状态') %></b>
+						<%= GetOrderImg(params[:sortby], 'status') %>
                     </td>
-                    <td>
-                        Sold
+                    <td class="tc">
+                        	报名情况
                     </td>
-                    <td>
-                        Quick Links
+                    <td class="tc">
+                        	管理链接
                     </td>
                 </tr>
-				<% @my_events.each do |event| %>
+				<% @my_events_show.each do |event| %>
                 <tr class="ticket_row">
                     <td>
                         <b><a href="/myevent?eid=758314138"><%= event.title %></a></b>
                     </td>
-                    <td>
+                    <td class="tc">
                         <nobr>
-                            Jul 10, 2010&nbsp;
+                            <%= event.start_time.strftime("%Y-%m-%d %H:%M") %>
                         </nobr>
                     </td>
-                    <td>
-                        Started
+                    <td class="tc">
+                        <%= ShowEventStatus(event.status) %>
                     </td>
-                    <td>
-                        9/1100
+                    <td class="tc">
+                        <%= event.sold_tickets %>/<%= (event.total_tickets == 0 ? '不限' : event.total_tickets) %>
                     </td>
-                    <td align="center">
+                    <td class="tc">
                         <nobr>
-                            <a href="/edit?eid=758314138">Edit</a>
+                            <%= link_to '修改', edit_event_url(event.id), :target=>'_blank' %>
                             <span class="pipe">|</span>
-                            <a target="_blank" href="http://www.eventbrite.com/event/758314138">View</a>
-                            <span class="pipe">|</span>
-                            <a href="/createinvite?eid=758314138">Invite</a>
+                            <a target="_blank" href="http://www.eventbrite.com/event/758314138">统计</a>
                         </nobr>
                     </td>
                 </tr>

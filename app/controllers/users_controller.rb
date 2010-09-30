@@ -51,7 +51,13 @@ class UsersController < ApplicationController
   end
   
   def my_events
-    @my_events = current_user.events.order_by(params[:sortby])
+    @my_events_living = current_user.events.living.order_by(params[:sortby]) 
+    @my_events_finished = current_user.events.finished.order_by(params[:sortby]) 
+    if (params[:filter].nil? || params[:filter].casecmp('living') == 0)
+      @my_events_show = @my_events_living
+    else
+      @my_events_show = @my_events_finished
+    end
   end  
  
   

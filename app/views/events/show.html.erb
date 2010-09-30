@@ -4,7 +4,7 @@
             <h1>
             	<%=h @event.title %>
 				<%if signed_in? && @event.user == current_user %>
-					<%= link_to "[修改]", edit_event_path(@event) %>
+					<%= link_to '修改', edit_event_url(@event.id), :target=>'_blank' %>
 				<% end %>
 			</h1>
             <span class="start_date"><%= @event.start_time %>- <%= @event.end_time %></span>
