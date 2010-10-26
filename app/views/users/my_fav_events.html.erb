@@ -1,13 +1,10 @@
+
 <div class="uc_panel_main">
-	<div class="uc_head_nav">
-    	您的位置：用户中心  <span class="fsong">&gt;&gt;</span> 我发起的活动 
+    <div class="uc_head_nav">
+    	您的位置：用户中心 <span class="fsong">&gt;&gt;</span> 我收藏的活动 
     </div>
     <div class="uc_paneltab">
-        <div style="float: right;">
-            <div class="tbutton" style="margin-left: 10px;">
-                <%= link_to '发起新活动',  create_event_url %>
-            </div>
-        </div>
+       
         <ul>
         	<% if params[:filter] == 'finished' %>
 				<li class="tab">
@@ -40,13 +37,10 @@
 						<%= GetOrderImg(params[:sortby], 'start_date') %>                        
                     </td>
                     <td class="tc">
-                        <b><%= GetTitleLink(params[:sortby], 'status', params[:filter], '状态') %></b>
-						<%= GetOrderImg(params[:sortby], 'status') %>
+                        <b><%= GetTitleLink(params[:sortby], 'end_date', params[:filter], '结束时间') %></b>
+						<%= GetOrderImg(params[:sortby], 'end_date') %>
                     </td>
-                    <td class="tc">
-                        	报名情况
-                    </td>
-                    <td class="tc">
+                   <td class="tc">
                         	管理链接
                     </td>
                 </tr>
@@ -56,21 +50,14 @@
                         <b><%= link_to event.title, event_path(event), :target => '_blank' %></b>
                     </td>
                     <td class="tc">
-                        <nobr>
-                            <%= event.start_time.strftime("%Y-%m-%d %H:%M") %>
-                        </nobr>
+                        <%= event.start_time.strftime("%Y-%m-%d %H:%M") %>                        
                     </td>
                     <td class="tc">
-                        <%= ShowEventStatus(event.status) %>
+                        <%= event.end_time.strftime("%Y-%m-%d %H:%M") %>
                     </td>
-                    <td class="tc">
-                        <%= event.sold_tickets %>/<%= (event.total_tickets == 0 ? '不限' : event.total_tickets) %>
-                    </td>
-                    <td class="tc">
-                    	<%= link_to '修改', edit_event_url(event.id), :target=>'_blank' %>
-                    	<span class="pipe">|</span>
-                    	<a target="_blank" href="http://www.eventbrite.com/event/758314138">统计</a>
-                    </td>					
+					<td class="tc">
+						<%= link_to "删除", "" %>
+					</td>                   
                 </tr>
 				<% end %>
             </tbody>

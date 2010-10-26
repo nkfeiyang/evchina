@@ -13,3 +13,4 @@ class CreateHostInfos < ActiveRecord::Migration
     drop_table :host_infos
   end
 end
+

@@ -6,7 +6,8 @@ namespace :db do
     Rake::Task['db:migrate'].invoke
     make_categories
     make_users
-    make_events    
+    make_events  
+    make_fav_events
   end
   
   task :make_categories => :environment do    
@@ -19,6 +20,10 @@ namespace :db do
   
   task :make_events => :environment do    
     make_events       
+  end
+  
+  task :make_fav_events => :environment do    
+    make_fav_events       
   end
   
   
@@ -65,6 +70,17 @@ namespace :db do
                             :status => "published",
                             :email => "test@uxoo.cn",
                             :category_id => rand(6)+1)
+      end
+    end
+  end
+  
+  def make_fav_events
+    User.all(:limit => 30).each do |user|
+      3.times do
+        eid = rand(90)+1
+        if !user.has_fav_event?(Event.find(eid))    
+          user.add_fav_event!(Event.find(eid))
+        end
       end
     end
   end

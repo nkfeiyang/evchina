@@ -36,6 +36,10 @@ body {
 	margin:auto;
 }
 
+.fsong {
+	font-family:"宋体";
+}
+
 ul {
 	list-style:none outside none;
 }
@@ -472,11 +476,7 @@ a.login_link:hover {
 	padding:2px;	
 	text-align:center;
 	text-decoration:none;
-}
-
-.filter_items .sidebar-menu .active {
-	background:none repeat scroll 0 0 #F1F1F1;
-	color:#FF0000;
+	color: #F09545;
 }
 
 .filter_items .sidebar-menu a:hover {
@@ -487,6 +487,13 @@ a.login_link:hover {
 .filter_items .sidebar-menu a.gray{
 	color:#cccccc;
 }
+
+.filter_items .sidebar-menu .active {
+	background:none repeat scroll 0 0 #F1F1F1;
+	color:#FF0000;
+}
+
+
 /* group event category box end */
 
 /* group event item begin */
@@ -848,3 +855,135 @@ a.login_link:hover {
 	width:92px;
 }
 /* group edit event form end */
+
+/* group user center begin */
+.uc_panel_main {
+	padding-top:10px;
+}
+
+.uc_paneltab {
+	color:#005580;
+	bottom:-1px;
+	clear:both;
+	color:#005580;
+	height:28px;
+	top:8px;
+	width:auto;
+	padding-top:5px;
+}
+
+.tbutton {
+	color:#FFFFFF;	
+	font-size:12px;
+	font-weight:bold;
+	margin:0;
+	padding:0;	
+	text-align:center;
+	white-space:nowrap;
+	width:auto;
+}
+
+.tbutton a:link, .tbutton a:visited {
+	background:url("/images/gloss.png") repeat-x scroll center top #FFFFFF;
+	color:#FFFFFF;
+	display:block;
+	padding:3px 16px 4px;
+	text-decoration:none;
+	background-color:#BF4000;
+	border:1px solid #BF4000;
+}
+
+.tbutton a:hover {
+	background-color:#EE6600;
+	border:1px solid #EE6600;
+}
+
+.uc_paneltab ul {
+	list-style:none outside none;
+	margin:0;
+	padding:0;
+	text-align:center;
+}
+
+.uc_paneltab  li {
+	display:inline;
+	float:left;
+	
+	padding:0;
+}
+
+.uc_paneltab li a, .uc_paneltab li a:visited {
+	float:left;
+	text-decoration:none;
+}
+
+.uc_paneltab .tab_live, .uc_paneltab .tab_live a {
+	background:url("/images/panel_head.png") repeat-x scroll center top transparent;
+	border-color:#EDEDEC;
+	border-style:solid;
+	border-width:1px 1px 0;
+	color:#003854;
+	font-weight:700;
+	height:24px;
+	padding:4px 8px 0;
+	width:auto;
+}
+
+.uc_paneltab .tab,  .uc_paneltab .tab a:link, .uc_paneltab .tab a:visited {	
+	color:#EE6600;
+	height:24px;
+	padding:4px 8px 0;
+	text-decoration:none;
+	width:auto;
+}
+
+.uc_paneltab .tab a:hover {
+	color:#BF4000;
+}
+
+.uc_panel_body {
+	background-color:#FFFFFF;
+	border:1px solid #EDEDEC;
+	padding:8px;
+	width:auto;
+	word-wrap:break-word;
+}
+
+.uc_ev_table {
+	background-color:#FFFFFF;
+	width:100%;
+}
+
+.uc_ev_head {
+	/* background:url("/images/ticket_table_head.gif") repeat-x scroll center top #D5D5D3; */
+	background-color: #F6F6F6;
+	color:#005580;	
+	padding:1px;		
+}
+
+.uc_ev_table td {
+	border-bottom:1px solid #EDEDEC;
+	padding:5px;
+}
+
+.uc_ev_head a:link, .uc_ev_head a:visited {	
+	color:#005580;
+	text-decoration:none;
+}
+
+.uc_ev_row a:link, .uc_ev_row a:visited {
+	color:#EE6600;
+	text-decoration:none;
+}
+
+.uc_ev_row a:hover {
+	color:#BF4000;
+	text-decoration:none;
+}
+
+.uc_head_nav {
+	background-color: #F6F6F6;
+	border:1px solid #EDEDEC;
+	padding:5px;
+}
+/* group user center end */

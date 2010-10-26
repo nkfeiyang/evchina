@@ -4,6 +4,10 @@ class Event < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
   belongs_to :host_info
+  
+  has_many :user_fav_events, :foreign_key => "event_id", :dependent => :destroy
+  has_many :event_fav_by_users, :through => :user_fav_events, :source => :user
+  
   #validates_presence_of :content
   #validates_length_of :content, :maximum => 140
   
@@ -70,6 +74,8 @@ class Event < ActiveRecord::Base
         when 'title_desc'                     : 'title DESC'
         when 'start_date'                     : 'start_time ASC'
         when 'start_date_desc'                : 'start_time DESC'
+        when 'end_date'                       : 'end_time ASC'
+        when 'end_date_desc'                  : 'end_time DESC'
         when 'status'                         : 'status ASC'
         when 'status_desc'                    : 'status DESC'
         else                                  ''

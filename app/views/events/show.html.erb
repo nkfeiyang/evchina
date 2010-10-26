@@ -47,10 +47,13 @@
 	
     <div class="span-16 last fl">	
 		<div id="event_content">	
-	        <div class="panel_head">
-	            <h3>活动详情</h3>
+	        <div class="panel_head">	        	
+	            	<div class="tbutton fr" style="padding:7px 10px 0 0;">		           
+		                <%= link_to '我要报名',  participate_url(@event.id) %>		           
+		        	</div>				
+				<h3>活动介绍</h3>
 	        </div>
-	        <div class="panel_body">
+	        <div class="panel_body clear">
 	            <%=sanitize @event.content,  
 					:tags => %w(table tbody tr td p br strong bold span ol li ul img a h1 h2 h3 h4 h5 h6 h7 hr), 
 					:attributes => %w(id class style color src target href border alt align width height cellspacing cellpadding)%>
@@ -105,9 +108,9 @@
 	            <h3>举办方信息</h3>
 	        </div>
 	        <div class="panel_body min-high-4">
-	        	1999年底，身在美国硅谷的李彦宏看到了中国互联网及中文搜索引擎服务的巨大发展潜力，抱着技术改变世界的梦想，他毅然辞掉硅谷的高薪工作，携搜索引擎专利技术，与徐勇一同回国，于2000年1月1日在中关村创建了百度公司。从最初的不足10人发展至今，员工人数超过7000人。如今的百度，已成为中国最受欢迎、影响力最大的中文网站。
+	        	<%= @event.user.hostinfo %>
 				<br/>
-				<a href="#" style="display:block;float:right;">查看该举办方发布的所有活动</a>
+				<%= link_to '查看该举办方发布的所有活动',  user_events_url(@event.user.id), :class=>"fr" %>
 				<br/>
 	        </div>   
 		</div>

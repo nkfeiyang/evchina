@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   
   layout "application", :only => [:new, :create]
   
-  layout "user", :only => [:show, :edit, :update, :my_events, :my_participate]
+  layout "user", :only => [:show, :edit, :update, :my_events, :my_participate, :my_fav_events]
   
   def new    
     @title = "新用户注册"
@@ -64,6 +64,17 @@ class UsersController < ApplicationController
   # 我参与的活动
   def my_participate
     
+  end
+  
+  # 我收藏的活动
+  def my_fav_events
+    @my_events_living = current_user.fav_events.living.order_by(params[:sortby]) 
+    @my_events_finished = current_user.fav_events.finished.order_by(params[:sortby]) 
+    if (params[:filter].nil? || params[:filter].casecmp('living') == 0)
+      @my_events_show = @my_events_living
+    else
+      @my_events_show = @my_events_finished
+    end
   end
   
 private

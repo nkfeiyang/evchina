@@ -34,7 +34,7 @@ module UsersHelper
       sortby = sort             # eg: title
     end
     
-    link_to title, my_events_path(:filter => filter, :sortby => sortby)
+    link_to title, url_for(:filter => filter, :sortby => sortby)   # 这里默认使用了当前页面的url。
   end
   
 end

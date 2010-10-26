@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100925074454) do
+ActiveRecord::Schema.define(:version => 20101011030631) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -51,6 +51,16 @@ ActiveRecord::Schema.define(:version => 20100925074454) do
     t.string   "user_id"
   end
 
+  create_table "user_fav_events", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "event_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_fav_events", ["event_id"], :name => "index_user_fav_events_on_event_id"
+  add_index "user_fav_events", ["user_id"], :name => "index_user_fav_events_on_user_id"
+
   create_table "users", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -60,6 +70,7 @@ ActiveRecord::Schema.define(:version => 20100925074454) do
     t.string   "mobilenumber"
     t.string   "email"
     t.string   "idcode"
+    t.string   "hostinfo"
     t.string   "crypted_password",                 :null => false
     t.string   "password_salt",                    :null => false
     t.string   "persistence_token",                :null => false

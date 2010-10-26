@@ -9,6 +9,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :mobilenumber                         # 手机号
       t.string :email    
       t.string :idcode                               # 身份证
+      t.string :hostinfo                             # 发布事件时用到，发布方的信息。
+      t.boolean :admin                               # 是否是管理员用户
       t.string :crypted_password, :null => false
       t.string :password_salt, :null => false
       t.string :persistence_token, :null => false

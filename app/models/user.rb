@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   
   has_many :events, :dependent => :destroy
   has_many :host_infos, :dependent => :destroy
+  has_many :user_fav_events, :foreign_key => "user_id", :dependent => :destroy
+  has_many :fav_events, :through => :user_fav_events, :source => :event
   
   #attr_accessor :password
   #validates_confirmation_of :password
@@ -20,4 +22,15 @@ class User < ActiveRecord::Base
   #validates_format_of       :email, :with => EmailRegex
   #validates_uniqueness_of   :email, :case_sensitive => false
   
+  def has_fav_event?(event)
+    user_fav_events.find_by_event_id(event)
+  end
+  
+  def add_fav_event!(event)
+    user_fav_events.create!(:event_id => event.id)
+  end
+  
+  def rm_fav_event!(event)
+    user_fav_events.find_by_event_id(event).destroy
+  end
 end
