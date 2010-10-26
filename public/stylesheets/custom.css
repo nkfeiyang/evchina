@@ -64,6 +64,29 @@ ul {
 .w180 {
 	width:180px;
 }
+.w80 {
+	width:80px;
+}
+.w110 {
+	width:110px;
+}
+.pt10 {
+	padding-top:10px;
+}
+
+.mt5 {
+	margin-top:5px;
+}
+.mt10 {
+	margin-top:10px;
+}
+.mt80 {
+	margin-top:80px;
+}
+.mt90 {
+	margin-top:90px;
+}
+
 /* debug use begin */
 .show_border_1 {
 	border:1px solid #E88F9D;
@@ -552,15 +575,29 @@ a.login_link:hover {
 }
 
 .event_thumb .thumb_t {
-	height:65px;
-	padding:3px;
-	width:65px;
+	height:70px;
+	padding:1px;
+	width:85px;
 }
 
 .event_detail {	
-	padding-top:3px;	
-	
+	padding-top:3px;		
 }
+
+.MIB_btn2 {
+	border:1px solid #D7D7D7;
+	color:#666666;
+	height:21px;	
+	padding:0px 3px;	
+	
+	background-color:#EAEAEA;
+}
+
+.MIB_btn2 a {
+	text-decoration:none;
+	color:#A2966E;
+}
+
 
 .finished {
 	background:url("/images/my_act_bg_over2.png") no-repeat scroll 460px 0 transparent;

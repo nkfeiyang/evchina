@@ -37,4 +37,9 @@ module UsersHelper
     link_to title, url_for(:filter => filter, :sortby => sortby)   # 这里默认使用了当前页面的url。
   end
   
+  
+  # 用户一是否关注过用户二，未实现
+  def has_add_user_fav?(userid_1, user_id_2)
+    false
+  end
 end

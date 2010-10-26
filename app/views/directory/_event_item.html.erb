@@ -1,29 +1,53 @@
 
-<div class="event_item min-high-4 fl last"> 
-  <div class="event_date_btn fl">
-  	<div class="out">
-	  	<span class="event_day">
-	  		<%= event_item.start_time.day %>
-		</span>
-		<span class="event_month">
-			<%= event_item.start_time.month %>月
-		</span>
-	</div>
-	<div class="out ev_date_part_y">
-		<span>
-			<%= event_item.start_time.year %>年
-		</span>
-	</div>
-	<span class="event_date_btn_bottom"> </span>
-  </div>
-  <div class="event_thumb">
-  	<% if (event_item.event_logo_url.blank?) %>
-		<%= link_to image_tag('/images/no_image.png', :alt => event_item.title, :class => 'thumb_t'),
- 			event_path(event_item), :title =>  event_item.title, :target => '_blank' %>
-	<% else %>
-		<%= link_to image_tag(event_item.event_logo_url, :alt => event_item.title, :class => 'thumb_t'),
- 			event_path(event_item), :title =>  event_item.title, :target => '_blank' %>
-	<% end %>
+<div class="event_item min-high-4 fl last">
+  <div class="span-4">
+	  <div class="event_date_btn fl">
+	  	<div class="out">
+		  	<span class="event_day">
+		  		<%= event_item.start_time.day %>
+			</span>
+			<span class="event_month">
+				<%= event_item.start_time.month %>月
+			</span>
+		</div>
+		<div class="out ev_date_part_y">
+			<span>
+				<%= event_item.start_time.year %>年
+			</span>
+		</div>
+		<span class="event_date_btn_bottom"> </span>
+	  </div>
+	  <div class="event_thumb">
+	  	<% if (event_item.event_logo_url.blank?) %>
+			<%= link_to image_tag('/images/no_image.png', :alt => event_item.title, :class => 'thumb_t'),
+	 			event_path(event_item), :title =>  event_item.title, :target => '_blank' %>
+		<% else %>
+			<%= link_to image_tag(event_item.event_logo_url, :alt => event_item.title, :class => 'thumb_t'),
+	 			event_path(event_item), :title =>  event_item.title, :target => '_blank' %>
+		<% end %>
+	  </div>
+	  <div class="clear">
+	  	<% if signed_in? && has_add_env_fav?(current_user.id, event_item.id)%>
+			<div class="MIB_btn2 fcenter w110 mt80">
+		  		已收藏 | <%= link_to '取消本收藏', rm_event_fav_url(:event_id =>  event_item.id, 'ret'=>request.request_uri) %>
+			</div>
+		<% else %>
+		  	<div class="MIB_btn2 fcenter w80 mt80">
+		  		<%= link_to '收藏本活动', add_event_fav_url(:event_id => event_item.id, 'ret'=>request.request_uri) %>
+			</div>
+		<% end %>
+		
+		<% if signed_in? && has_add_user_fav?(current_user.id, event_item.user_id)%>
+			<div class="MIB_btn2 fcenter w110 mt5">
+		  		已关注 | <%= link_to '取消本关注', rm_user_fav_url(:user_id => event_item.user_id) %>
+			</div>
+		<% else %>
+		  	<div class="MIB_btn2 fcenter w80 mt5">
+		  		<%= link_to '关注发布者', add_user_fav_url(:user_id => event_item.user_id) %>
+			</div>
+		<% end %>
+		
+	  </div>
   </div>  
   <% if Time.now >= event_item.end_time %>
   <div class="span-14 event_detail last fl finished">

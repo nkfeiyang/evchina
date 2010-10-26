@@ -32,6 +32,12 @@ ActionController::Routing::Routes.draw do |map|
   # http://*/user/events/108,显示用户id为108的所有events。调用directory的user_events_list方法
   map.user_events "/user/allevents/:user_id", :controller => 'directory', :action => 'user_events_list', :requirements => {:user_id => /\d+/ } 
   
+  map.add_user_fav '/add_fav/user/:user_id', :controller => 'fav', :action => 'add_user_fav' , :requirements => {:user_id => /\d+/ } 
+  map.add_event_fav '/add_fav/event/:event_id', :controller => 'fav', :action => 'add_event_fav' , :requirements => {:event_id => /\d+/ } 
+  map.rm_user_fav '/rm_fav/user/:user_id', :controller => 'fav', :action => 'rm_user_fav' , :requirements => {:user_id => /\d+/ } 
+  map.rm_event_fav '/rm_fav/event/:event_id', :controller => 'fav', :action => 'rm_event_fav' , :requirements => {:event_id => /\d+/ } 
+    
+  
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
 end
