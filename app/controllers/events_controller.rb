@@ -13,6 +13,7 @@ class EventsController < ApplicationController
   def new
     @event = current_user.events.new()
     @category_opts = Category.list_options()
+    @status_opts = Event.edit_status_options()
   end
 
   def create
@@ -28,7 +29,7 @@ class EventsController < ApplicationController
   def edit
     @event = Event.find(params[:id])
     @category_opts = Category.list_options()
-    
+    @status_opts = Event.edit_status_options()
   end
   
   def update
@@ -37,7 +38,7 @@ class EventsController < ApplicationController
     respond_to do |format|
       if @event.update_attributes(params[:event])
         flash[:notice] = "event was successfully updated."
-        format.html { redirect_to(:action => :index) }
+        format.html { redirect_to(:action => :show) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -51,6 +52,10 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])   
+    if !CanShowEvent?(@event)
+      redirect_to forbidden_url
+    end
+    
     @title = @event.title
     #@event.IncrementViews
     if (current_user != @event.user)
@@ -66,6 +71,14 @@ private
       redirect_to forbidden_url
       return false
     end
+  end
+  
+  # 判断一个event是否可以对外显示
+  def CanShowEvent?(event)
+    if (event.status != 'published')
+      return false     
+    end
+    return true
   end
 
   

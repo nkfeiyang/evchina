@@ -41,7 +41,7 @@
 						<%= GetOrderImg(params[:sortby], 'end_date') %>
                     </td>
                    <td class="tc">
-                        	管理链接
+                        	管理收藏
                     </td>
                 </tr>
 				<% @my_events_show.each do |event| %>
@@ -56,7 +56,7 @@
                         <%= event.end_time.strftime("%Y-%m-%d %H:%M") %>
                     </td>
 					<td class="tc">
-						<%= link_to "删除", "" %>
+						<%= link_to "删除", rm_event_fav_url(:event_id =>  event.id, 'ret'=>request.request_uri) %>
 					</td>                   
                 </tr>
 				<% end %>

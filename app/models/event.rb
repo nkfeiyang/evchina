@@ -3,7 +3,7 @@ class Event < ActiveRecord::Base
   #default_scope :order => 'start_time ASC, end_time ASC'
   belongs_to :user
   belongs_to :category
-  belongs_to :host_info
+  #belongs_to :host_info
   
   has_many :user_fav_events, :foreign_key => "event_id", :dependent => :destroy
   has_many :event_fav_by_users, :through => :user_fav_events, :source => :user
@@ -38,6 +38,7 @@ class Event < ActiveRecord::Base
   named_scope :order_by, lambda { |order|
     order.present? ? { :order => OrderType(order) } : {}
   }
+  
   def IncrementViews
    # v = (views.nil? ? 0 : views)+1 
    # update_attribute(:views, v)
@@ -45,6 +46,15 @@ class Event < ActiveRecord::Base
    # increment!(:views)
   end
   
+  # 定义状态字段对应的值和显示
+  def self.status_options
+    {'发布' => 'published', '草稿' => 'draft', '删除' => 'deleted'}
+  end
+  
+  # 这用于新增和修改时
+  def self.edit_status_options
+    {'发布' => 'published', '草稿' => 'draft'}
+  end
   
   private
     def self.TimeRange(period)   

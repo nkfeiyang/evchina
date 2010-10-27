@@ -1,6 +1,6 @@
 class FavController < ApplicationController
   
-  before_filter :require_user, :find_ret_location
+  before_filter :require_user
   #before_filter :correct_user, :only => [:rm_user_fav, :rm_user_fav]
   
   # 添加用户一到用户二的追踪
@@ -16,7 +16,7 @@ class FavController < ApplicationController
         UserFavEvent.create!(:user_id => current_user.id, :event_id => event.id)
       end
     end
-    redirect_to @ret
+    redirect_to ret_location
   end
   
   # 删除用户一到用户二的追踪
@@ -31,7 +31,7 @@ class FavController < ApplicationController
     if !ev_fav.nil?
       UserFavEvent.destroy(ev_fav.id)      
     end
-    redirect_to @ret
+    redirect_to ret_location
   end
     
   
@@ -45,7 +45,5 @@ private
     end
   end
   
-  def find_ret_location
-    @ret = params[:ret]
-  end
+  
 end

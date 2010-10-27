@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(:version => 20101011030631) do
     t.string   "event_logo_url"
     t.string   "status"
     t.integer  "category_id"
-    t.integer  "host_info_id"
+    t.text     "hostinfo"
     t.integer  "views"
     t.integer  "score"
     t.integer  "sold_tickets"
@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(:version => 20101011030631) do
     t.string   "mobilenumber"
     t.string   "email"
     t.string   "idcode"
-    t.string   "hostinfo"
+    t.boolean  "admin"
     t.string   "crypted_password",                 :null => false
     t.string   "password_salt",                    :null => false
     t.string   "persistence_token",                :null => false
@@ -80,7 +80,6 @@ ActiveRecord::Schema.define(:version => 20101011030631) do
     t.datetime "current_login_at"
     t.string   "last_login_ip"
     t.string   "current_login_ip"
-    t.boolean  "admin"
   end
 
   add_index "users", ["last_request_at"], :name => "index_users_on_last_request_at"

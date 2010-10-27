@@ -18,11 +18,11 @@ class CreateEvents < ActiveRecord::Migration
       t.string :event_logo_url
       t.string :status
       t.integer :category_id
-      t.integer :host_info_id
-      t.integer :views            #浏览次数
-      t.integer :score            #评分
-      t.integer :sold_tickets  #已预订的票数 
-      t.integer :total_tickets    #总的票数   0表示不限
+      t.text :hostinfo          # 发布方的信息。
+      t.integer :views            # 浏览次数
+      t.integer :score            # 评分
+      t.integer :sold_tickets     # 已预订的票数 
+      t.integer :total_tickets    # 总的票数   0表示不限
       
     end
   end

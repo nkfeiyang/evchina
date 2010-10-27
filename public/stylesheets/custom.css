@@ -830,9 +830,13 @@ a.login_link:hover {
 
 
 .new_edit_event .mceAdvanced {	
+	/* defined in tiny_mce_init.js
 	width:590px;
 	height:600px;
+	*/
 }
+
+
 
 .new_edit_event .panel_body input[type=text] {
 	font-size:14px;

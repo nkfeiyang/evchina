@@ -64,7 +64,7 @@
 		</div>
     </div>
     <div class="field">
-        <%= f.label :address, "第五步：指定地点" %>
+        <%= f.label :address, "第五步：联系信息" %>
         <div class="panel_head">
         	活动地点
         </div>
@@ -89,6 +89,20 @@
         </div>
 		<div class="panel_body">
         <%= f.select(:category_id, @category_opts) %>
+		</div>        
+    </div>
+	
+	<div class="field">
+        <%= f.label :hostinfo, "第七步：举办方信息" %>        
+		<%= f.text_area :hostinfo, :class => "mceSimple2" %>     
+    </div>
+	
+	<div class="field">
+        <%= f.label :status, "第八步：选择状态" %>        
+		<div class="panel_body">
+		<% for v in @status_opts %>
+        <%= f.radio_button(:status, v[1]) %><%= v[0] %>
+		<% end %>
 		</div>        
     </div>
 	

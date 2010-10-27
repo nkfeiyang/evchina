@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   #end
   
   has_many :events, :dependent => :destroy
-  has_many :host_infos, :dependent => :destroy
+  #has_many :host_infos, :dependent => :destroy
   has_many :user_fav_events, :foreign_key => "user_id", :dependent => :destroy
   has_many :fav_events, :through => :user_fav_events, :source => :event
   

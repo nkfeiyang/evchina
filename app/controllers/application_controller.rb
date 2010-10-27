@@ -49,5 +49,9 @@ private
     session[:return_to] = nil
   end
   
+  # URL中查找跳转地址参数
+  def ret_location
+    params[:ret]
+  end
   
 end

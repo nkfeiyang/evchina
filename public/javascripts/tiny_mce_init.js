@@ -22,9 +22,26 @@ tinyMCE.init({
 	theme_advanced_buttons3 : "",
 	plugins: "preview, advimage, media, table, emotions",
 	skin : "default",
-	editor_selector : "mceAdvanced"	
+	editor_selector : "mceAdvanced",
+	width:590,
+	height:625		
 });
 
+tinyMCE.init({
+	language : "zh",
+	mode : "textareas",
+	theme : "advanced",
+	theme_advanced_toolbar_location : "top", 
+	theme_advanced_toolbar_align : "left",
+	theme_advanced_buttons1 : "bold, italic, underline, fontsizeselect, forecolorpicker, |, link, unlink, |, preview, |, code ", 
+	theme_advanced_buttons2 : "",
+	theme_advanced_buttons3 : "",
+	plugins: "preview, advimage, media, emotions",
+	skin : "default",
+	editor_selector : "mceSimple2",
+	width:312,
+	height:145	
+});
 /*
 # Here you can specify default options for TinyMCE across all controllers
 #

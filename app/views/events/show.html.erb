@@ -7,8 +7,9 @@
 					<%= link_to '修改', edit_event_url(@event.id), :target=>'_blank' %>
 				<% end %>
 			</h1>
-            <span class="start_date"><%= @event.start_time %>- <%= @event.end_time %></span>
-			<div class="share span-16 last">
+            <span class="gray">时间：</span><span><%= show_ev_date(@event.start_time) %> - <%= show_ev_date @event.end_time %></span><br/>
+	        <span class="gray">地点：</span><span><%= @event.address %></span>
+			<div class="share span-16 last gray">
         		<input type="hidden" value="<%= @event.title %> (<%= request.url %>)" id="deal-share-im-c" style="display: inline;" />
 	            <ul class="banner_share" style="padding-left:0;">
 	                <li class="fenxiang">分享到： </li>
@@ -108,7 +109,7 @@
 	            <h3>举办方信息</h3>
 	        </div>
 	        <div class="panel_body min-high-4">
-	        	<%= @event.user.hostinfo %>
+	        	<%= @event.hostinfo %>
 				<br/>
 				<%= link_to '查看该举办方发布的所有活动',  user_events_url(@event.user.id), :class=>"fr" %>
 				<br/>
