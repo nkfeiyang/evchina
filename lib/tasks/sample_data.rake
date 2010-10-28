@@ -8,6 +8,7 @@ namespace :db do
     make_users
     make_events  
     make_fav_events
+    make_sys_reg_infos
   end
   
   task :make_categories => :environment do    
@@ -26,6 +27,9 @@ namespace :db do
     make_fav_events       
   end
   
+  task :make_sys_reg_infos => :environment do    
+    make_sys_reg_infos       
+  end
   
   def make_categories
     Category.create!(:name => "教学活动", :show_order => 1)
@@ -57,6 +61,7 @@ namespace :db do
     User.all(:limit => 30).each do |user|
       3.times do
         t = (rand(30)+1)*24*60*60
+        
         user.events.create!(:title => Faker::Lorem.sentence(4),
                             :intro => Faker::Lorem.sentence(30),
                             :content => Faker::Lorem.sentence(150),
@@ -65,6 +70,7 @@ namespace :db do
                             :address => 'Haidian, Beijing',
                             :views => 0,
                             :score => rand(6),
+                            :price => rand(100),
                             :total_tickets => rand(200),
                             :sold_tickets => 0,
                             :status => "published",
@@ -84,7 +90,18 @@ namespace :db do
       end
     end
   end
-
+  
+  def make_sys_reg_infos
+    SysRegInfo.create!(:info_name => '姓名', :desc => '')
+    SysRegInfo.create!(:info_name => '性别', :desc => '')
+    SysRegInfo.create!(:info_name => '年龄', :desc => '')
+    SysRegInfo.create!(:info_name => '邮件', :desc => '')
+    SysRegInfo.create!(:info_name => '手机', :desc => '')
+    SysRegInfo.create!(:info_name => '座机', :desc => '')
+    SysRegInfo.create!(:info_name => '单位', :desc => '')
+    SysRegInfo.create!(:info_name => '行业', :desc => '')
+    SysRegInfo.create!(:info_name => '职位', :desc => '')   
+  end
 
 end
 

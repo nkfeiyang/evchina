@@ -7,6 +7,8 @@ class Event < ActiveRecord::Base
   
   has_many :user_fav_events, :foreign_key => "event_id", :dependent => :destroy
   has_many :event_fav_by_users, :through => :user_fav_events, :source => :user
+  has_many :event_reg_requires, :dependent => :destroy
+  has_many :ticket_orders, :dependent => :destroy 
   
   #validates_presence_of :content
   #validates_length_of :content, :maximum => 140

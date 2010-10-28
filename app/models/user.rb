@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   #has_many :host_infos, :dependent => :destroy
   has_many :user_fav_events, :foreign_key => "user_id", :dependent => :destroy
   has_many :fav_events, :through => :user_fav_events, :source => :event
+  has_many :ticket_orders, :dependent => :destroy
   
   #attr_accessor :password
   #validates_confirmation_of :password

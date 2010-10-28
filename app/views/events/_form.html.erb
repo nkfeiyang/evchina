@@ -90,15 +90,31 @@
 		<div class="panel_body">
         <%= f.select(:category_id, @category_opts) %>
 		</div>        
-    </div>
-	
+    </div>	
 	<div class="field">
         <%= f.label :hostinfo, "第七步：举办方信息" %>        
 		<%= f.text_area :hostinfo, :class => "mceSimple2" %>     
     </div>
-	
 	<div class="field">
-        <%= f.label :status, "第八步：选择状态" %>        
+        <%= f.label :address, "第八步：票务信息" %>
+        <div class="panel_head">
+        	票务信息
+        </div>
+		<div class="panel_body">
+        	票价：<%= f.text_field :price %>(0表示免费)
+		</div>
+		 <div class="panel_head">
+        	购票人信息收集(你希望采集哪些信息，请打勾)
+        </div>
+		<div class="panel_body">
+			<% for v in @sys_reg_info_opts %>
+	        <%= check_box_tag('aaa', v[1]) %><%= v[0] %>
+			<% end %>
+        	
+		</div>
+    </div>	
+	<div class="field">
+        <%= f.label :status, "第九步：选择状态" %>        
 		<div class="panel_body">
 		<% for v in @status_opts %>
         <%= f.radio_button(:status, v[1]) %><%= v[0] %>

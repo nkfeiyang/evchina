@@ -9,13 +9,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101011030631) do
+ActiveRecord::Schema.define(:version => 20101028064513) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
     t.integer  "show_order"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "event_reg_requires", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "event_id"
+    t.integer  "sys_reg_info_id"
+    t.boolean  "required"
   end
 
   create_table "events", :force => true do |t|
@@ -39,16 +47,34 @@ ActiveRecord::Schema.define(:version => 20101011030631) do
     t.text     "hostinfo"
     t.integer  "views"
     t.integer  "score"
+    t.decimal  "price"
+    t.boolean  "each_need_reginfo"
     t.integer  "sold_tickets"
     t.integer  "total_tickets"
   end
 
-  create_table "host_infos", :force => true do |t|
+  create_table "sys_reg_infos", :force => true do |t|
+    t.string   "info_name"
+    t.string   "desc"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name"
-    t.string   "desc"
-    t.string   "user_id"
+  end
+
+  create_table "ticket_order_details", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "ticket_order_id"
+    t.integer  "ticket_order_small_id"
+    t.integer  "event_reg_require_id"
+    t.string   "reg_info_value"
+  end
+
+  create_table "ticket_orders", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "event_id"
+    t.integer  "ticket_counts"
   end
 
   create_table "user_fav_events", :force => true do |t|

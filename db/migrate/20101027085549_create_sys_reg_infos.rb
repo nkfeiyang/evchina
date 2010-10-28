@@ -6,7 +6,7 @@ class CreateSysRegInfos < ActiveRecord::Migration
   def self.up
     create_table :sys_reg_infos do |t|
       t.string :info_name     # 待收集的名称，比如用户名，手机号等等。
-      
+      t.string :desc          # 描述
       t.timestamps
     end
   end

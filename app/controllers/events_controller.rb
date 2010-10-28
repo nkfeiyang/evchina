@@ -14,6 +14,7 @@ class EventsController < ApplicationController
     @event = current_user.events.new()
     @category_opts = Category.list_options()
     @status_opts = Event.edit_status_options()
+    @sys_reg_info_opts = SysRegInfo.list_options()
   end
 
   def create
@@ -30,6 +31,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @category_opts = Category.list_options()
     @status_opts = Event.edit_status_options()
+    @sys_reg_info_opts = SysRegInfo.list_options()
   end
   
   def update
