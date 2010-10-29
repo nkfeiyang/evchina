@@ -54,7 +54,7 @@
 		        	</div>				
 				<h3>活动介绍</h3>
 	        </div>
-	        <div class="panel_body clear">
+	        <div class="panel_body min-high-17 clear">
 	            <%=sanitize @event.content,  
 					:tags => %w(table tbody tr td p br strong bold span ol li ul img a h1 h2 h3 h4 h5 h6 h7 hr), 
 					:attributes => %w(id class style color src target href border alt align width height cellspacing cellpadding)%>
@@ -109,10 +109,9 @@
 	            <h3>举办方信息</h3>
 	        </div>
 	        <div class="panel_body min-high-4">
-	        	<%= @event.hostinfo %>
-				<br/>
-				<%= link_to '查看该举办方发布的所有活动',  user_events_url(@event.user.id), :class=>"fr" %>
-				<br/>
+	        	<%= @event.hostinfo %>				
+				<%= link_to '查看该举办方发布的所有活动',  user_events_url(@event.user.id), :class=>"fl" %>
+				
 	        </div>   
 		</div>
     </div>

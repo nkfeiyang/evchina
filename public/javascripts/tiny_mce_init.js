@@ -24,7 +24,7 @@ tinyMCE.init({
 	skin : "default",
 	editor_selector : "mceAdvanced",
 	width:590,
-	height:625		
+	height:1050		
 });
 
 tinyMCE.init({

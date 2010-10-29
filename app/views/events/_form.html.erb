@@ -101,16 +101,31 @@
         	票务信息
         </div>
 		<div class="panel_body">
-        	票价：<%= f.text_field :price %>(0表示免费)
+        	票价：<%= f.text_field :price, :class=>"txt-40" %>元 (0表示免费)<br/>
+			[是否每张票都需要参加者信息？]
+			<%= f.radio_button :each_need_reginfo, 1 %>是 
+			<%= f.radio_button :each_need_reginfo, 0 %>否
 		</div>
 		 <div class="panel_head">
         	购票人信息收集(你希望采集哪些信息，请打勾)
         </div>
 		<div class="panel_body">
-			<% for v in @sys_reg_info_opts %>
-	        <%= check_box_tag('aaa', v[1]) %><%= v[0] %>
-			<% end %>
-        	
+			<table border="0" width="100%">
+				<tr>					
+					<% @sys_reg_info_opts.each_index do |i| %>
+						<td>
+				        <%= check_box_tag("collect_infos[]", @sys_reg_info_opts[i][1], @collect_infos.include?(@sys_reg_info_opts[i][1]) ? true : false) %><%= @sys_reg_info_opts[i][0] %>
+						<span class="gray">
+							(<%= check_box_tag('collect_required[]', @sys_reg_info_opts[i][1], @collect_requires.include?([@sys_reg_info_opts[i][1], true]) ? true : false) %>必填)
+						</span> 
+						<% if (i > 0 && i % 2 == 1)%>
+							</tr><tr>
+						<% else %>
+							</td>
+						<% end %>
+					<% end %>					
+				</tr>
+        	</table>
 		</div>
     </div>	
 	<div class="field">
