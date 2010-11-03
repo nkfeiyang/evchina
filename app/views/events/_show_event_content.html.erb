@@ -1,0 +1,10 @@
+<div id="event_content">
+    <div class="panel_head">
+        <h3>活动介绍</h3>
+    </div>
+    <div class="panel_body min-high-17 clear">
+        <%=sanitize @event.content,
+        :tags => %w(table tbody tr td p br strong bold span ol li ul img a h1 h2 h3 h4 h5 h6 h7 hr),
+        :attributes => %w(id class style color src target href border alt align width height cellspacing cellpadding) %>
+    </div>
+</div>

@@ -58,6 +58,42 @@ class Event < ActiveRecord::Base
     {'发布' => 'published', '草稿' => 'draft'}
   end
   
+  # 判断一个event是否可以对外显示
+  def CanShow?
+    if (self.status != 'published')
+      return false     
+    end
+    return true
+  end
+  
+  # 判断一个事件是否允许报名。(本方法是实例方法)
+  def EnableParticipate?
+    (self.status == 'published') && (self.start_time >  Time.now) && (self.has_tickets?)  # 条件self.has_tickets?指有票可售
+  end
+  
+  # 剩余票数，这里没有考虑不限票的情况
+  def left_ticket_counts
+    self.total_tickets - sold_tickets
+  end
+  
+  # 是否有票可售
+  def has_tickets?
+     if self.total_tickets == 0 || self.left_ticket_counts > 0
+      return true
+    else
+      return false
+    end    
+  end
+  
+  # 是否有足够需要的票可售
+  def has_enough_tickets?(need)
+    if (self.total_tickets == 0 || self.left_ticket_counts >= need)
+      return true
+    else
+      return false
+    end
+  end
+  
   private
     def self.TimeRange(period)   
       case period

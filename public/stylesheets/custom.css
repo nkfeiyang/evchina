@@ -35,7 +35,9 @@ body {
 	text-align:center;
 	margin:auto;
 }
-
+.bold {
+	font-weight:bold;
+}
 .fsong {
 	font-family:"宋体";
 }
@@ -74,6 +76,9 @@ ul {
 	padding-top:10px;
 }
 
+.pl50 {
+	padding-left:50px;
+}
 .txt-40{
 	width:40px;
 }
@@ -917,30 +922,21 @@ a.login_link:hover {
 	padding-top:5px;
 }
 
-.tbutton {
+.tbutton{
 	color:#FFFFFF;	
 	font-size:12px;
-	font-weight:bold;
-	margin:0;
-	padding:0;	
-	text-align:center;
-	white-space:nowrap;
-	width:auto;
-}
-
-.tbutton a:link, .tbutton a:visited {
-	background:url("/images/gloss.png") repeat-x scroll center top #FFFFFF;
-	color:#FFFFFF;
-	display:block;
-	padding:3px 16px 4px;
-	text-decoration:none;
+	font-weight:bold;	
+	text-align:center;		
+	background:url("/images/gloss.png") repeat-x scroll center top #FFFFFF;		
+	padding:3px 16px 4px;	
 	background-color:#BF4000;
 	border:1px solid #BF4000;
 }
 
-.tbutton a:hover {
-	background-color:#EE6600;
-	border:1px solid #EE6600;
+.tb_disabled {
+	color:#EFEFEF;	
+	background-color:#B1D9DA;	
+	border:1px solid #B6D6D7;
 }
 
 .uc_paneltab ul {
@@ -1032,3 +1028,25 @@ a.login_link:hover {
 	padding:5px;
 }
 /* group user center end */
+
+/* foot part begin */
+#footer {
+	background:none repeat scroll 0 0 #777777;
+	border-top:7px solid #000000;
+	clear:both;
+	color:#999999;
+	margin-top:30px;
+	padding:15px 0;
+}
+
+
+#footer a:link, #footer a:visited {
+	color: #FFFFFF;
+	text-decoration:none;
+}
+#footer a:hover {
+	color: #FFFFFF;
+	text-decoration:underline;
+}
+
+/* foot part end */

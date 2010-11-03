@@ -1,0 +1,43 @@
+<div id="event_attend">
+    <div class="panel_head">
+        <h3>参加活动</h3>
+    </div>
+    <div class="panel_body clear">
+        <table border="0">
+            <col width="50%"><col width="20%"><col width="15%"><col width="15%">
+            <thead>
+                <tr>
+                    <th>
+                        活动门票
+                    </th>
+                   
+                    <th>
+                        数量
+                    </th>
+                    <th>
+                        单价
+                    </th>
+                    <th>
+                        总价
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <%= @event.title %>
+                    </td>                   
+                    <td>
+                        <%= @order_quantity %>
+                    </td>
+                    <td>
+                        ¥ <%= @event.price %>
+                    </td>
+                    <td>
+                        ¥ <%= @event.price*@order_quantity %>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

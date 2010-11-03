@@ -1,0 +1,9 @@
+<div id="event_hostinfo">
+    <div class="panel_head">
+        <h3>举办方信息</h3>
+    </div>
+    <div class="panel_body min-high-4">
+        <%= @event.hostinfo %>
+        <%= link_to '查看该举办方发布的所有活动',  user_events_url(@event.user.id), :class=>"fl" %>
+    </div>
+</div>

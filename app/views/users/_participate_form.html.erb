@@ -1,0 +1,48 @@
+<div id="event_attend">
+    <div class="panel_head">
+        <h3>报名表</h3>
+    </div>
+    <div class="panel_body clear">
+    	<% flash.each do |key, value| %>
+			<div class="flash <%= key %>"><%= value %></div>
+		<% end %>
+    	<span class="fr">当前登录用户为：<span class="red bold"><%= current_user.login%></span>，如果这不是您的帐号，请 <%= link_to "退出", signout_url, :method => :delete %> 并重新登录。</span>
+    	<hr style="margin-top:1px;height:1px;"/>
+        <% form_tag(participate_url(@event.id)) do %>
+		 <%= hidden_field_tag 'next', 'participate_confirm' %>
+		 <%= hidden_field_tag 'order_quantity', @order_quantity %>
+		 <%
+	 
+	    if @event.each_need_reginfo && @order_quantity > 1
+		    for i in 1..@order_quantity do %>
+				<div class="clear bold">报名者<%= i %></div>		
+				<%= hidden_field_tag 'ticket_order_small_id[]', i %>
+			    <%
+				for info in @required_infos %>
+					<div class="clear pl50">
+					  <%= info.sys_reg_info.info_name %> : <%=text_field_tag 'sys_reg_info_id_'+info.sys_reg_info.id.to_s+'[]' %>
+					  <span class="red"><%= info.required ? '*' : '' %></span>
+					</div>
+					<%  
+				end
+				%>
+				<hr style="width:90%"/>
+			    <%
+		    end
+	    else %>
+			<%= hidden_field_tag 'ticket_order_small_id', 1 %>
+		<%	for info in @required_infos %>
+			  <div class="clear pl50">
+			    <%= info.sys_reg_info.info_name %> : <%=text_field_tag 'sys_reg_info_id_'+info.sys_reg_info.id.to_s %>
+			    <span class="red"><%= info.required ? '*' : '' %></span>
+			  </div>
+			<%  
+			end
+	    end
+		%>
+        <div class="fl pl50">
+            <%= submit_tag '确认报名', :class=> 'tbutton'  %>
+        </div>
+        <% end %>        
+	</div>
+</div>

@@ -1,0 +1,19 @@
+<div id="event_time">
+    <div class="panel_head">
+        <h3>时间</h3>
+    </div>
+    <div class="panel_body min-high-3">
+        <div class="span-5 tc">
+            <%= show_ev_date(@event.start_time) %>
+            <br/>
+            <span class="gray ">- 至 -</span>
+            <br/>
+            <%= show_ev_date(@event.end_time) %>
+        </div>
+        <div class="span-2 tc" style="margin-top:12px;">
+            <img src='/images/icon_add.gif' alt='关注'/>
+            <br/>
+            收藏本活动
+        </div>
+    </div>
+</div>

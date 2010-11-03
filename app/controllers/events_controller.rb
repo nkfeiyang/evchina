@@ -57,7 +57,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])   
-    if !CanShowEvent?(@event)
+    if !@event.CanShow?
       redirect_to forbidden_url
     end
     
@@ -78,13 +78,7 @@ private
     end
   end
   
-  # 判断一个event是否可以对外显示
-  def CanShowEvent?(event)
-    if (event.status != 'published')
-      return false     
-    end
-    return true
-  end
+  
 
   # 更新用户报名的信息采集项
   def UpdateEventRequireField(event_id)

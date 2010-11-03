@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_filter :require_no_user, :only => [:new, :create]
-  before_filter :require_user, :only => [:show, :edit, :update]
+  before_filter :require_user, :only => [:show, :edit, :update, :my_events, :my_participate, :my_fav_events, :participate]
   before_filter :require_new_session, :only => [:new, :create]  # 为登录提供一个@user_session对象
   
   ActionView::Base.field_error_proc = Proc.new do |html_tag, instance| 
@@ -9,7 +9,9 @@ class UsersController < ApplicationController
   
   layout "application", :only => [:new, :create]
   
+  
   layout "user", :only => [:show, :edit, :update, :my_events, :my_participate, :my_fav_events]
+    
   
   def new    
     @title = "新用户注册"
@@ -64,6 +66,25 @@ class UsersController < ApplicationController
   # 我参与的活动
   def my_participate
     
+    
+  end
+  
+  # 参加活动
+  def participate
+    @event = Event.find(params[:event_id])    
+    @order_quantity = params[:order_quantity].to_i
+    if (@event.nil? || !@event.EnableParticipate? || @order_quantity <= 0 )
+        redirect_to forbidden_url
+        return
+    end
+    @required_infos = EventRegRequire.find_all_by_event_id(@event.id)  
+      
+    if params[:next] == 'participate_confirm'  # 从participate页面提交注册活动确认
+      save_participate
+    else  # 从show event页面提交
+      
+      render :action => 'participate', :layout => 'common'
+    end    
   end
   
   # 我收藏的活动
@@ -81,5 +102,59 @@ private
  
   def require_new_session
     @user_session = UserSession.new
+  end
+  
+  # 存储用户的订购信息
+  # 1.检查用户输入的注册信息是否完善（必填的是否都填了）
+  # 2.创建一个订单，写入表ticket_orders
+  # 3.将订单详情写入ticket_order_details表
+  def save_participate
+    user_attend_infos = []
+    if @required_infos.count == 0 # 如果不要求用户填写资料，那就无需检查，处理完毕直接退出
+      return
+    end
+    
+    if @event.each_need_reginfo && @order_quantity > 1     
+      for info in @required_infos        
+        collect_sys_reg_info_ids = params['sys_reg_info_id_' + info.sys_reg_info.id.to_s] # 这里保存的是某个选项的数组，比如3组姓名。
+        
+        if collect_sys_reg_info_ids.length != @order_quantity  # 不相等，则提交的表单可能是伪造的。
+          redirect_to forbidden_url
+          return
+        end
+                
+        for i in 0 .. collect_sys_reg_info_ids.length-1
+          v = collect_sys_reg_info_ids[i]
+          if info.required && (v.nil? || v.strip.length == 0)  # 如果这个info是必填，那么就检查每个报名者的该项是否填写了。
+              flash[:error] = '请注意:您有必填项没有输入!'
+              render :action => 'participate', :layout => 'common'
+              return              
+          end          
+          user_attend_infos << [i+1,[info.sys_reg_info.id, v]]   # 保存下来，后面使用          
+        end  # end of for t in collect_sys_reg_info_ids
+      end # end of info in @required_infos
+    else  # 只需填一项用户注册信息时
+      for info in @required_infos   
+        v = params['sys_reg_info_id_' + info.sys_reg_info.id.to_s] 
+        if info.required && (v.nil? || v.strip.length == 0)
+          flash[:error] = '请注意:您有必填项没有输入!'
+            render :action => 'participate', :layout => 'common'
+            return              
+        end          
+        user_attend_infos << [1,[info.sys_reg_info.id, v]] 
+      end
+    end # end of @event.each_need_reginfo && @order_quantity > 1      
+   
+    # add order
+    TicketOrder.create!(:user_id=>current_user.id, :event_id=>@event.id, :ticket_counts =>@order_quantity)
+    order_id = TicketOrder.first(:order=>"id desc").id
+    
+    # add order details
+    for info in user_attend_infos
+      event_reg_require_id = EventRegRequire.find_by_event_id_and_sys_reg_info_id(@event.id, info[1][0]).id
+      TicketOrderDetail.create!(:ticket_order_id=>order_id,:ticket_order_small_id=>info[0], :event_reg_require_id=>event_reg_require_id,:reg_info_value=>info[1][1])
+    end
+    
+    redirect_to my_participate_url
   end
 end

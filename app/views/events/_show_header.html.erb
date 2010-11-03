@@ -1,0 +1,50 @@
+<div class="head">
+    <div class="title span-16">
+        <h1><%=h @event.title %>
+            <%if signed_in? && @event.user == current_user %>
+            <%= link_to '修改', edit_event_url(@event.id), :target=>'_blank' %>
+            <% end %>
+        </h1>
+        <span class="gray">时间：</span>
+        <span><%= show_ev_date(@event.start_time) %> - <%= show_ev_date @event.end_time %></span>
+        <br/>
+        <span class="gray">地点：</span>
+        <span><%= @event.address %></span>
+        <div class="share span-16 last gray">
+            <input type="hidden" value="<%= @event.title %> (<%= request.url %>)" id="deal-share-im-c" style="display: inline;"/>
+            <ul class="banner_share" style="padding-left:0;">
+                <li class="fenxiang">
+                    分享到： 
+                </li>
+                <li class="msn" id="deal-share-im">
+                    <a onclick="copyToClipboard($('deal-share-im-c').value);" href="#">MSN/QQ</a>
+                </li>
+                <li class="kaixin">
+                    <a target="_blank" href="http://www.kaixin001.com/repaste/share.php?rurl=<%= request.url %>&amp;rtitle=<%= @event.title %>">开心</a>
+                </li>
+                <li class="renren">
+                    <a target="_blank" href="http://share.renren.com/share/buttonshare.do?link=<%= request.url %>&amp;title=<%= @event.title %>">人人</a>
+                </li>
+                <li class="douban">
+                    <a target="_blank" href="http://www.douban.com/recommend/?url=<%= request.url %>&amp;title=<%= @event.title %>">豆瓣</a>
+                </li>
+                <li class="sina">
+                    <a target="_blank" href="http://v.t.sina.com.cn/share/share.php?url=<%= request.url %>&amp;title=<%= @event.title %>">新浪微博</a>
+                </li>
+                <li class="sohu">
+                    <a target="_blank" href="http://bai.sohu.com/share/blank/addbutton.do?link=<%= request.url %>&amp;title=<%= @event.title %>">白社会</a>
+                </li>
+                <li class="email">
+                    <a href="mailto:?subject=<%= @event.title %>">邮件</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="event_logo span-8 last">
+        <% unless @event.event_logo_url.blank? %>
+        <h1><%=h @event.title %></h1>
+        <% else %>
+        <%= image_tag('http://evbdn.eventbrite.com/s3-s3/eventlogos/5368133/797315793.jpg') %>
+        <% end %>
+    </div>
+</div>
