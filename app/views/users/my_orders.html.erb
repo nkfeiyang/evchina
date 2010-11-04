@@ -1,0 +1,54 @@
+<div class="uc_panel_main">
+	<div class="uc_head_nav">
+    	您的位置：用户中心  <span class="fsong">&gt;&gt;</span> <%= @nav_title %> 
+    </div>
+	<div class="separator-5"></div>
+    <div class="uc_panel_body">
+        <table width="100%" cellspacing="0" cellpadding="0" border="0" class="uc_ev_table">
+            <tbody>
+                <tr class="uc_ev_head">
+                	<td class="tc">
+                      <b>订单</b>												
+                    </td>
+                    <td>
+                      <b>活动名称</b>												
+                    </td>
+                    <td class="tc">
+                      <b>开始时间</b>                                               
+                    </td>
+                    <td class="tc">
+                      <b>订票时间</b>                        
+                    </td>
+                    <td class="tc">
+                      <b>购票数</b>	
+                    </td>
+                    <td class="tc">
+                      <b>管理链接</b> 	
+                    </td>
+                </tr>
+				<% @my_participate_orders.each do |order| %>
+                <tr class="uc_ev_row">
+                	<td class="tc">
+                		<%= order.id %>
+                	</td>
+                    <td>
+                        <b><%= link_to order.event.title, event_path(order.event), :target => '_blank' %></b>
+                    </td>
+                    <td class="tc">                       
+                        <%= order.event.start_time.strftime("%Y-%m-%d %H:%M") %>
+                    </td>
+                    <td class="tc">
+                        <%= order.created_at.strftime("%Y-%m-%d %H:%M") %>
+                    </td>
+                    <td class="tc">
+                        <%= order.ticket_counts %>
+                    </td>
+                    <td class="tc">
+                    	<%= link_to '订单详情', my_order_detail_url(order.id), :target=>'_blank' %>                    	
+                    </td>					
+                </tr>
+				<% end %>
+            </tbody>
+        </table>
+    </div>
+</div>

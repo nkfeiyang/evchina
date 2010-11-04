@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_filter :require_no_user, :only => [:new, :create]
-  before_filter :require_user, :only => [:show, :edit, :update, :my_events, :my_participate, :my_fav_events, :participate]
+  before_filter :require_user, :only => [:show, :edit, :update, :my_events, :my_orders, :my_order_detail, :my_fav_events, :participate]
   before_filter :require_new_session, :only => [:new, :create]  # 为登录提供一个@user_session对象
   
   ActionView::Base.field_error_proc = Proc.new do |html_tag, instance| 
@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   layout "application", :only => [:new, :create]
   
   
-  layout "user", :only => [:show, :edit, :update, :my_events, :my_participate, :my_fav_events]
+  layout "user", :only => [:show, :edit, :update, :my_events, :my_orders, :my_order_detail, :my_fav_events]
     
   
   def new    
@@ -32,8 +32,9 @@ class UsersController < ApplicationController
   end
   
   def show
-    @title = "我的优客"
-    @user = @current_user
+    #@title = "我的优客"
+    #@user = @current_user
+    redirect_to my_events_url
   end
 
   def edit
@@ -52,21 +53,34 @@ class UsersController < ApplicationController
     end
   end
   
+  # 我发起的活动
   def my_events
-    @my_events_living = current_user.events.living.order_by(params[:sortby]) 
-    @my_events_finished = current_user.events.finished.order_by(params[:sortby]) 
-    if (params[:filter].nil? || params[:filter].casecmp('living') == 0)
-      @my_events_show = @my_events_living
-    else
-      @my_events_show = @my_events_finished
+    @nav_title = @title = '我发起的活动'
+    @my_events_living_count   = current_user.events.living.count
+    @my_events_finished_count = current_user.events.finished.count
+    if (params[:filter].nil? || params[:filter].casecmp('living') == 0)  # 当前页面是living
+      @my_events_show = current_user.events.living.order_by(params[:sortby])      
+    else                                                                 # 当前页面是finished
+      @my_events_show = current_user.events.finished.order_by(params[:sortby])      
     end
   end  
  
   
   # 我参与的活动
-  def my_participate
-    
-    
+  def my_orders
+    @nav_title = @title = '我参与的活动'
+    @my_participate_orders = current_user.ticket_orders
+  end
+  
+  def my_order_detail
+    @nav_title = @title = '订单详情'
+    @my_order = current_user.ticket_orders.find_by_id(params[:order_id])
+    if @my_order.nil?
+      redirect_to forbidden_url
+      return
+    end
+    @my_order_details = @my_order.ticket_order_details
+    @required_infos = EventRegRequire.find_all_by_event_id(@my_order.event.id)  
   end
   
   # 参加活动
@@ -89,6 +103,7 @@ class UsersController < ApplicationController
   
   # 我收藏的活动
   def my_fav_events
+    @nav_title = '我收藏的活动'
     @my_events_living = current_user.fav_events.living.order_by(params[:sortby]) 
     @my_events_finished = current_user.fav_events.finished.order_by(params[:sortby]) 
     if (params[:filter].nil? || params[:filter].casecmp('living') == 0)
@@ -109,10 +124,7 @@ private
   # 2.创建一个订单，写入表ticket_orders
   # 3.将订单详情写入ticket_order_details表
   def save_participate
-    user_attend_infos = []
-    if @required_infos.count == 0 # 如果不要求用户填写资料，那就无需检查，处理完毕直接退出
-      return
-    end
+    user_attend_infos = []    
     
     if @event.each_need_reginfo && @order_quantity > 1     
       for info in @required_infos        
@@ -126,7 +138,7 @@ private
         for i in 0 .. collect_sys_reg_info_ids.length-1
           v = collect_sys_reg_info_ids[i]
           if info.required && (v.nil? || v.strip.length == 0)  # 如果这个info是必填，那么就检查每个报名者的该项是否填写了。
-              flash[:error] = '请注意:您有必填项没有输入!'
+              @error = '请注意:您有必填项没有输入!'
               render :action => 'participate', :layout => 'common'
               return              
           end          
@@ -137,7 +149,7 @@ private
       for info in @required_infos   
         v = params['sys_reg_info_id_' + info.sys_reg_info.id.to_s] 
         if info.required && (v.nil? || v.strip.length == 0)
-          flash[:error] = '请注意:您有必填项没有输入!'
+            @error = '请注意:您有必填项没有输入!'
             render :action => 'participate', :layout => 'common'
             return              
         end          
@@ -146,15 +158,15 @@ private
     end # end of @event.each_need_reginfo && @order_quantity > 1      
    
     # add order
-    TicketOrder.create!(:user_id=>current_user.id, :event_id=>@event.id, :ticket_counts =>@order_quantity)
+    TicketOrder.create!(:user_id=>current_user.id, :event_id=>@event.id, :price=>@event.price, :ticket_counts =>@order_quantity)
     order_id = TicketOrder.first(:order=>"id desc").id
     
     # add order details
     for info in user_attend_infos
-      event_reg_require_id = EventRegRequire.find_by_event_id_and_sys_reg_info_id(@event.id, info[1][0]).id
-      TicketOrderDetail.create!(:ticket_order_id=>order_id,:ticket_order_small_id=>info[0], :event_reg_require_id=>event_reg_require_id,:reg_info_value=>info[1][1])
+      sys_reg_info_id = EventRegRequire.find_by_event_id_and_sys_reg_info_id(@event.id, info[1][0]).sys_reg_info_id
+      TicketOrderDetail.create!(:ticket_order_id=>order_id,:ticket_order_small_id=>info[0], :sys_reg_info_id=>sys_reg_info_id,:reg_info_value=>info[1][1])
     end
     
-    redirect_to my_participate_url
+    redirect_to my_orders_url
   end
 end

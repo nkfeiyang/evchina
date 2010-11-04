@@ -5,6 +5,7 @@ class CreateTicketOrders < ActiveRecord::Migration
       t.timestamps
       t.integer :user_id        #关联 user id
       t.integer :event_id       #关联event id
+      t.decimal :price          # 票单价
       t.integer :ticket_counts  #票的数量
     end
   end

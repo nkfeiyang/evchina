@@ -79,6 +79,9 @@ ul {
 .pl50 {
 	padding-left:50px;
 }
+.pt5 {
+	padding-top:5px;
+}
 .txt-40{
 	width:40px;
 }
@@ -919,7 +922,7 @@ a.login_link:hover {
 	height:28px;
 	top:8px;
 	width:auto;
-	padding-top:5px;
+	
 }
 
 .tbutton{
@@ -931,6 +934,14 @@ a.login_link:hover {
 	padding:3px 16px 4px;	
 	background-color:#BF4000;
 	border:1px solid #BF4000;
+}
+
+a.white_link:link, a.white_link:visited {
+	color : #FFFFFF;
+	text-decoration : none;
+}
+a.white_link:hover {
+	text-decoration : underline;
 }
 
 .tb_disabled {

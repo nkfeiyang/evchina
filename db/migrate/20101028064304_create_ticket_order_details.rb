@@ -7,7 +7,8 @@ class CreateTicketOrderDetails < ActiveRecord::Migration
       t.timestamps
       t.integer :ticket_order_id  # 关联表:ticket_orders的id
       t.integer :ticket_order_small_id # 从1开始。如果一个订单包含多张票，则此值可以大于1。
-      t.integer :event_reg_require_id  # 关联表:event_reg_requires的id
+      #t.integer :event_reg_require_id  # 关联表:event_reg_requires的id
+      t.integer :sys_reg_info_id # 关联表:sys_reg_infos的id
       t.string  :reg_info_value   # 对应的参加活动用户的某个信息的值
     end
   end

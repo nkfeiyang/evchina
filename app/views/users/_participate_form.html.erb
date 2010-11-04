@@ -3,8 +3,8 @@
         <h3>报名表</h3>
     </div>
     <div class="panel_body clear">
-    	<% flash.each do |key, value| %>
-			<div class="flash <%= key %>"><%= value %></div>
+    	<% if !@error.nil? %>
+			<div class="flash error"><%= @error %></div>
 		<% end %>
     	<span class="fr">当前登录用户为：<span class="red bold"><%= current_user.login%></span>，如果这不是您的帐号，请 <%= link_to "退出", signout_url, :method => :delete %> 并重新登录。</span>
     	<hr style="margin-top:1px;height:1px;"/>

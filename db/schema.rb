@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(:version => 20101028064513) do
     t.datetime "updated_at"
     t.integer  "ticket_order_id"
     t.integer  "ticket_order_small_id"
-    t.integer  "event_reg_require_id"
+    t.integer  "sys_reg_info_id"
     t.string   "reg_info_value"
   end
 
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(:version => 20101028064513) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "event_id"
+    t.decimal  "price"
     t.integer  "ticket_counts"
   end
 

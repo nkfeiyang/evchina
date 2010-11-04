@@ -15,6 +15,8 @@ class EventsController < ApplicationController
     @category_opts = Category.list_options()
     @status_opts = Event.edit_status_options()
     @sys_reg_info_opts = SysRegInfo.list_options()
+    @collect_infos =    EventRegRequire.find_all_by_event_id(@event.id).collect {|p| p.sys_reg_info_id}
+    @collect_requires = EventRegRequire.find_all_by_event_id(@event.id).collect {|p| [p.sys_reg_info_id,p.required]}
   end
 
   def create

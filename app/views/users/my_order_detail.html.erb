@@ -1,0 +1,73 @@
+<div class="uc_panel_main">
+	<div class="uc_head_nav">
+    	您的位置：用户中心  <span class="fsong">&gt;&gt;</span> <%= @nav_title %> 
+    </div>
+	<div class="separator-5"></div>
+    <div class="uc_panel_body">
+        <table width="100%" cellspacing="0" cellpadding="0" border="0" class="uc_ev_table">
+            <tbody>
+                <tr class="uc_ev_head">
+                	<td class="tc">
+                      <b>订单</b>												
+                    </td>
+                    <td>
+                      <b>活动名称</b>												
+                    </td>
+                    <td class="tc">
+                      <b>开始时间</b>                                               
+                    </td>
+                    <td class="tc">
+                      <b>订票时间</b>                        
+                    </td>
+                    <td class="tc">
+                      <b>购票数</b>	
+                    </td>                    
+                </tr>				
+                <tr class="uc_ev_row">
+                	<td class="tc">
+                		<%= @my_order.id %>
+                	</td>
+                    <td>
+                        <b><%= link_to @my_order.event.title, event_path(@my_order.event), :target => '_blank' %></b>
+                    </td>
+                    <td class="tc">
+                        <%= @my_order.event.start_time.strftime("%Y-%m-%d %H:%M") %>
+                    </td>
+                    <td class="tc">
+                        <%= @my_order.created_at.strftime("%Y-%m-%d %H:%M") %>
+                    </td>
+                    <td class="tc">
+                        <%= @my_order.ticket_counts %>
+                    </td>
+                </tr>				
+            </tbody>
+        </table>
+		<% if @my_order.event.each_need_reginfo && @my_order.ticket_counts > 1
+        	for i in 1..@my_order.ticket_counts do %>
+				<div class="clear bold">报名者<%= i %>:</div>	
+				<hr style="width:90%;height:1px;"/>
+				<% for info in @required_infos %>
+					<div class="clear pl50 pt5">
+					  <b><%= info.sys_reg_info.info_name %> :</b> 
+					     <% record = @my_order_details.find_by_ticket_order_small_id_and_sys_reg_info_id(1, info.sys_reg_info.id) %>
+						 <%  if !record.nil? %>
+						 	<%= record.reg_info_value  %>
+						 <% end %> 				  			  
+					</div>
+				<% end %>
+	  		<% end %>
+		<% else %>
+		    <div class="clear bold">报名者:</div>	
+			<hr style="width:90%;height:1px;"/>
+			<% for info in @required_infos %>
+				<div class="clear pl50 pt5">
+				  <b><%= info.sys_reg_info.info_name %> :</b> 
+				  <% record = @my_order_details.find_by_ticket_order_small_id_and_sys_reg_info_id(1, info.sys_reg_info.id) %>
+				  <% if !record.nil? %>
+				 	<%= record.reg_info_value  %>
+				 <% end %> 				  
+				</div>
+			<% end %>
+	  	<% end %>	
+    </div>
+</div>

@@ -23,7 +23,8 @@ ActionController::Routing::Routes.draw do |map|
   
   map.my_events         '/myevents',              :controller => 'users', :action => 'my_events'    #我发起的活动
   map.create_event      '/create' ,               :controller => 'events', :action => 'new'
-  map.my_participate    '/myparticipate',         :controller => 'users', :action => 'my_participate' #我参与的活动
+  map.my_orders         '/orders',                :controller => 'users', :action => 'my_orders' #我参与的活动
+  map.my_order_detail   '/order_detail/:order_id',:controller => 'users', :action => 'my_order_detail', :requirements => {:order_id => /\d+/ } #活动详情
   map.my_fav_events     '/myfav',                 :controller => 'users', :action => 'my_fav_events'
   map.participate       '/participate/:event_id', :controller => 'users', :action => 'participate', :requirements => {:event_id => /\d+/ }   #活动报名
   

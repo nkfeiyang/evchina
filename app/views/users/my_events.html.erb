@@ -1,27 +1,29 @@
 <div class="uc_panel_main">
 	<div class="uc_head_nav">
-    	您的位置：用户中心  <span class="fsong">&gt;&gt;</span> 我发起的活动 
+    	您的位置：用户中心  <span class="fsong">&gt;&gt;</span> <%= @nav_title %> 
     </div>
+	<div class="separator-5"></div>
+	<!-- paneltab -->
     <div class="uc_paneltab">
         <div style="float: right;">
             <div class="tbutton" style="margin-left: 10px;">
-                <%= link_to '发起新活动',  create_event_url %>
+                <%= link_to '发起新活动',  create_event_url, :class=>'white_link' %>
             </div>
         </div>
         <ul>
         	<% if params[:filter] == 'finished' %>
 				<li class="tab">
-	                <%= link_to '活动事件(' + @my_events_living.count.to_s + ')', url_for(:filter => 'living') %>
+	                <%= link_to '活动事件(' + @my_events_living_count.to_s + ')', url_for(:filter => 'living') %>
 	            </li>
 	            <li class="tab_live">
-	                                      已结束 (<%= @my_events_finished.count %>) 
+	                                      已结束 (<%= @my_events_finished_count %>) 
 	            </li>            
 			<% else %>
 				<li class="tab_live">
-	                                      活动事件 (<%= @my_events_living.count %>) 
+	                                      活动事件 (<%= @my_events_living_count %>) 
 	            </li>
 	            <li class="tab">
-	                <%= link_to '已结束(' + @my_events_finished.count.to_s + ')', url_for(:filter => 'finished') %>
+	                <%= link_to '已结束(' + @my_events_finished_count.to_s + ')', url_for(:filter => 'finished') %>
 	            </li>
 			<% end %>
         </ul>
