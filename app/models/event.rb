@@ -3,6 +3,7 @@ class Event < ActiveRecord::Base
   #default_scope :order => 'start_time ASC, end_time ASC'
   belongs_to :user
   belongs_to :category
+  belongs_to :city
   #belongs_to :host_info
   
   has_many :user_fav_events, :foreign_key => "event_id", :dependent => :destroy

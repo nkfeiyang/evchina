@@ -27,8 +27,12 @@
                     <td>
                         <%= @event.title %>
                     </td>                   
-                    <td>
-                        <%= @order_quantity %>
+                    <td>                        
+						<%= select_tag "tmp_order_quantity",
+	                            get_ticket_options(@event, @order_quantity),
+	                            :disabled => !@event.EnableParticipate?,
+								:onchange => "location.href='?order_quantity=' + $('tmp_order_quantity').value"
+						 %>
                     </td>
                     <td>
                         ¥ <%= @event.price %>

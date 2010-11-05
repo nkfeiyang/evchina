@@ -9,9 +9,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101028064513) do
+ActiveRecord::Schema.define(:version => 20101105074130) do
 
   create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.integer  "show_order"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "cities", :force => true do |t|
+    t.string   "ename"
     t.string   "name"
     t.integer  "show_order"
     t.datetime "created_at"
@@ -35,6 +43,8 @@ ActiveRecord::Schema.define(:version => 20101028064513) do
     t.datetime "start_time"
     t.datetime "end_time"
     t.string   "address"
+    t.float    "map_x"
+    t.float    "map_y"
     t.string   "zipcode"
     t.string   "telnumber"
     t.string   "contact_user_name"
@@ -44,11 +54,15 @@ ActiveRecord::Schema.define(:version => 20101028064513) do
     t.string   "event_logo_url"
     t.string   "status"
     t.integer  "category_id"
+    t.integer  "city_id"
     t.text     "hostinfo"
     t.integer  "views"
     t.integer  "score"
     t.decimal  "price"
     t.boolean  "each_need_reginfo"
+    t.boolean  "is_other_site"
+    t.string   "other_site_name"
+    t.string   "other_event_url"
     t.integer  "sold_tickets"
     t.integer  "total_tickets"
   end

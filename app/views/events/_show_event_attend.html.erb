@@ -4,54 +4,61 @@
     </div>
     <div class="panel_body clear">
         <div>
-            <% form_tag(participate_url(@event.id)) do %>
-            <table border="0">
-                <col width="42%"><col width="24%"><col width="14%"><col width="10%"><col width="10%">
-                <thead>
-                    <tr>
-                        <th>
-                            活动门票
-                        </th>
-                        <th>
-                            停售时间
-                        </th>
-                        <th>
-                            剩余数量
-                        </th>
-                        <th>
-                            价格
-                        </th>
-                        <th>
-                            数量
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <%= @event.title %>
-                        </td>
-                        <td>
-                            <%= show_ev_date @event.start_time %>
-                        </td>
-                        <td>
-                            <%= show_left_tickets(@event) %>
-                        </td>
-                        <td>
-                            ¥ <%= @event.price %>
-                        </td>
-                        <td>
-                            <%= select_tag "order_quantity",
-                            get_ticket_options(@event),
-                            :disabled => !@event.EnableParticipate? %>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="fr">
-                <%= submit_tag @event.EnableParticipate? ? '我要报名' : '已停止售票', :class=>@event.EnableParticipate? ? 'tbutton' : 'tbutton tb_disabled',  :disabled => !@event.EnableParticipate? %>
-            </div>
-            <% end %>
+        	<% if @event.is_other_site %>
+				此活动来自第三方网站<b><%= @event.other_site_name %></b>，点击报名按钮将前往第三方网站报名页面。
+				<div class="fr">            	
+	               <%= link_to '我要参加', @event.other_event_url, :class=>'tbutton', :target=>'_blank' %>
+	            </div>
+			<% else %>
+	            <% form_tag(participate_url(@event.id), :method => :get) do %>
+	            <table border="0">
+	                <col width="42%"><col width="24%"><col width="14%"><col width="10%"><col width="10%">
+	                <thead>
+	                    <tr>
+	                        <th>
+	                            活动门票
+	                        </th>
+	                        <th>
+	                            停售时间
+	                        </th>
+	                        <th>
+	                            剩余数量
+	                        </th>
+	                        <th>
+	                            价格
+	                        </th>
+	                        <th>
+	                            数量
+	                        </th>
+	                    </tr>
+	                </thead>
+	                <tbody>
+	                    <tr>
+	                        <td>
+	                            <%= @event.title %>
+	                        </td>
+	                        <td>
+	                            <%= show_ev_date @event.start_time %>
+	                        </td>
+	                        <td>
+	                            <%= show_left_tickets(@event) %>
+	                        </td>
+	                        <td>
+	                            ¥ <%= @event.price %>
+	                        </td>
+	                        <td>
+	                            <%= select_tag "order_quantity",
+	                            get_ticket_options(@event, 1),
+	                            :disabled => !@event.EnableParticipate? %>
+	                        </td>
+	                    </tr>
+	                </tbody>
+	            </table>
+	            <div class="fr">            	
+	                <%= submit_tag @event.EnableParticipate? ? '我要报名' : '已停止售票', :class=>@event.EnableParticipate? ? 'tbutton' : 'tbutton tb_disabled',  :disabled => !@event.EnableParticipate? %>				
+	            </div>
+	            <% end  %>
+			<% end %>	
         </div>
     </div>
 </div>

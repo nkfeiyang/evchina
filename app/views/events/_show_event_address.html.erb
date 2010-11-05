@@ -3,23 +3,67 @@
         <h3>联系</h3>
     </div>
     <div class="panel_body">
-        <div class="span-5">
-            地址：<span class="gray "><%= @event.address %></span>
-            <br/>
-            邮编：<span class="gray "><%= @event.zipcode %></span>
-            <br/>
-            联系人：<span class="gray "><%= @event.contact_user_name %></span>
-            <br/>
-            电话：<span class="gray "><%= @event.telnumber %></span>
-            <br/>
-            邮件：<span class="gray "><%= @event.email %></span>
-            <br/>
-            网址：<span class="gray "><%= link_to truncate_u(@event.web_url, 10), @event.web_url, html_options={:title=>@event.web_url, :target=>"_blank"} %></span>
-        </div>
-        <div class="span-2 tc" style="width:80px;margin-top:0;">
-            <img src='/images/map-demo.jpg' alt='点击查看大图' style="width:80px;height:140px;"/>
-            <br/>
-            点击查看大图
-        </div>
+    	<table border="0" width="100%">
+    		<col width="25%"><col width="75%">
+			<tbody>
+			<% if !@event.address.blank? %>	
+    		<tr>
+    			<td>地址：</td><td class="gray"><%= @event.address %></td>
+    		</tr>
+			<% end %>
+			<% if !@event.zipcode.blank? %>
+			<tr>
+				<td>邮编：</td><td class="gray"><%= @event.zipcode %></td>
+			</tr>
+			<% end %>
+			<% if !@event.contact_user_name.blank? %>
+			<tr>
+				<td>联系人：</td><td class="gray"><%= @event.contact_user_name %></td>
+			</tr>
+			<% end %>
+			<% if !@event.telnumber.blank? %>
+			<tr>
+				<td>电话：</td><td class="gray"><%= @event.telnumber %></td>
+			</tr>
+			<% end %>
+			<% if !@event.email.blank? %>
+			<tr>
+				<td>邮件：</td><td class="gray"><%= @event.email %></td>
+			</tr>
+			<% end %>
+			<% if !@event.web_url.blank? %>
+			<tr>
+    			<td>网址：</td><td class="gray"><%= link_to truncate_u(@event.web_url, 10), @event.web_url, html_options={:title=>@event.web_url, :target=>"_blank"} %></td>
+    		</tr>            
+			<% end %>
+			</tbody>
+    	</table>    
+	
+        
+	<% if !(@event.map_x.blank? || @event.map_y.blank?) %>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?key=46ce9d0614bf7aefe0ba562f8cf87194&v=1.0&services=true"></script>
+        <div style="width:290px;height:180px;border:1px solid gray" id="container"></div>
+		<script type="text/javascript">
+		var map = new BMap.Map("container");
+		var point = new BMap.Point(<%= @event.map_x %>, <%= @event.map_y %>);
+		map.centerAndZoom(point, 15);
+		var marker = new BMap.Marker(point);        // 创建标注
+		map.addOverlay(marker);                          // 将标注添加到地图中
+		map.enableScrollWheelZoom();                  // 启用滚轮放大缩小。
+		map.enableKeyboard();                         // 启用键盘操作。
+		var opts = {
+			  width : 120,     // 信息窗口宽度
+			  height: 40,     // 信息窗口高度
+			  title : "活动地址："  // 信息窗口标题
+			}
+		var infoWindow = new BMap.InfoWindow('<%= @event.address %>', opts);  // 创建信息窗口对象
+        map.openInfoWindow(infoWindow, map.getCenter());      // 打开信息窗口
+		/*
+		marker.addEventListener("click", function(){                                        
+		   this.openInfoWindow(infoWindow);        
+		});
+		*/
+		</script>
+	<% end %>
     </div>
 </div>

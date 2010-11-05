@@ -21,7 +21,7 @@ module EventsHelper
   end  
 
   
-  def get_ticket_options(event)
+  def get_ticket_options(event, number)  # number 为默认的张数
     if !(event.has_tickets?)
       return "<option value='0'>0</option>"
     else
@@ -31,7 +31,11 @@ module EventsHelper
         left = 30
       end   
       for i in 1..left do
+        if number == i
+          options << "<option vlaue='"+i.to_s+"' selected='selected'>"+i.to_s+"</option>"
+        else
           options << "<option vlaue='"+i.to_s+"'>"+i.to_s+"</option>"
+        end
       end
       options
     end  

@@ -9,6 +9,7 @@ namespace :db do
     make_events  
     make_fav_events
     make_sys_reg_infos
+    make_cities
   end
   
   task :make_categories => :environment do    
@@ -29,6 +30,10 @@ namespace :db do
   
   task :make_sys_reg_infos => :environment do    
     make_sys_reg_infos       
+  end
+  
+  task :make_cities => :environment do
+    make_cities
   end
   
   def make_categories
@@ -75,7 +80,8 @@ namespace :db do
                             :sold_tickets => 0,
                             :status => "published",
                             :email => "test@uxoo.cn",
-                            :category_id => rand(6)+1)
+                            :category_id => rand(6)+1,
+                            :city_id => rand(10)+1)
       end
     end
   end
@@ -102,7 +108,19 @@ namespace :db do
     SysRegInfo.create!(:info_name => '行业', :desc => '')
     SysRegInfo.create!(:info_name => '职位', :desc => '')   
   end
-
+  
+  def make_cities
+    City.create!(:ename => 'bj', :name => '北京', :show_order => 1)
+    City.create!(:ename => 'sh', :name => '上海', :show_order => 2)
+    City.create!(:ename => 'gz', :name => '广州', :show_order => 3)
+    City.create!(:ename => 'sz', :name => '深圳', :show_order => 4)
+    City.create!(:ename => 'tj', :name => '天津', :show_order => 5)
+    City.create!(:ename => 'cd', :name => '成都', :show_order => 6)
+    City.create!(:ename => 'hz', :name => '杭州', :show_order => 7)
+    City.create!(:ename => 'wuhan', :name => '武汉', :show_order => 8)
+    City.create!(:ename => 'xa', :name => '西安', :show_order => 9)
+    City.create!(:ename => 'nj', :name => '南京', :show_order => 10)
+  end
 end
 
 

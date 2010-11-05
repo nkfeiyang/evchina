@@ -936,6 +936,11 @@ a.login_link:hover {
 	border:1px solid #BF4000;
 }
 
+a.tbutton:link, a.tbutton:visited {
+	color : #FFFFFF;
+	text-decoration : none;
+}
+
 a.white_link:link, a.white_link:visited {
 	color : #FFFFFF;
 	text-decoration : none;
