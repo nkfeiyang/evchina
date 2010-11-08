@@ -1,18 +1,9 @@
 <% content_for :left do %>
-
-	<div id="_index_login_panel" class="fcenter login_panel">
-		<%= render 'pages/login_form' %>
-		<div class="regnow">			
-			<%= link_to "立即注册", signup_url, :class=>'login_button reg_button fcenter' %>
-		</div>
-	</div>
+	<%= render 'directory/categories' %>
+	<div class="separator-5"></div>
+	<%= render 'pages/search_panel' %>		
 	
-	<div class="span-6">
-		<%= render 'pages/search_panel' %>		
-	</div>
 <% end %>
-
-
 
 <% content_for :right do %>	
     <!--line 1 begin-->	
@@ -30,12 +21,31 @@
 	</div>
 	<!--line 1 end-->
 	
-	<hr/>
+	<div class="separator-5"></div>
 	
 	<!--line 2 begin-->
 	
 	<div class="span-18 last clear">
-		<img src="http://midtsiden.no/files/imagecache/Toppsak/amfi2010_9357.jpg" />
+		<div class="perform gray_box">			
+			<ul>
+				<% for i in 1..6 do %>
+				<% if i % 2 == 1 %>
+				<li class="ps1">
+				<% else %>
+				<li class="ps2">
+				<% end %>	
+				  <h2><span class="t">演唱会</span><a class="more" href="/bj/perform-1"><%= image_tag('/images/more.jpg', :alt => 'more') %></a> </h2>
+				  <div class="info">
+				  	<p class="img"><a href="/ticket_20246.html"><img title="2010迈克学摇滚中国巡演北京演唱会" alt="2010迈克学摇滚中国巡演北京演唱会" src="http://pimg.damai.cn/perform/project/202/20246_n1.jpg"></a></p>
+					<h3><a title="2010迈克学摇滚中国巡演北京演唱会" href="/ticket_20246.html">2010迈克学摇滚中国巡演北京演唱会</a></h3>
+					<p class="d">迈克学摇滚他们在九十年代风靡欧美，带来抚动我们心弦的音乐。</p>
+					<p><strong class="fl">时间：2010.12.03 </strong><strong class="fr">价格：280元起</strong>
+					</p>
+				  </div>				  
+				</li>
+				<% end %>
+			</ul>
+		</div>
 	</div>
 	<!--line 2 end-->
 <% end %>	

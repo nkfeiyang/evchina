@@ -1,20 +1,26 @@
-<% form_for @user_session, :url => user_session_path, :html => {:class => 'new_user_session fcenter'} do |f| %>  
-  <p class="top">
-	  <%= f.label :login, "帐号: ", :class=>'login_label fl' %>
-	  <%= f.text_field :login, :class=>"login-text" %>
-  </p>
-  <p>
-	  <%= f.label :password, "密码: ", :class=>'login_label fl' %>
-	  <%= f.password_field :password, :class=>"login-text" %>
-  </p>
-  <p class="savepassword">
-	  <%= f.check_box :remember_me %>
-	  <%= f.label :remember_me, "下次自动登录", :class=>'login_cbx_label' %>
-  </p>
-  <p class="bottom">
-  	  <%= f.submit "提交", :class=>"login_button login-submit" %>
-	  <span class="getpassword">
-	    <%= link_to "忘记密码？", findpass_url, :class => 'login_link' %>
-	  </span>
-  </p>
-<% end %>
+<% # 暂时不用了 %>
+<div id="_index_login_panel" class="fcenter login_panel">
+	<% form_for @user_session, :url => user_session_path, :html => {:class => 'new_user_session fcenter'} do |f| %>  
+	  <p class="top">
+		  <%= f.label :login, "帐号: ", :class=>'login_label fl' %>
+		  <%= f.text_field :login, :class=>"login-text" %>
+	  </p>
+	  <p>
+		  <%= f.label :password, "密码: ", :class=>'login_label fl' %>
+		  <%= f.password_field :password, :class=>"login-text" %>
+	  </p>
+	  <p class="savepassword">
+		  <%= f.check_box :remember_me %>
+		  <%= f.label :remember_me, "下次自动登录", :class=>'login_cbx_label' %>
+	  </p>
+	  <p class="bottom">
+	  	  <%= f.submit "提交", :class=>"login_button login-submit" %>
+		  <span class="getpassword">
+		    <%= link_to "忘记密码？", findpass_url, :class => 'login_link' %>
+		  </span>
+	  </p>
+	<% end %>
+	<div class="regnow">			
+		<%= link_to "立即注册", signup_url, :class=>'login_button reg_button fcenter' %>
+	</div>
+</div>

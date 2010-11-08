@@ -37,12 +37,12 @@ namespace :db do
   end
   
   def make_categories
-    Category.create!(:name => "教学活动", :show_order => 1)
-    Category.create!(:name => "商业会议", :show_order => 2)
-    Category.create!(:name => "商务活动", :show_order => 3)
-    Category.create!(:name => "网络活动", :show_order => 4)
-    Category.create!(:name => "社会事件", :show_order => 5)
-    Category.create!(:name => "艺术娱乐", :show_order => 6) 
+    Category.create!(:name => "教育培训", :show_order => 1)
+    Category.create!(:name => "会议会展", :show_order => 2)
+    Category.create!(:name => "生活休闲", :show_order => 3)  # 俱乐部，生活，休闲，体育，户外，旅行
+    Category.create!(:name => "网络活动", :show_order => 4)  
+    Category.create!(:name => "艺术娱乐", :show_order => 5)  # 演出等
+    Category.create!(:name => "其它活动", :show_order => 6) 
   end
   
   def make_users

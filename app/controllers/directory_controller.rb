@@ -1,6 +1,6 @@
 class DirectoryController < ApplicationController
   
-  before_filter :prepare_data
+  before_filter :prepare_categories
   
   def index    
     @events = Event.published().with_category(params[:category_id])\
@@ -18,7 +18,5 @@ class DirectoryController < ApplicationController
   end
   
 private
-  def prepare_data
-    @categories = Category.all
-  end
+
 end

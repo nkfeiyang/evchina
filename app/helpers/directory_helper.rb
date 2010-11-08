@@ -29,7 +29,7 @@ module DirectoryHelper
     ret = ret + (params[:q].blank? ? "" : '&q=' + params[:q])
     
     if (!ret.blank?)
-      ret[0] = '?'
+      ret[0] = '/directory?'
     else
       ret = '/directory'
     end

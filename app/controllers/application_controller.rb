@@ -54,4 +54,8 @@ private
     params[:ret]
   end
   
+  # 准备category数据
+  def prepare_categories
+    @categories = Category.all
+  end
 end

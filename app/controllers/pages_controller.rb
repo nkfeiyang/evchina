@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  
+  before_filter :prepare_categories
   def home    
     @user_session = UserSession.new
   end
