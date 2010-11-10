@@ -2,6 +2,8 @@ module DirectoryHelper
   def filter_Uri(var, val)
     ret = "";
     val = val.to_s
+    
+    ##### category_id begin #####
     category_id = ""
     if (var.downcase == "category_id")
       category_id = val
@@ -12,7 +14,9 @@ module DirectoryHelper
     if (category_id != "")
       ret = ret + '&category_id=' + category_id
     end    
-    
+    ##### category_id end #####
+
+    ##### category_id begin #####
     start_time = ""
     
     if (var.downcase == "start_time")
@@ -24,6 +28,22 @@ module DirectoryHelper
     if (start_time != "")
       ret = ret + '&start_time=' + start_time
     end
+    ##### category_id end #####
+
+    ##### city_id begin #####
+    city_id = ""
+    
+    if (var.downcase == "city_id")
+      city_id = val
+    else
+      city_id = params[:city_id].blank? ? "" : params[:city_id]
+    end
+    
+    if (city_id != "")
+      ret = ret + '&city_id=' + city_id
+    end
+    
+    ##### city_id end #####
     
     # 添加query部分
     ret = ret + (params[:q].blank? ? "" : '&q=' + params[:q])
@@ -40,13 +60,17 @@ module DirectoryHelper
   
   # 获得某个category下的事件数
   def get_category_count(category_id)
-    return Event.published().with_user_id(params[:user_id]).with_in(params[:start_time]).with_query(params[:q]).with_category(category_id).count    
+    return Event.published().with_city(params[:city_id]).with_user_id(params[:user_id]).with_in(params[:start_time]).with_query(params[:q]).with_category(category_id).count    
   end
   
   
   # 获得某个timespan下的事件数
   def get_time_range_count(timespan)
-    return Event.published().with_user_id(params[:user_id]).with_in(timespan).with_query(params[:q]).with_category(params[:category_id]).count    
+    return Event.published().with_city(params[:city_id]).with_user_id(params[:user_id]).with_in(timespan).with_query(params[:q]).with_category(params[:category_id]).count    
+  end
+  
+  def get_city_event_count(city_id)
+    return Event.published().with_city(city_id).with_user_id(params[:user_id]).with_in(params[:start_time]).with_query(params[:q]).with_category(params[:category_id]).count    
   end
   
   def GetCategoryCssClass(cate_id)
@@ -58,7 +82,15 @@ module DirectoryHelper
   end
   
   def GetTimeRangeCssClass(timename)
-    if (params[:start_time] == timename || (params[:start_time].nil? && timename.blank?))
+    if (params[:start_time] == timename.to_s || (params[:start_time].nil? && timename.blank?))
+      return 'active'
+    else
+      return ''
+    end
+  end
+  
+  def GetCityCssClass(city_id)
+    if (params[:city_id] == city_id.to_s || (params[:city_id].nil? && city_id.blank?))
       return 'active'
     else
       return ''

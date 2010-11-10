@@ -10,6 +10,7 @@ class Event < ActiveRecord::Base
   has_many :event_fav_by_users, :through => :user_fav_events, :source => :user
   has_many :event_reg_requires, :dependent => :destroy
   has_many :ticket_orders, :dependent => :destroy 
+  has_many :cfg_index_events, :dependent => :destroy
   
   #validates_presence_of :content
   #validates_length_of :content, :maximum => 140
@@ -36,6 +37,10 @@ class Event < ActiveRecord::Base
   
   named_scope :with_user_id, lambda { |user_id|
     user_id.present? ? {:conditions => ['user_id = ?', user_id]} : {}
+  }
+  
+  named_scope :with_city, lambda { |city_id|
+    city_id.present? ? {:conditions => ['city_id = ?', city_id]} : {}
   }
   
   named_scope :order_by, lambda { |order|

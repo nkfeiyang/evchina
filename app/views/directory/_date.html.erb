@@ -1,6 +1,5 @@
 <% 
-menu = [
-		["", "全部"],
+menu = [		
 		["today", "今天"],
 		["tomorrow", "明天"],
 		["this_week", "本周"],
@@ -11,19 +10,22 @@ menu = [
 		["this_year", "今年"]
 		] 
 %>
-<div class="filter_box round_title_top">
-	<div class="round_title  min-high-1"><span>活动时间</span></div>
+<div class="filter_box fcenter">
+	<div class="filter_title"><span style="display:block;padding-top:8px;">活动时间</span></div>
 	<div class="filter_items">
 		<ul class="sidebar-menu">
-			<% menu.each do |k| %>			
 			<li>
+				<a href="<%= filter_Uri("start_time", "") %>" class=<%= GetTimeRangeCssClass('') %>>全部(<%=get_time_range_count('')%>)</a>
+			</li>
+			<% menu.each do |k| %>
 				<% count = get_time_range_count(k[0]) 
 				if count  > 0 %>
+				<li>
 					<%= link_to h( k[1] + "(" + count.to_s() + ")" ), filter_Uri("start_time", k[0]), :class=>GetTimeRangeCssClass(k[0]) %>
+				</li>
 				<% else %>
-					<a class="gray"><%= k[1] %>(0)</a>
+					<!--<li><a class="gray"><%= k[1] %>(0)</a></li>-->
 				<% end %>
-			</li>
 			<% end %>
 		</ul>
 	</div>

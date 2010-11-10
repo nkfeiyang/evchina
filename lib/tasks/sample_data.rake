@@ -10,6 +10,7 @@ namespace :db do
     make_fav_events
     make_sys_reg_infos
     make_cities
+    make_cfg_index_event
   end
   
   task :make_categories => :environment do    
@@ -34,6 +35,10 @@ namespace :db do
   
   task :make_cities => :environment do
     make_cities
+  end
+  
+  task :make_cfg_index_event => :environment do
+    make_cfg_index_event
   end
   
   def make_categories
@@ -120,6 +125,15 @@ namespace :db do
     City.create!(:ename => 'wuhan', :name => '武汉', :show_order => 8)
     City.create!(:ename => 'xa', :name => '西安', :show_order => 9)
     City.create!(:ename => 'nj', :name => '南京', :show_order => 10)
+  end
+  
+  def make_cfg_index_event
+    CfgIndexEvent.create!(:event_id => 1, :show_order => 1,:is_valid => true, :title => '2010迈克学摇滚中国巡演北京演唱会', :desc=>'', :img_url => 'http://pimg.damai.cn/perform/project/202/20299_n1.jpg')
+    CfgIndexEvent.create!(:event_id => 2, :show_order => 2,:is_valid => true, :title => '张学友2011巡回演唱会北京站', :desc=>'精美的舞台设计、国际顶尖乐手，价值几千万元的影音器材护航，将歌神完美的音色带给每位歌迷！',:img_url => 'http://pimg.damai.cn/perform/project/174/17454_n1.jpg')
+    CfgIndexEvent.create!(:event_id => 3, :show_order => 3,:is_valid => true, :title => '马克西姆钢琴音乐会巡演北京站', :desc=>'四射的激情，澎湃的热力和无处不在的节奏！',:img_url => 'http://pimg.damai.cn/perform/project/210/21001_n1.jpg')
+    CfgIndexEvent.create!(:event_id => 4, :show_order => 4,:is_valid => true, :title => '话剧《李小红》', :desc=>'一场灵魂与舞步的共鸣　　一出跳望与生命的对话',:img_url => 'http://pimg.damai.cn/perform/project/201/20191_n1.jpg')
+    CfgIndexEvent.create!(:event_id => 5, :show_order => 5,:is_valid => true, :title => '《挡马》《杀庙》《闹天宫》', :desc=>'一场最漂亮的SHOW TIME！罗志祥北京演唱会，敬请期待！',:img_url => 'http://pimg.damai.cn/perform/project/175/17562_n1.jpg')
+    CfgIndexEvent.create!(:event_id => 6, :show_order => 6,:is_valid => true, :title => '春晖园温泉门票', :desc=>'在风景宜人的顺义温榆河畔映衬下更显娇媚迷人。',:img_url => 'http://pimg.damai.cn/perform/project/89/8904_n1.jpg')
   end
 end
 

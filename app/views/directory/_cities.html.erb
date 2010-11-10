@@ -1,0 +1,20 @@
+<div class="filter_box fcenter">
+	<div class="filter_title"><span style="display:block;padding-top:8px;">所在城市</span></div>
+	<div class="filter_items">
+		<ul class="sidebar-menu">
+			<li>
+				<a href="<%= filter_Uri("city_id", "") %>" class=<%= GetCityCssClass('') %>>所有(<%=get_city_event_count('')%>)</a>
+			</li>
+			<% for city in @cities %>	
+			<% count = get_city_event_count(city.id) 
+				if count  > 0 %>	
+				<li>
+					<%= link_to h( city.name + "(" + count.to_s() + ")" ), filter_Uri("city_id", city.id.to_s), :class=>GetCityCssClass(city.id) %>
+				</li>
+				<% else %>
+					<!--<li><a class="gray"><%= city.name %>(0)</a></li>-->
+				<% end %>
+			<% end %>
+		</ul>
+	</div>
+</div>

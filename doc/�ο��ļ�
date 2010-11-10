@@ -3,3 +3,5 @@ http://yuan.javaeye.com/blog/646444
 http://www.binarylogic.com/2008/11/16/tutorial-reset-passwords-with-authlogic/
 
 当前登录人数：<%= User.logged_in.count %> 
+
+关联的简单判断法则，表A中有个b_id，那么在A中要写belongs_to B, B中写has_many :A

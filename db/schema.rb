@@ -9,11 +9,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101105074130) do
+ActiveRecord::Schema.define(:version => 20101109102214) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
     t.integer  "show_order"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "cfg_index_events", :force => true do |t|
+    t.integer  "event_id"
+    t.integer  "show_order"
+    t.boolean  "is_valid"
+    t.string   "title"
+    t.string   "desc"
+    t.string   "img_url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

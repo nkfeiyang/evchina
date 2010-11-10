@@ -28,18 +28,20 @@
 	<div class="span-18 last clear">
 		<div class="perform gray_box">			
 			<ul>
-				<% for i in 1..6 do %>
+				<% i = 1 %>
+				<% for event_cfg in @rec_events_cfg do %>
 				<% if i % 2 == 1 %>
 				<li class="ps1">
 				<% else %>
 				<li class="ps2">
 				<% end %>	
-				  <h2><span class="t">演唱会</span><a class="more" href="/bj/perform-1"><%= image_tag('/images/more.jpg', :alt => 'more') %></a> </h2>
+				<% i = (i == 1) ? 2:1  %>
+				  <h2><span class="t"><%= event_cfg.event.category.name %></span><a class="more" href="<%=filter_Uri('category_id', event_cfg.event.category.id) %>"><%= image_tag('/images/more.jpg', :alt => 'more') %></a> </h2>
 				  <div class="info">
-				  	<p class="img"><a href="/ticket_20246.html"><img title="2010迈克学摇滚中国巡演北京演唱会" alt="2010迈克学摇滚中国巡演北京演唱会" src="http://pimg.damai.cn/perform/project/202/20246_n1.jpg"></a></p>
-					<h3><a title="2010迈克学摇滚中国巡演北京演唱会" href="/ticket_20246.html">2010迈克学摇滚中国巡演北京演唱会</a></h3>
-					<p class="d">迈克学摇滚他们在九十年代风靡欧美，带来抚动我们心弦的音乐。</p>
-					<p><strong class="fl">时间：2010.12.03 </strong><strong class="fr">价格：280元起</strong>
+				  	<p class="img"><%= link_to image_tag(event_cfg.img_url, :alt => event_cfg.title, :title => event_cfg.title), event_url(event_cfg.event), :target=>'_blank' %></a></p>
+					<h3><a title="2010迈克学摇滚中国巡演北京演唱会" href="/ticket_20246.html"><%= event_cfg.title %></a></h3>
+					<p class="d"><%= event_cfg.desc %></p>
+					<p><strong class="fl">时间：<%= event_cfg.event.start_time.strftime('%Y.%m.%d') %> </strong><strong class="fr">价格：<%= number_with_precision(event_cfg.event.price, :precision => 0) %>元起</strong>
 					</p>
 				  </div>				  
 				</li>

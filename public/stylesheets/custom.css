@@ -1,6 +1,7 @@
 body {
 	font-weight:normal;	  
 	font:12px/1.5 tahoma,arial,宋体,sans-serif;
+	
 }
 
 .red {
@@ -102,7 +103,18 @@ ul {
 .mt90 {
 	margin-top:90px;
 }
-
+.ml10 {
+	margin-left:10px;
+}
+.ml15 {
+	margin-left:15px;
+}
+.ml20 {
+	margin-left:20px;
+}
+.mb20 {
+	margin-bottom:20px;
+}
 /* debug use begin */
 .show_border_1 {
 	border:1px solid #E88F9D;
@@ -120,10 +132,12 @@ ul {
 
 /* header part*/
 #header {
-
-	background:url("/images/n_bg_r.gif") repeat-x scroll center top #D01E3B;
+	background:url("/images/navbar2-page-background.png") repeat-x scroll center top #D01E3B;
 	margin:0 auto;
-
+    height:80px;
+}
+.logoimg {
+	padding-top:20px;
 }
 
 #header .ce, a.ce {
@@ -138,6 +152,7 @@ ul {
 }
 
 #header .rt_nav {
+   padding-top:5px;
    padding-right:20px;
 }
 
@@ -166,10 +181,17 @@ ul {
 .navigation li a:hover {
 	text-decoration: underline;
 }
-
+/*
 .m1t {
 	background:none repeat scroll 0 0 #D01E3B;
 	border-bottom:5px solid #E88F9D;
+	height:10px;
+	overflow:hidden;
+}
+*/
+.m1t {
+	background:none repeat scroll 0 0 #000033;
+	border-bottom:5px solid #0014B7;
 	height:10px;
 	overflow:hidden;
 }
@@ -696,32 +718,40 @@ a.login_link:hover {
  * 
  /* will_paginate begin  */
 .pagination {
-  padding: 3px;
-  margin: 3px;
+  padding:25px 0;
+  
   float:right;
 }
+
 .pagination a {
-  padding: 2px 5px 2px 5px;
-  margin: 2px;
+  /*padding: 2px 5px;*/
+  padding:5px 10px;
+   
   border: 1px solid #aaaadd;
   text-decoration: none;
   color: #000099;
 }
+
 .pagination a:hover, .pagination a:active {
-  border: 1px solid #000099;
-  color: #000;
-}
-.pagination span.current {
-  padding: 2px 5px 2px 5px;
-  margin: 2px;
-  border: 1px solid #000099;
-  font-weight: bold;
-  background-color: #000099;
+  border: 1px solid #000000;
+  background-color: #777777;
   color: #FFF;
 }
+
+.pagination span.current {
+  font-weight: bold;
+  padding:5px 10px;
+   
+  border: 1px solid #000000;
+  background-color: #777777;
+  color: #FFF;
+ 
+}
+
 .pagination span.disabled {
-  padding: 2px 5px 2px 5px;
-  margin: 2px;
+ 
+  padding:5px 10px;
+   
   border: 1px solid #eee;
   color: #ddd;
 }
@@ -1074,8 +1104,10 @@ a.white_link:hover {
 
 /* foot part begin */
 #footer {
+	
 	background:none repeat scroll 0 0 #777777;
 	border-top:7px solid #000000;
+	
 	clear:both;
 	color:#999999;
 	margin-top:30px;
