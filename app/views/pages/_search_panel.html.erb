@@ -1,38 +1,45 @@
 <div class="search_panel">
     
     <%= render 'pages/search_form' %>
-
+<%
+ tags = []
+ tags << ['互联网大会']
+ tags << ['投资人']
+ tags << ['Intel开发者']
+ tags << ['陈楚生演唱会']
+ tags << ['申雪首体婚礼演出']
+ tags << ['奥迪AX首发']
+ tags << ['创新工场发布会']
+ tags << ['百度计算日']
+ tags << ['2010秋季房展会']
+ tags << ['草根站长大会']
+ tags << ['']
+ tags << ['']
+ tags << ['']
+ tags << ['']
+ tags << ['']
+ tags << ['']
+ tags << ['']
+ tags << ['']
+ tags << ['']
+ tags << ['']
+ tags << ['']
+ tags << ['']
+ tags << ['']
+ tags << ['']
+ tags << ['']
+ tags << ['']
+ tags << ['']
+ tags << ['']
+ tags << ['']
+ tags << ['']
+%>
     <div class="hot_events_tag">
-        <a href="">互联网大会</a>
-        <a href="">投资人</a>
-        <a href="">Intel开发者</a>
-        <a href="">陈楚生演唱会</a>
-        <a href="">申雪首体婚礼演出</a>
-        <a href="">奥迪AX首发</a>
-        <a href="">创新工场发布会</a>
-        <a href="">百度计算日</a>
-        <a href="">2010秋季房展会</a>
-        <a href="">草根站长大会</a>
-        <a href="">互联网大会</a>
-        <a href="">投资人</a>
-        <a href="">Intel开发者</a>
-        <a href="">陈楚生演唱会</a>
-        <a href="">申雪首体婚礼演出</a>
-        <a href="">奥迪AX首发</a>
-        <a href="" class="red">创新工场发布会</a>
-        <a href="">百度计算日</a>
-        <a href="">2010秋季房展会</a>
-        <a href="">草根站长大会</a>
-        <a href="">互联网大会</a>
-        <a href="">投资人</a>
-        <a href="">Intel开发者</a>
-        <a href="">陈楚生演唱会</a>
-        <a href="">申雪首体婚礼演出</a>
-        <a href="">奥迪AX首发</a>
-        <a href="">创新工场发布会</a>
-        <a href="">百度计算日</a>
-        <a href="">2010秋季房展会</a>
-        <a href="">草根站长大会</a>
+        <% for tag in tags %>
+		  <% unless tag.blank? %>
+		  	<%= link_to tag, search_url(tag) %>
+		  <% end %>
+		<% end %>
         <span class="more"><%= link_to '更多...', :controller => 'directory', :action => 'index' %></span>
     </div>
 </div>

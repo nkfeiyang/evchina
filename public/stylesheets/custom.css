@@ -132,12 +132,12 @@ ul {
 
 /* header part*/
 #header {
-	background:url("/images/navbar2-page-background.png") repeat-x scroll center top #D01E3B;
+	background:url("/images/n_bg_r.gif") repeat-x scroll center top #D01E3B;
 	margin:0 auto;
-    height:80px;
+    
 }
 .logoimg {
-	padding-top:20px;
+	padding-top:2px;
 }
 
 #header .ce, a.ce {
@@ -190,8 +190,8 @@ ul {
 }
 */
 .m1t {
-	background:none repeat scroll 0 0 #000033;
-	border-bottom:5px solid #0014B7;
+	background:none repeat scroll 0 0 #D01E3B;
+	border-bottom:5px solid #E88F9D;
 	height:10px;
 	overflow:hidden;
 }
@@ -452,7 +452,7 @@ a.login_link:hover {
 .search_panel {
 	/*-moz-border-radius:5px 5px 5px 5px;*/
 	background-color:#F6F6F6;
-	border:1px solid #DCDCDC;
+	border:1px solid #BBBBBB;
 	color:#808080;
 	display:block;
 	
@@ -491,15 +491,15 @@ a.login_link:hover {
 /* group index search end*/
 
 /* group event search begin */
-._event_search_form #searh_form form input[type=text] {width:302px;}
+._event_search_form #searh_form form input[type=text] {width:298px;}
 /* group event search end */
 
 /* group event category box begin */
 .filter_box {
 	background-color:#FFFFFF;
-	border-left:1px solid #DCDCDC;	
-	border-right:1px solid #DCDCDC;
-	border-bottom:1px solid #DCDCDC;
+	border-left:1px solid #BBBBBB;	
+	border-right:1px solid #BBBBBB;
+	border-bottom:1px solid #BBBBBB;
 	
 }
 
@@ -1171,11 +1171,13 @@ width:306px;
 	margin-bottom:17px;
 	overflow:hidden;
 	width:306px;
-	font-size:14px;
+	font-size:16px;
 }
 .perform li h2 .t {
 	float:left;	
 	width:80px;
+	font-weight:bold;
+	color:#333333;
 }
 
 .perform li h2 .more{ 

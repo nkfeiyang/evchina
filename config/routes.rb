@@ -28,6 +28,7 @@ ActionController::Routing::Routes.draw do |map|
   map.my_fav_events     '/myfav',                 :controller => 'users', :action => 'my_fav_events'
   map.participate       '/participate/:event_id', :controller => 'users', :action => 'participate', :requirements => {:event_id => /\d+/ }   #活动报名
   
+  map.search            '/directory/:q',          :controller => 'directory',      :action => 'index'
   map.root :controller => "pages", :action => 'home'
   
   # http://*/host/108,显示用户id为108的所有events。调用directory的user_events_list方法

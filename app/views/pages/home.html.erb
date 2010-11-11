@@ -39,7 +39,7 @@
 				  <h2><span class="t"><%= event_cfg.event.category.name %></span><a class="more" href="<%=filter_Uri('category_id', event_cfg.event.category.id) %>"><%= image_tag('/images/more.jpg', :alt => 'more') %></a> </h2>
 				  <div class="info">
 				  	<p class="img"><%= link_to image_tag(event_cfg.img_url, :alt => event_cfg.title, :title => event_cfg.title), event_url(event_cfg.event), :target=>'_blank' %></a></p>
-					<h3><a title="2010迈克学摇滚中国巡演北京演唱会" href="/ticket_20246.html"><%= event_cfg.title %></a></h3>
+					<h3><%= link_to event_cfg.title, event_url(event_cfg.event), :target=>'_blank' %></h3>
 					<p class="d"><%= event_cfg.desc %></p>
 					<p><strong class="fl">时间：<%= event_cfg.event.start_time.strftime('%Y.%m.%d') %> </strong><strong class="fr">价格：<%= number_with_precision(event_cfg.event.price, :precision => 0) %>元起</strong>
 					</p>
