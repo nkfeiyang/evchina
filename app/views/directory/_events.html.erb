@@ -4,6 +4,91 @@
 	</div>
 </div>
 <hr style="margin-top:1px;"/>
+
+
+<style>
+
+.event-list li {
+	float:left;
+	/*height:248px;*/
+	overflow:hidden;
+	padding:15px 0 5px 0;
+	border-bottom:1px solid #DCDCDC;
+	position:relative;	
+	/*width:888px;*/
+}
+
+.event-list li p {
+	line-height:8px;
+}
+
+.event-list li  .img {
+	border:1px solid #D5D5D5;
+	float:left;
+	height:144px;
+	margin-right:10px;
+	padding:1px;
+	width:109px;
+}
+.event-list li  .img img {
+	height:144px;
+	width:109px;
+	border:0;
+}
+.event-list li  h2 {
+	font-size:14px;
+	overflow:hidden;
+	white-space:nowrap;
+	padding-bottom:0;
+}
+
+.event-list li 	.btn {
+	bottom:7px;
+	position:absolute;
+	right:0;
+}
+
+.event-list li .btn_buy, .event-list li  .btn_fav {	
+	border:0 none;
+	cursor:pointer;
+	display:inline-block;
+	height:27px;
+	outline:medium none;
+	text-align:left;
+	text-indent:-9999px;
+	width:87px;
+} 
+.event-list li .btn_buy {
+	background:url("/images/buy_bg.png") no-repeat scroll -1px -1px ;	
+}
+.event-list li .btn_buy:hover {
+	background:url("/images/buy_bg.png") no-repeat scroll -1px -30px ;	
+}
+.event-list li .btn_buy:active {
+	background:url("/images/buy_bg.png") no-repeat scroll -1px -59px ;	
+}
+.event-list li  .btn_fav {
+	background:url("/images/buy_bg.png") no-repeat scroll -90px -1px ;
+}
+.event-list li  .btn_fav:hover {
+	background:url("/images/buy_bg.png") no-repeat scroll -90px -30px ;
+}
+.event-list li  .btn_fav:active {
+	background:url("/images/buy_bg.png") no-repeat scroll -90px -59px ;
+}
+.event-list li  .price {
+	background:url("http://dui.damai.cn/damai/images/price.png") no-repeat scroll right 5px transparent;
+	bottom:50px;
+	color:#E51A45;
+	font-size:22px;
+	line-height:1em;
+	padding-right:20px;
+	position:absolute;
+	right:0;
+}
+
+
+</style>
 <div class="span-18 event-list last">
 	<% unless @events.empty? %>	  
 	  	<%= render :partial => 'event_item2', :collection => @events %>	  

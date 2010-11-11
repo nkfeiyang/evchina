@@ -238,15 +238,8 @@ ul {
 /* id="_index_login_panel & full_login" begin */
 
 .login_panel {
-	background-color:#F0F5F8;
-	border-left:1px solid #B8D4E8;
-	border-right:1px solid #B8D4E8;
-	border-bottom:1px solid #B8D4E8;
-	padding:20px;
-}
-
-#_index_login_panel {
-	-moz-border-radius:0 0 5px 5px;
+	background-color:#F0F5F8;	
+	padding-top:10px;
 }
 
 #full_login_panel{
@@ -565,7 +558,7 @@ a.login_link:hover {
 
 .filter_items .sidebar-menu a:hover {
 	background-color:#F1F1F1;
-	color:#cccccc;
+	color:#FF0000;
 }
 
 .filter_items .sidebar-menu a.gray{
@@ -673,14 +666,22 @@ a.login_link:hover {
 	font-size:16px;
 }
 
-.event_detail h3 a:hover, .event_title a:hover {
-	color:#333333;
+a.event_title  {
+	color:#000099;
+	text-decoration:none;
+	font-weight:bold;
+}
+
+a.event_title:visited {
+	color:#000099;
+	text-decoration:none;
+}
+
+a.event_title:hover {
+	color:#CC0000;
 	text-decoration:underline;
 }
 
-.event_detail .event_title:visited {
-	color:#86B0E1;
-}
 
 .event_detail .description {
 	clear:left;
@@ -1177,7 +1178,7 @@ width:306px;
 	float:left;	
 	width:80px;
 	font-weight:bold;
-	color:#333333;
+	color:#D01E3B;
 }
 
 .perform li h2 .more{ 

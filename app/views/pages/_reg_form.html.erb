@@ -1,5 +1,5 @@
-<div class="fcenter login_panel">
-	<h2>用户登录</h2>
+<div class="fcenter">
+	<h2>用户注册</h2>
 	<% form_for @user_session, :url => user_session_path, :html => {:class => 'new_user_session fcenter'} do |f| %>  
 	  <p class="top">
 		  <%= f.label :login, "帐号: ", :class=>'login_label fl' %>
@@ -19,8 +19,5 @@
 		    <%= link_to "忘记密码？", findpass_url, :class => 'login_link' %>
 		  </span>
 	  </p>
-	<% end %>
-	<div class="regnow">			
-		<%= link_to "立即注册", signup_url, :class=>'login_button reg_button fcenter' %>
-	</div>
+	<% end %>	
 </div>

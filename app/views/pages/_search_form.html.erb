@@ -1,6 +1,6 @@
 <div id="searh_form">	
 	<form action="/directory" method="get" id="oos" name="oos">
-	    <input type="text" value='<%= params[:q] %>' class="input-text" name="q" style="color: rgb(136, 136, 136);" onclick=" if($('q').value == '寻找热门事件...') $('q').value = ''">
+	    <input type="text" value='<%= params[:q] %>' class="input-text" id="q" name="q" style="color: rgb(136, 136, 136);" onclick=" if($('q').value == '寻找热门事件...') $('q').value = ''">
 		<input type="image" alt="search" src="/images/search_button.png" onclick="if($('q').value == '寻找热门事件...') {return;}else $('oos').submit()"/>
 	    <script type="text/javascript">
 	    	if ($('q').value == '')
