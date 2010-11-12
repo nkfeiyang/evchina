@@ -1,5 +1,4 @@
-<div class="fcenter login_panel">
-	<h2>用户登录</h2>
+<div id="_index_login_panel" class="fcenter">
 	<% form_for @user_session, :url => user_session_path, :html => {:class => 'new_user_session fcenter'} do |f| %>  
 	  <p class="top">
 		  <%= f.label :login, "帐号: ", :class=>'login_label fl' %>

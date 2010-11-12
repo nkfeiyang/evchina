@@ -1,19 +1,12 @@
-<% content_for :left do %>
-	<div id="_index_login_panel" class="fcenter login_panel min-high-12">
-		<%= render 'pages/login_form' %>		
-	</div>
-<% end %>
 
-<% content_for :right do %>
   <div id="reg_form" class="min-high-12  fcenter">
-    <h2>注册：开通您的优客账户</h2>
+    <p class="f22">注册：开通您的优客账户</p>
     <hr style="height:1px;"/>
 	<div class="desc tl">
 		优客网是帮助你与 各种社会活动保持紧密联系的网络平台，通过这个平台你可以及时了解事件的最新动态；分享你的照片、心情、快乐；结识更多的新朋友。
 		同时你还可以发起你的活动，邀请朋友们参加你的活动。
 	</div>
-
-	<%= render 'users/reg_form' %>	
-
+    <div>
+		<%= render 'users/reg_form' %>	
+	</div>
   </div>
-<% end %>

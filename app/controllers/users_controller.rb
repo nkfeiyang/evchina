@@ -7,16 +7,13 @@ class UsersController < ApplicationController
     "<span class='field_error'>#{html_tag}</span>"    
   end 
   
-  layout "application", :only => [:new, :create]
-  
-  
   layout "user", :only => [:show, :edit, :update, :my_events, :my_orders, :my_order_detail, :my_fav_events]
     
   
   def new    
     @title = "新用户注册"
-    @user = User.new
-    render 'new'
+    @user = User.new 
+    render :action => 'new', :layout => 'common'
   end
   
   def create    
@@ -27,7 +24,7 @@ class UsersController < ApplicationController
     else
       flash[:notice] = "注册失败!"   
       @title = "新用户注册"
-      render 'new'
+      render :action => 'new', :layout => 'common'
     end
   end
   

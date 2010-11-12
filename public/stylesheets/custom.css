@@ -115,6 +115,12 @@ ul {
 .mb20 {
 	margin-bottom:20px;
 }
+.f22 {
+	font: bold 20px '黑体'; 
+	color: rgb(208, 30, 59);
+	font-size:22px;
+}
+
 /* debug use begin */
 .show_border_1 {
 	border:1px solid #E88F9D;
@@ -238,8 +244,17 @@ ul {
 /* id="_index_login_panel & full_login" begin */
 
 .login_panel {
-	background-color:#F0F5F8;	
-	padding-top:10px;
+	background-color:#F0F5F8;
+	border-left:1px solid #B8D4E8;
+	border-right:1px solid #B8D4E8;
+	border-bottom:1px solid #B8D4E8;
+	padding:20px;
+}
+
+
+
+#_index_login_panel {
+	-moz-border-radius:0 0 5px 5px;
 }
 
 #full_login_panel{
@@ -277,6 +292,7 @@ ul {
 	display:inline-block;
 	width:100px;	
 }
+
 
 .login_cbx_label {
 	color:#333333;	
@@ -382,13 +398,16 @@ a.login_link:hover {
 }
 
 #reg_form {
-	margin: 20px;	
+	margin-top:20px;
+	width:600px;
+	padding:20px;
+	background-color:#F0F5F8;
+	border:1px solid #B8D4E8;
+	-moz-border-radius:5px 5px 5px 5px;
 }
 
 #reg_form  .desc {	
-	padding-bottom:20px;
-	padding-left:20px;
-	padding-top:10px;	
+	padding-bottom:20px;	
 }
 
 .new_user {

@@ -1,4 +1,11 @@
-	<% form_for :user, @user, :url => account_path, :html=>{:class=>'new_user show_border_1 fcenter'} do |f| %>
+	<% if !flash.blank? %>	
+	<div class="tip_error">
+		<% flash.each do |key, value| %>
+			<p><%= value %></p>
+		<% end %>
+	</div>
+	<% end %>
+	<% form_for :user, @user, :url => account_path, :html=>{:class=>'new_user fcenter'} do |f| %>
 	   
 		<div class="field fl clear"> 
 		<%= f.label :login, "帐号：", :class=>"reg_label tr fl" %> 
