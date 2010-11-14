@@ -1,41 +1,79 @@
-	<% if !flash.blank? %>	
-	<div class="tip_error">
-		<% flash.each do |key, value| %>
-			<p><%= value %></p>
-		<% end %>
-	</div>
-	<% end %>
-	<% form_for :user, @user, :url => account_path, :html=>{:class=>'new_user fcenter'} do |f| %>
-	   
+	<script type="text/javascript">
+		function chkInput(input, err_div, msg){
+			
+			input = $(input);
+			
+			if (input.value == '') {				
+				input.focus();
+				$(err_div).innerHTML = msg;
+				$(err_div).removeClassName('tip_right');
+				$(err_div).addClassName('tip_error');
+				return false;
+			}
+			else{
+				$(err_div).innerHTML = '';
+				$(err_div).removeClassName('tip_error');
+				$(err_div).addClassName('tip_right');
+			}
+			return true;
+		}
+		
+		function chkPass(pass, passconf, err_div){
+			if($(pass).value != $(passconf).value){
+				$(passconf).focus();
+				$(err_div).innerHTML = '两次输入的密码不一致!';
+				$(err_div).addClassName('tip_error');
+				return false;
+			}
+			else
+			{
+				$(err_div).innerHTML = '';
+				$(err_div).addClassName('tip_right');
+			}
+			return true;
+		}
+		
+		function checkReg(){
+			if (!(chkInput('user_login','login_info','请输入帐号!') && chkInput('user_email', 'email_info', '请输入邮箱!')  
+			       && chkInput('user_password', 'password_info', '请输入密码!') && chkPass('user_password', 'user_password_confirmation', 'password_confirmation')))
+			{
+				return false;
+			}
+			$('user_submit').disable();
+			return true;
+		}
+	</script>
+	<% form_for :user, @user, :url => account_path, :html=>{:class=>'new_user fcenter', :onsubmit=>'return checkReg();'} do |f| %>
+	  	<%= f.error_messages %>
 		<div class="field fl clear"> 
 		<%= f.label :login, "帐号：", :class=>"reg_label tr fl" %> 
-	    <%= f.text_field :login, :class=>"login-text fl" %>
+	    <%= f.text_field :login, :class=>"login-text fl", :onblur=>"chkInput(this, 'login_info', '请输入帐号!');" %>
 		<div class="fl red reg_star">*</div>
-		<div class="fr tip_error invisible"></div>
+	    <div id="login_info" class="fr"></div>
 		<div class="fr tip_right invisible"></div>
 		</div>
 		
 		<div class="field fl clear">
 	    <%= f.label :email, "邮箱：", :class=>"reg_label tr fl" %>
-	    <%= f.text_field :email, :class=>"login-text fl" %>
+	    <%= f.text_field :email, :class=>"login-text fl", :onblur=>"chkInput(this, 'email_info', '请输入邮箱!');" %>
 		<div class="fl red reg_star">*</div>
-		<div class="fr tip_error invisible"></div>
+		<div id="email_info" class="fr"></div>
 		<div class="fr tip_right invisible"></div>
 	    </div>
 		
 		<div class="field fl clear">
 		<%= f.label :password, "密码：", :class=>"reg_label tr fl" %> 
-	    <%= f.password_field :password, :class=>"login-text fl" %>
+	    <%= f.password_field :password, :class=>"login-text fl", :onblur=>"chkInput(this, 'password_info', '请输入密码!');" %>
 		<div class="fl red reg_star">*</div>
-		<div class="fr tip_error invisible"></div>
+		<div id="password_info" class="fr"></div>
 		<div class="fr tip_right invisible"></div>
 	    </div>
 	    
 		<div class="field fl clear">
 	    <%= f.label :password_confirmation, "密码确认：", :class=>"reg_label tr fl" %>  
-	    <%= f.password_field :password_confirmation, :class=>"login-text fl" %>
+	    <%= f.password_field :password_confirmation, :class=>"login-text fl", :onblur=>"chkPass('user_password', 'user_password_confirmation', 'password_confirmation');" %>
 		<div class="fl red reg_star">*</div>
-		<div class="fr tip_error invisible"></div>
+		<div id="password_confirmation" class="fr"></div>
 		<div class="fr tip_right invisible"></div>
 	    </div>
 		
