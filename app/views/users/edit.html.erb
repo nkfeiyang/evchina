@@ -1,9 +1,31 @@
-<h1>Edit My Account</h1>
+<div class="uc_panel_main">
+	<div class="uc_head_nav">
+    	您的位置：用户中心  <span class="fsong">&gt;&gt;</span> <%= @nav_title %> 
+    </div>
+	<div class="separator-5"></div>
+    <div class="uc_panel_body min-high-1">
+       <div id="update_result"></div>
+       <% remote_form_for @user, :url => account_path, :update => 'update_result' do |f| %>
+		  <%= f.error_messages %>
+		  <br/>
+		  <%= f.label :login, "帐号：", :class=>"reg_label tr fl" %> 
+	    <%= f.text_field :login, :class=>"login-text fl" %><br/><br/><br/>
+		<br/>
+	    <%= f.label :email, "邮箱：", :class=>"reg_label tr fl" %>
+	    <%= f.text_field :email, :class=>"login-text fl" %>
+		<br/>
+		<%= f.label :password, "密码：", :class=>"reg_label tr fl" %> 
+	    <%= f.password_field :password, :class=>"login-text fl" %>
+		<br/>
+	    <%= f.label :password_confirmation, "密码确认：", :class=>"reg_label tr fl" %>  
+	    <%= f.password_field :password_confirmation, :class=>"login-text fl" %>
+		<br/>
+		  <%= f.submit "更新" %>
+		<% end %> 
+    </div>
+</div>
 
-<% form_for @user, :url => account_path do |f| %>
-  <%= f.error_messages %>
-  <%= render :partial => "form", :object => f %>
-  <%= f.submit "Update" %>
-<% end %>
 
-<br /><%= link_to "My Profile", account_path %>
+
+
+

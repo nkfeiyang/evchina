@@ -25,12 +25,13 @@
 				$(err_div).addClassName('tip_error');
 				return false;
 			}
-			else
+			else if ($(passconf).value != '')
 			{
 				$(err_div).innerHTML = '';
 				$(err_div).addClassName('tip_right');
+				return true;
 			}
-			return true;
+			return false;
 		}
 		
 		function checkReg(){

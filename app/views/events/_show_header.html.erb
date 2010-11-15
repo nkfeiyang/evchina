@@ -1,10 +1,6 @@
 <div class="head">
     <div class="title span-16">
-        <h1><%=h @event.title %>
-            <%if signed_in? && @event.user == current_user %>
-            <%= link_to '修改', edit_event_url(@event.id), :target=>'_blank' %>
-            <% end %>
-        </h1>
+        <h1><%=h @event.title %></h1>
         <span class="gray">时间：</span>
         <span><%= show_ev_date(@event.start_time) %> - <%= show_ev_date @event.end_time %></span>
         <br/>

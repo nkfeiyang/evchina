@@ -49,6 +49,7 @@ body {
 
 ul {
 	list-style:none outside none;
+	margin:0;
 }
 
 .separator-5{
@@ -411,7 +412,7 @@ a.login_link:hover {
 }
 
 .new_user {
-	width:520px;
+	width:420px;
 }
 
 /*避免添加div标识错误后，名称与字段换行*/
@@ -536,11 +537,11 @@ a.login_link:hover {
 	-moz-border-radius: 0 0 5px 5px;
 }
 
-.round_title span {	
+.filter_title span {	
 	display:block;
 	text-align:center;
 	padding-left:0;
-	padding-top:5px;
+	padding-top:8px;
 	font-size:14px;
 	font-weight:bold;
 }

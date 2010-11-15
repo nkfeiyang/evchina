@@ -34,19 +34,27 @@ class UsersController < ApplicationController
     redirect_to my_events_url
   end
 
-  def edit
-    @title = "我的优客"
+  def edit   
+    @nav_title = @title = '个人信息更新'
     @user = @current_user
   end
   
   def update
-    @title = "我的优客"
+    @nav_title = @title = '个人信息更新'
     @user = @current_user # makes our views "cleaner" and more consistent
     if @user.update_attributes(params[:user])
-      flash[:notice] = "更新成功!"
-      redirect_to account_url
+      #flash[:notice] = "更新成功!"
+      if request.xhr?
+        render :text => '更新成功!'
+      else
+        render 'edit'
+      end
     else
-      render :action => :edit
+      if request.xhr?
+        render :text => '更新失败!'
+      else
+        render 'edit'
+      end      
     end
   end
   
