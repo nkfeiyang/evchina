@@ -3,6 +3,8 @@ class EventsController < ApplicationController
   before_filter :require_user, :except => [:show]
   before_filter :correct_user, :only => [:edit, :update, :destroy]
   uses_tiny_mce
+  
+  auto_complete_for  :event, :title #, :limit => 20, :order => 'id desc'
 
   layout "common"
   

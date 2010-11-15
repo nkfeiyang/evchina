@@ -2,6 +2,8 @@ class DirectoryController < ApplicationController
   
   before_filter :prepare_categories
   
+  
+  
   def index    
     @events = Event.published().with_category(params[:category_id])\
              .with_in(params[:start_time]).with_query(params[:q])\
