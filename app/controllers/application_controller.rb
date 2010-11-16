@@ -58,4 +58,14 @@ private
   def prepare_categories
     @categories = Category.all
   end
+  
+  # 保证事件是正确的用户在操作
+  def correct_user
+    @event = Event.find(params[:id])
+    unless (!@event.nil? && @event.user == current_user) 
+      flash[:notice] = "权限错误，请先登录"
+      redirect_to forbidden_url
+      return false
+    end
+  end
 end
