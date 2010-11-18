@@ -99,6 +99,7 @@ class Event < ActiveRecord::Base
       return false
     end
   end
+
   
   private
     def self.TimeRange(period)   

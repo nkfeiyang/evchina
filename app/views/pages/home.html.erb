@@ -38,7 +38,7 @@
 				<% i = (i == 1) ? 2:1  %>
 				  <h2><span class="t"><%= event_cfg.event.category.name %></span><a class="more" href="<%=filter_Uri('category_id', event_cfg.event.category.id) %>"><%= image_tag('/images/more.png', :alt => 'more') %></a> </h2>
 				  <div class="info">
-				  	<p class="img"><%= link_to image_tag(event_cfg.img_url, :alt => event_cfg.title, :title => event_cfg.title), event_url(event_cfg.event), :target=>'_blank' %></a></p>
+				  	<p class="img"><%= link_to image_tag(event_cfg.img_url, :alt => event_cfg.title, :title => event_cfg.title), event_url(event_cfg.event), :target=>'_blank' %></p>
 					<h3><%= link_to event_cfg.title, event_url(event_cfg.event), :target=>'_blank', :class=>'event_title' %></h3>
 					<p class="d"><%= event_cfg.desc %></p>
 					<p><strong class="fl">时间：<%= event_cfg.event.start_time.strftime('%Y.%m.%d') %> </strong><strong class="fr">价格：<%= number_with_precision(event_cfg.event.price, :precision => 0) %>元起</strong>

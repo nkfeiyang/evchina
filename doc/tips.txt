@@ -70,3 +70,9 @@ map.date "blog/:year/:month/:day",
 	:month => nil
 date_url(:year => 2005, :month => 2)
 # http://*/blog/2003/2
+
+5.如果希望在model中修改一些字段的默认值，可以这么操作。
+  def tolerance
+    self[:tolerance] or 'n/a'
+  end
+  这样，我们在new一个对象时，访问其tolerance字段，如果该字段是nil，则返回'n/a'
