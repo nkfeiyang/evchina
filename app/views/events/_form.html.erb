@@ -101,6 +101,7 @@
         	票务信息
         </div>
 		<div class="panel_body">
+			数量：<%= f.text_field :total_tickets, :class=>"txt-40", :value=>0 %><br/>
         	票价：<%= f.text_field :price, :class=>"txt-40" %>元 (0表示免费)<br/>
 			[是否每张票都需要参加者信息？]
 			<%= f.radio_button :each_need_reginfo, 1 %>是 

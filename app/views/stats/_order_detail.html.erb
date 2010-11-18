@@ -1,0 +1,29 @@
+	<div class="gray_box p5" style="background-color:#F7F7F7;">
+		<% if @my_order.event.each_need_reginfo && @my_order.ticket_counts > 1
+        	for i in 1..@my_order.ticket_counts do %>
+				<div class="clear bold">报名者<%= i %>:</div>	
+				<hr style="width:90%;height:1px;"/>
+				<% for info in @required_infos %>
+					<div class="clear pl50 pt5">
+					  <b><%= info.sys_reg_info.info_name %> :</b> 
+					     <% record = @my_order_details.find_by_ticket_order_small_id_and_sys_reg_info_id(1, info.sys_reg_info.id) %>
+						 <%  if !record.nil? %>
+						 	<%= record.reg_info_value  %>
+						 <% end %> 				  			  
+					</div>
+				<% end %>
+	  		<% end %>
+		<% else %>
+		    <div class="clear bold">报名者:</div>	
+			<hr style="width:90%;height:1px;"/>
+			<% for info in @required_infos %>
+				<div class="clear pl50 pt5">
+				  <b><%= info.sys_reg_info.info_name %> :</b> 
+				  <% record = @my_order_details.find_by_ticket_order_small_id_and_sys_reg_info_id(1, info.sys_reg_info.id) %>
+				  <% if !record.nil? %>
+				 	<%= record.reg_info_value  %>
+				 <% end %> 				  
+				</div>
+			<% end %>
+	  	<% end %>	
+	</div>

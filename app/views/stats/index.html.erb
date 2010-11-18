@@ -1,7 +1,56 @@
 <div class="uc_panel_main">
     <%= render 'users/my_nav_header' %>
     
-    <div class="uc_panel_body">
-        <%= @event.title %>
+    <div class="uc_panel_body stats">
+          <div class="clear"><span class="fr">返回 <%= link_to "我发起的活动", my_events_url %></span><span class="bold">活动名称：</span><%= link_to @event.title, event_url(@event), :target=>'_blank' %></div>
+		  <div class="separator-15"></div>
+		  
+		  <div class="bold" style="border-bottom:1px solid #ccc;"><span>活动总结：</span></div>
+		  <div class="stats_summary min-high-1" style="padding-left:20px;">
+		  	
+		  	<div style="width:200px;float:left;">浏览次数：<%= @event.views %></div>
+			<div style="width:200px;float:left;">用户评分：<%= @event.score %></div>
+			<div style="width:200px;float:left;">售票情况：<%= @event.sold_tickets %> / <%= @event.total_tickets %></div>
+		  </div>
+		  <div class="separator-5"></div>
+		  
+		  <div style="border-bottom:1px solid #ccc;"><span class="fr">导出报名表</span><span class="bold">报名情况：</span></div>
+		  <div>
+		  	<table border="0">
+		  		<col width="10%"><col width="15%"><col width="15%"><col width="10%"><col width="10%"><col width="10%"><col width="20%"><col width="10%">
+				 <thead>
+                <tr>
+                    <th>序号</th>  
+					<th>订单</th>                 
+                    <th>用户</th>
+                    <th>数量</th>
+                    <th>单价</th>
+					<th>总价</th>
+					<th>时间</th>
+					<th>详情</th>
+                </tr>
+            </thead>
+            <tbody>
+            	<% for i in 0..@orders.length - 1 %>
+                <tr class="<%= cycle('list-line-odd', 'list-line-even') %>">
+                    <td><%= ((params[:page].blank? ? 1 : params[:page].to_i)-1)*@per_page + i + 1 %></td>
+					<td><%= @orders[i].id.to_s %></td>
+					<td><%= @orders[i].user.login %></td>
+					<td><%= @orders[i].ticket_counts %></td>
+					<td><%= number_with_precision(@orders[i].price, :precision => 0) %>元</td>
+					<td><%= number_with_precision(@orders[i].price * @orders[i].ticket_counts, :precision => 0) %>元</td>
+					<td><%= @orders[i].created_at.strftime("%Y/%m/%d %H:%M") %></td>
+					<td><%= link_to_remote '查看', :update => 'order_detail_'+i.to_s, :url => {:action => "show_detail", :id => @orders[i].event_id, :order_id => @orders[i].id} %></td>
+				</tr>
+				<tr>
+					<td colspan="8" id="order_detail_<%= i.to_s %>"></td>
+				</tr>
+				<% end %>
+				<tr>
+					<td colspan="8"><%= will_paginate @orders, :previous_label => '前一页',  :next_label => '后一页'  %></td>
+				</tr>	
+			</tbody>			
+		  	</table>
+		  </div>
     </div>
 </div>

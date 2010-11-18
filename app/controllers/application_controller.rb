@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
   # Scrub sensitive parameters from your log
   filter_parameter_logging :password, :password_confirmation
  
+  auto_complete_for  :event, :title #, :limit => 20, :order => 'id desc'  # 用于自动完成搜索
   
 private
   def current_user_session
