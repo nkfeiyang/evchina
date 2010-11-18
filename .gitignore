@@ -8,3 +8,6 @@ db/*.sqlite3
 *~
 .DS_Store
 .tmp*~
+.iead/*
+.iead/*.*
+.iead/**/*
